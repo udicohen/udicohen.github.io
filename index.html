@@ -3,42 +3,10 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="shortcut icon" href="https://s3.amazonaws.com/honeybook_cdn/assets_system/system_web/main_general/favicon.ico">
 
-  <script src="./Print_files/jquery.js"></script><style type="text/css" style="display: none !important;">object:not([type]),object[classid$=":D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid$=":d27cdb6e-ae6d-11cf-96b8-444553540000"],object[codebase*="swflash.cab"],object[data*=".swf"],embed[type="application/x-shockwave-flash"],embed[src*=".swf"],object[type="application/x-shockwave-flash"],object[src*=".swf"],object[codetype="application/x-shockwave-flash"],iframe[type="application/x-shockwave-flash"],object[classid$=":166B1BCA-3F9C-11CF-8075-444553540000"],object[codebase*="sw.cab"],object[data*=".dcr"],embed[type="application/x-director"],embed[src*=".dcr"],object[type="application/x-director"],object[src*=".dcr"],object[classid$=":15B782AF-55D8-11D1-B477-006097098764"],object[codebase*="awswaxf.cab"],object[data*=".aam"],embed[type="application/x-authorware-map"],embed[src*=".aam"],object[type="application/x-authorware-map"],object[src*=".aam"],object[classid*="32C73088-76AE-40F7-AC40-81F62CB2C1DA"],object[type="application/ag-plugin"],object[type="application/x-silverlight"],object[type="application/x-silverlight-2"],object[source*=".xaml"],object[sourceelement*="xaml"],embed[type="application/ag-plugin"],embed[source*=".xaml"]{display: none !important;}</style>
-<script src="./Print_files/jquery.signaturepad.js"></script>
-<script src="./Print_files/json2.min.js"></script>
-<script src="./Print_files/print.js"></script>
 
   <title>Print</title>
 </head>
 <body id="print-hb">
-
-
-<script>
-
-    afterLoad = function (){
-        if (typeof onload_deferred != "undefined") {
-            onload_deferred.resolve();
-        }
-        else // This is a hack because IE is a piece of Sh@#
-        {
-            if (typeof window.opener.Honey != "undefined") {  //Backbone code
-                window.opener.Honey.vent.trigger("set_printable_window");
-            }
-            else{ //angular Here
-
-                if(window.opener.angular && window.opener.angular.element && window.opener.angular.element('#hbPrintHook') && window.opener.angular.element('#hbPrintHook').scope){
-                    window.opener.angular.element('#hbPrintHook').scope().printWindowReady();
-                }
-
-            }
-
-
-        }
-    };
-    window.onload = afterLoad();
-</script>
-
-
 
 <title>File Print</title>
 <style>
