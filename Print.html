@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://localhost:3000/print -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="shortcut icon" href="https://s3.amazonaws.com/honeybook_cdn/assets_system/system_web/main_general/favicon.ico">
+
+  <script src="./Print_files/jquery.js"></script><style type="text/css" style="display: none !important;">object:not([type]),object[classid$=":D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid$=":d27cdb6e-ae6d-11cf-96b8-444553540000"],object[codebase*="swflash.cab"],object[data*=".swf"],embed[type="application/x-shockwave-flash"],embed[src*=".swf"],object[type="application/x-shockwave-flash"],object[src*=".swf"],object[codetype="application/x-shockwave-flash"],iframe[type="application/x-shockwave-flash"],object[classid$=":166B1BCA-3F9C-11CF-8075-444553540000"],object[codebase*="sw.cab"],object[data*=".dcr"],embed[type="application/x-director"],embed[src*=".dcr"],object[type="application/x-director"],object[src*=".dcr"],object[classid$=":15B782AF-55D8-11D1-B477-006097098764"],object[codebase*="awswaxf.cab"],object[data*=".aam"],embed[type="application/x-authorware-map"],embed[src*=".aam"],object[type="application/x-authorware-map"],object[src*=".aam"],object[classid*="32C73088-76AE-40F7-AC40-81F62CB2C1DA"],object[type="application/ag-plugin"],object[type="application/x-silverlight"],object[type="application/x-silverlight-2"],object[source*=".xaml"],object[sourceelement*="xaml"],embed[type="application/ag-plugin"],embed[source*=".xaml"]{display: none !important;}</style>
+<script src="./Print_files/jquery.signaturepad.js"></script>
+<script src="./Print_files/json2.min.js"></script>
+<script src="./Print_files/print.js"></script>
+
+  <title>Print</title>
+</head>
+<body id="print-hb">
+
+
+<script>
+
+    afterLoad = function (){
+        if (typeof onload_deferred != "undefined") {
+            onload_deferred.resolve();
+        }
+        else // This is a hack because IE is a piece of Sh@#
+        {
+            if (typeof window.opener.Honey != "undefined") {  //Backbone code
+                window.opener.Honey.vent.trigger("set_printable_window");
+            }
+            else{ //angular Here
+
+                if(window.opener.angular && window.opener.angular.element && window.opener.angular.element('#hbPrintHook') && window.opener.angular.element('#hbPrintHook').scope){
+                    window.opener.angular.element('#hbPrintHook').scope().printWindowReady();
+                }
+
+            }
+
+
+        }
+    };
+    window.onload = afterLoad();
+</script>
+
+
+
+<title>File Print</title>
+<style>
+    #print-hb {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        line-height: 18px;
+        padding: 40px;
+        width: 8.5in;
+        margin: 0 auto;
+    }
+
+    #print-hb table {
+        background-color: transparent !important;
+        width: 100%
+    }
+
+    #print-hb .half ,
+    #print-hb table.half {
+        width: 50%;
+        clear: both;
+    }
+
+    #print-hb .half-a,
+    #print-hb table.half-a {
+      width: 50%;
+    }
+    .full {
+        width: 100%;
+    }
+
+    #print-hb .header-info {
+        border-left: 1px solid #eee;
+        margin-bottom: 15px;
+        padding-left: 10px;
+    }
+
+    #print-hb .agreement #editor_header_region{
+        display: none;
+    }
+
+    #print-hb .title h1 {
+        font-size: 16px;
+    }
+    #print-hb .main-file-title h1 {
+       line-height: 1;
+    }
+
+    #print-hb .sign {
+        border-bottom: 1px solid #000;
+        padding: 0;
+        width:90%;
+        font-size: 18px;
+    }
+
+    #print-hb input {
+        border: 0;
+        border-bottom: 1px solid #000;
+    }
+
+    #print-hb .agreement p {
+        font-size: 13px;
+        line-height: 18px;
+        margin-top:0;
+        webkit-margin-after: 0.5px;
+    }
+
+    #print-hb .agreement h1 {
+        margin-bottom:30px;
+        font-weight:normal;
+    }
+
+    #print-hb .agreement h3 {
+        padding: 0;
+        display: inline-block;
+        width: 100%;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.4;
+        margin: 0.6em 0 0.3em;
+        word-wrap: break-word;
+    }
+
+    #print-hb .agreement ul li h3 {
+        padding: 0;
+        margin: 10px 0 0 0;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight:bold;
+    }
+
+    #print-hb h2.services{
+        padding-left: 35px;
+        padding-bottom: 0;
+        margin-bottom: 12px;
+        font-size: 14px;
+        line-height: 0;
+    }
+
+    #print-hb p.services {
+        padding-left:35px;
+        margin-top:0;
+        margin-bottom:0;
+    }
+
+    #print-hb .icon_service {
+        float: left;
+        color: #ccc;
+        font-size: 20px;
+        margin-top: 1px;
+    }
+
+    #print-hb .payment tr {
+        border-bottom: 1px solid #eee;
+        display: block;
+        padding: 10px 0;
+    }
+
+    .padding-sides {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .pad-left{
+        padding-left: 15px;
+    }
+    .padding {
+        padding: 0.5em;
+    }
+    .top-doc {
+        padding: 50px 0 20px;
+    }
+    /* Added after print cutoff issues*/
+    .top-doc:first-child{
+        padding-top: 20px;
+    }
+
+    #print-hb .margin-bottom {
+        margin-bottom: 8px;
+    }
+
+    #print-hb .pad-right {
+        padding-right: 8px;
+    }
+
+    #print-hb .pad-bottom {
+        padding-bottom: 8px;
+    }
+    #print-hb .pad-top {
+        padding-top: 8px;
+    }
+
+    #print-hb .payment td {
+        width:33%;
+    }
+
+    #print-hb .payment td:first-child{
+        width:auto;
+    }
+
+    #print-hb .trSign {
+        height:120px;
+    }
+
+
+    #print-hb  table.signatures {
+        margin-bottom: 15px;
+        border-top: 1px solid #eee;
+    }
+
+    #print-hb .signatures td {
+        width:50%;
+        padding: 0;
+    }
+
+    #print-hb table.signatures svg {
+        max-height: 100px;
+    }
+
+    #print-hb img#img_logo {
+        max-width:200px;
+    }
+
+    #print-hb .event-info-print{
+        padding: 0.5em 1em;
+    }
+    #print-hb .event-info-print tr{
+        padding: 0.5em;
+        height: 25px;
+    }
+
+    /***************************
+    These styles eexist on honey book
+    ***************************/
+    header nav, footer {
+        display: none;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+    .uppercase{
+        text-transform: uppercase;
+    }
+    .capitalize {
+        text-transform: capitalize;
+    }
+    .align-right {
+        float:right;
+    }
+
+    .align-left {
+        float:left;
+    }
+
+    .border-bottom {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .border {
+        border: 1px solid #ddd;
+    }
+
+    table {
+        border-color:transparent;
+    }
+
+    /* Added after print cut-off issues*/
+    .file-title{
+        font-size: 16px;
+        font-weight: bolder;
+
+    }
+    h5.file-title{
+        font-size: 13px;
+        margin: 0;
+        background: #eee;
+        display: inline-block;
+        padding: 5px;
+    }
+    li{
+        padding: 5px 0;
+    }
+
+    /* PRINT MEDIA */
+    @media print {
+        * {
+            background: transparent !important;
+            color: #000 !important; /* Black prints faster: h5bp.com/s */
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        a,
+        a:visited {
+            text-decoration: underline;
+        }
+
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+
+        abbr[title]:after {
+            content: " (" attr(title) ")";
+        }
+
+        /*
+         * Don't show links for images, or javascript/internal links
+         */
+
+        .ir a:after,
+        a[href^="javascript:"]:after,
+        a[href^="#"]:after {
+            content: "";
+        }
+
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+
+        thead {
+            display: table-header-group; /* h5bp.com/t */
+        }
+
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+
+        @page {
+            margin: 1.5cm .5cm;
+        }
+
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+
+
+
+    }
+</style>
+
+
+
+
+
+
+
+<table class="half-a align-right">
+  <tbody><tr>
+    <td>
+      <img id="img_logo" class="align-right" src="./Print_files/2015-04-14-23-59-06-621.jpg">
+    </td>
+  </tr>
+</tbody></table>
+<table class="header-info half-a">
+  <tbody><tr>
+    <td class="bold">From:</td>
+  </tr>
+
+  <tr>
+    <td class="bold">Jasmine Cianflone</td>
+  </tr>
+
+  <tr>
+    <td>This Moment Events</td>
+  </tr>
+
+  <tr>
+    <td>Event Planner</td>
+  </tr>
+
+  <tr>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>jasmine@thismomentevents.com</td>
+  </tr>
+</tbody></table>
+<!-- HEADER INFORMATION to and from-->
+<table class="event-info-print border">
+  <tbody><tr>
+    <td class="border-bottom bold">
+      <span>Bill To:</span>
+    </td>
+    <td class="border-bottom bold">
+      <span>Joane Jasmin</span>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="border-bottom">
+    </td>
+    <td class="border-bottom">
+      <span>joane.jasmin87@gmail.com</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="border-bottom">
+      <span class="bold">Event:</span>
+    </td>
+    <td class="border-bottom">
+      <span class="bold">Joane Jasmin and David Lisma</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="border-bottom">
+      <span>Type</span>
+    </td>
+    <td class="border-bottom capitalize">
+      <span>wedding</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="border-bottom">
+      <span class="">Date</span>
+    </td>
+    <td class="border-bottom">
+      <span>06/12/2016</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="border-bottom">
+      <span class="">Time</span>
+    </td>
+        <td class="border-bottom">
+          <span>TBD - </span>
+          <span>TBD</span>
+        </td>
+  </tr>
+  <tr>
+    <td class="border-bottom ">
+      <span class="">Location</span>
+    </td>
+    <td class="border-bottom ">
+      <span>TBD</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="bold">
+      <span class="">File ID:</span>
+    </td>
+    <td class="">
+      <span>552da8a4dded85b95100006c</span>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+<table class="pad-top ">
+  <tbody><tr>
+    <td class="main-file-title">
+      <h1 class="uppercase">Joane and David - Bespoke </h1>
+    </td>
+  </tr>
+</tbody></table>
+
+    <!-- Entire Proposal -->
+<!-- All Packages in Proposal -->
+<!-- _proposal -->
+<table class=" ">
+  <tbody><tr>
+    <td class="">
+      <h5 class="uppercase file-title">proposal</h5>
+    </td>
+  </tr>
+</tbody></table>
+<div class="vendor_packages">
+    <table class="margin-bottom border-bottom top-doc">
+
+      <tbody><tr>
+        <td class="bold">Bespoke Bliss Day-of-Coordination</td>
+        <td class="bold align-right">$0</td>
+      </tr>
+
+      <tr>
+        <td>Every Bliss Bespoke Day of Coordination Suite includes the following:
+Unlimited email + phone contact with Jasmine starting 8 weeks prior to your event date.
+Three planning meetings: Kickoff meeting, 8 Week Check-in, and Final Details meeting- in person
+4 Week Check-in Call.
+Access to our awesome online planning tools (Eliminates email clutter and keeps us all on track!). 
+A dedicated day of planner and a minimum of one planner assistant.
+Comprehensive Wedding Day Management.  
+All in all, that gets you: A nice bundle of tied up loose ends, loads of peace of mind, and the best time you’ve ever had!</td>
+      </tr>
+    </tbody></table>
+
+    <!-- base Services in a package -->
+<!-- End of base Services in a package -->
+
+    <!-- additional Services in a package -->
+        <table class="margin-bottom border-bottom pad-bottom">
+          <tbody><tr>
+            <td class="bold">8 Hours - Day of Management with with 2 Assistants</td>
+            <td class="bold align-right pad-left">$1,721.00</td>
+            <td class="bold align-right pad-left"></td>
+            <td class="bold align-right"></td>
+          </tr>
+
+          <tr>
+            <td>For a guest count of approx. 170, single venue.</td>
+          </tr>
+        </tbody></table>
+
+        <!-- End of additional Services in a package -->
+        <table class="margin-bottom border-bottom top-doc">
+
+      <tbody><tr>
+        <td class="bold">Paisley Wedding Planning Sessions</td>
+        <td class="bold align-right">$0</td>
+      </tr>
+
+      <tr>
+        <td>45 Minute planning sessions via phone, Skype or Facetime. Answer planning questions, provide guidance, advice and resources.</td>
+      </tr>
+    </tbody></table>
+
+    <!-- base Services in a package -->
+<!-- End of base Services in a package -->
+
+    <!-- additional Services in a package -->
+        <table class="margin-bottom border-bottom pad-bottom">
+          <tbody><tr>
+            <td class="bold">6 Session Bundle</td>
+            <td class="bold align-right pad-left">$239.00</td>
+            <td class="bold align-right pad-left"></td>
+            <td class="bold align-right"></td>
+          </tr>
+
+          <tr>
+            <td></td>
+          </tr>
+        </tbody></table>
+
+        <!-- End of additional Services in a package -->
+        <table class="margin-bottom border-bottom top-doc">
+
+      <tbody><tr>
+        <td class="bold">Design &amp; Styling - Comprehensive </td>
+        <td class="bold align-right">$0</td>
+      </tr>
+
+      <tr>
+        <td>Top to bottom DIY design &amp; styling- research, sourcing, concept development, inspiration boards, color stories (digital or tangible), arrangement of execution, including vendor research, oversight of set up and tear down.</td>
+      </tr>
+    </tbody></table>
+
+    <!-- base Services in a package -->
+<!-- End of base Services in a package -->
+
+    <!-- additional Services in a package -->
+        <table class="margin-bottom border-bottom pad-bottom">
+          <tbody><tr>
+            <td class="bold">Add On to Bespoke Bliss DOC</td>
+            <td class="bold align-right pad-left">$750.00</td>
+            <td class="bold align-right pad-left"></td>
+            <td class="bold align-right"></td>
+          </tr>
+
+          <tr>
+            <td></td>
+          </tr>
+        </tbody></table>
+
+        <!-- End of additional Services in a package -->
+        <table class="margin-bottom border-bottom top-doc">
+
+      <tbody><tr>
+        <td class="bold">Add On to Bespoke DOC </td>
+        <td class="bold align-right">$0</td>
+      </tr>
+
+      <tr>
+        <td></td>
+      </tr>
+    </tbody></table>
+
+    <!-- base Services in a package -->
+<!-- End of base Services in a package -->
+
+    <!-- additional Services in a package -->
+        <table class="margin-bottom border-bottom pad-bottom">
+          <tbody><tr>
+            <td class="bold">Planning &amp; Coordination, Hourly - 5 Hours</td>
+            <td class="bold align-right pad-left">$342.50</td>
+            <td class="bold align-right pad-left">5.00</td>
+            <td class="bold align-right">$68.50</td>
+          </tr>
+
+          <tr>
+            <td>Hourly planning &amp; Coordination - tasks determined as needed. Used to research vendors, venues, and styling ideas, and coordinate additional wedding details.</td>
+          </tr>
+        </tbody></table>
+
+        <!-- End of additional Services in a package -->
+    <!-- End Of All Packages in Proposal -->
+</div> <!--end container proposal packages-->
+<!-- additional services for Proposal -->
+<!-- End Of additional services for Proposal -->
+
+
+<table class="margin-bottom border-bottom pad-bottom align-right half">
+  <tbody><tr>
+    <td>SubTotal:</td>
+    <td class="bold align-right">$3,052.50</td>
+  </tr>
+</tbody></table>
+
+
+    <table class="margin-bottom border-bottom pad-bottom align-right half">
+      <tbody><tr>
+        <td>Discount:</td>
+        <td class="bold align-right">$75.00</td>
+      </tr>
+    </tbody></table>
+
+
+
+<table class="margin-bottom border-bottom pad-bottom align-right half">
+  <tbody><tr>
+    <td class="bold">Total Amount:</td>
+    <td class="bold align-right">$2,977.50</td>
+  </tr>
+</tbody></table>
+<!-- End Of Entire Proposal -->
+
+
+    
+<!-- PAYMENT SCHEDULE -->
+<!-- _payments -->
+
+<table class="margin-bottom payment top-doc">
+  <tbody><tr>
+    <td class="">
+      <h5 class="uppercase file-title">PAYMENT SCHEDULE</h5>
+    </td>
+  </tr>
+
+      <tr>
+        <td class="pad-right">1.</td>
+        <td>$1,153.17</td>
+        <td>Apr 25, 2015</td>
+            <td>
+              <span>PAID</span>
+                <span># 0273-000002</span>
+            </td>
+      </tr>
+
+      <tr>
+        <td class="pad-right">2.</td>
+        <td>$260.62</td>
+        <td>May 12, 2015</td>
+            <td>UNPAID</td>
+      </tr>
+
+      <tr>
+        <td class="pad-right">3.</td>
+        <td>$260.62</td>
+        <td>Jul 10, 2015</td>
+            <td>UNPAID</td>
+      </tr>
+
+      <tr>
+        <td class="pad-right">4.</td>
+        <td>$260.62</td>
+        <td>Sep 11, 2015</td>
+            <td>UNPAID</td>
+      </tr>
+
+      <tr>
+        <td class="pad-right">5.</td>
+        <td>$260.62</td>
+        <td>Nov 12, 2015</td>
+            <td>UNPAID</td>
+      </tr>
+
+      <tr>
+        <td class="pad-right">6.</td>
+        <td>$260.62</td>
+        <td>Jan 12, 2016</td>
+            <td>UNPAID</td>
+      </tr>
+
+      <tr>
+        <td class="pad-right">7.</td>
+        <td>$260.62</td>
+        <td>Mar 12, 2016</td>
+            <td>UNPAID</td>
+      </tr>
+
+      <tr>
+        <td class="pad-right">8.</td>
+        <td>$260.61</td>
+        <td>May 13, 2016</td>
+            <td>UNPAID</td>
+      </tr>
+</tbody></table>
+
+<table class="margin-bottom pad-bottom align-right half">
+  <tbody><tr>
+    <td class="align-right">Total Amount: <span class="bold padding-sides">$2,977.49</span></td>
+  </tr>
+</tbody></table>
+
+
+    
+<!-- AGREEMENT STARTS HERE -->
+<!-- _agreement -->
+    <table class="agreement margin-bottom top-doc">
+      <tbody><tr>
+        <td class="">
+          <h5 class="uppercase file-title">SERVICE AGREEMENT</h5>
+        </td>
+      </tr>
+      <tr class="">
+        <td><div class="editor_header_region" contenteditable="false" id="editor_header_region">
+            <ul class="header-info">
+              <li class="bold">Jasmine Cianflone</li>
+              <li>This Moment Events</li>
+              <li>Event Planner</li>
+              <li></li>
+              <li>jasmine@thismomentevents.com</li>
+            </ul>
+            <span class="half-a float-right">
+                <span class="">
+                  <img id="img_logo" class="float-right" src="./Print_files/2015-04-14-23-59-06-621.jpg">
+                </span>
+            </span></div>
+
+<p style="text-align: center;">Wedding Planning &amp; Event Styling Service Agreement</p>
+
+<p style="text-align: center;">&nbsp;</p>
+
+<p>This Wedding Planning Service Agreement (herein the “Agreement”) is made the&nbsp;<u>Apr 25, 2015</u>&nbsp;by and between This Moment Events, LLC a New Jersey limited liability company (herein “Consultant”) and&nbsp;<u>Joane Jasmin</u> and<u>David Lisma</u>&nbsp;(herein jointly and severally referred to as “Clients,” and together with Consultant, the “Parties” and each a “Party”).</p>
+
+<p>WHEREAS Consultant is in the business of providing professional wedding planning, coordination and event styling services;</p>
+
+<p>WHEREAS Clients wish to engage the services of Consultant for their wedding (herein the “Wedding”), as detailed below, subject to the terms and conditions herein;</p>
+
+<p><i>Wedding Details, if known:</i></p>
+
+<p>The Wedding of:&nbsp;</p>
+
+<p>Date: &nbsp;<u>Jun 12, 2016</u><br>
+Time:&nbsp;<u>12:30pm</u></p>
+
+<p>Anticipated Guest Count: <u>170</u></p>
+
+<p>Ceremony Venue: &nbsp;<u>TBD</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+
+<p>Address: <u>TBD</u></p>
+
+<p>Reception Venue: <u>TBD</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+
+<p>Address: <u>TBD</u></p>
+
+<p>WHEREAS Consultant wishes to provide the Wedding planning, coordination and event styling services for Clients’ Wedding, subject to the terms and conditions herein;</p>
+
+<p>NOW, THEREFORE, for and in consideration of the mutual covenants set forth in this Agreement, and for other good and valuable consideration, the receipt and sufficiency of which is hereby acknowledged, the Parties agree as follows:</p>
+
+<p><b>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIPTION OF SERVICES&nbsp;</b></p>
+
+<p>Consultant will provide Clients with the following services (the “Services”):</p>
+
+<ul>
+	<li>This service suite includes two (2) wedding assistants for an estimated guest count of <u>170</u>, and set up of the following elements {ELEMENTS GO HERE}.&nbsp; Should guest count rise above <u>170</u>, or set up become more extensive, additional assistants will be needed.&nbsp; Clients shall be responsible for the additional cost of each additional assistant at the rate of two hundred and fifty dollars ($250.00) per assistant.</li>
+	<li>This service suite includes the services of Consultant and Assistants for <u>Eight (8)</u> hours.&nbsp; Should need for additional hours become evident or requested on the day of the Wedding, Client shall be responsible for the additional cost of overtime hours, charged at the rate of one hundred and twenty five dollars ($125.00) per hour for the Consultant and fifty dollars ($50.00) per hour per Assistant.</li>
+</ul>
+
+<div class="editor_packages_region" contenteditable="false" id="editor_packages_region"><h3>Bespoke Bliss Day-of-Coordination</h3><strong>Every Bliss Bespoke Day of Coordination Suite includes the following:<br>Unlimited email + phone contact with Jasmine starting 8 weeks prior to your event date.<br>Three planning meetings: Kickoff meeting, 8 Week Check-in, and Final Details meeting- in person<br>4 Week Check-in Call.<br>Access to our awesome online planning tools (Eliminates email clutter and keeps us all on track!). <br>A dedicated day of planner and a minimum of one planner assistant.<br>Comprehensive Wedding Day Management.  <br>All in all, that gets you: A nice bundle of tied up loose ends, loads of peace of mind, and the best time you’ve ever had!</strong><ul></ul><ul><li><h3>8 Hours - Day of Management with with 2 Assistants</h3><span>For a guest count of approx. 170, single venue.</span></li></ul><h3>Paisley Wedding Planning Sessions</h3><strong>45 Minute planning sessions via phone, Skype or Facetime. Answer planning questions, provide guidance, advice and resources.</strong><ul></ul><ul><li><h3>6 Session Bundle</h3></li></ul><h3>Design &amp; Styling - Comprehensive </h3><strong>Top to bottom DIY design &amp; styling- research, sourcing, concept development, inspiration boards, color stories (digital or tangible), arrangement of execution, including vendor research, oversight of set up and tear down.</strong><ul></ul><ul><li><h3>Add On to Bespoke Bliss DOC</h3></li></ul><h3>Add On to Bespoke DOC </h3><ul></ul><ul><li><h3>Planning &amp; Coordination, Hourly - 5 Hours</h3><span>Hourly planning &amp; Coordination - tasks determined as needed. Used to research vendors, venues, and styling ideas, and coordinate additional wedding details.</span></li></ul><ul></ul></div>
+
+<p><br>
+OR FOR DESIGN ONLY Consultant will provide Clients with the services (the “Services”) described in the attached addendum, which is made a part of this Agreement and incorporated by reference.</p>
+
+<p>Consultant’s Services shall NOT include the following: contracting on behalf of Client for any other vendor; running Wedding-related errands, such as picking up Wedding attire; moving and/or set up of tables and chairs; setting up chair covers, sashes or treatments; draping walls or ceilings; lighting services; preparation or service of food and/or alcohol; handling audio/visual equipment, including but not limited to, CDs, iPODs, projectors and screens, computer slideshows; transportation or removal/disposal of any floral arrangements or large décor items before or after the Wedding; transporting any members of the wedding party,&nbsp; wedding guests, or wedding vendors; transportation, delivery, or set up of the wedding cake; acting on client’s behalf as security or bouncers; acting as parking attendants or valets; &nbsp;(or anything else the services do not include).&nbsp;</p>
+
+<p><b>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FEES, COSTS &amp; PAYMENTS</b></p>
+
+<p>The fee (the “Fee”) for the above-described Services is <u>2,977.50</u>.</p>
+
+<p>The Parties agree to a payment schedule as follows:</p>
+
+<table border="1" cellpadding="0" cellspacing="0" style="width:1482px;" width="1112">
+	<tbody>
+		<tr>
+			<td style="width:78px;">
+			<p>$<u>1,153.17</u></p>
+
+			<p>Non-refundable, non-transferable retainer fee (“Retainer Fee”) equal to approximately</p>
+
+			<p>one-third (1/3) of the Fee,is due upon the signing of this Agreement. &nbsp;</p>
+
+			<p>Bi-monthly payments made between May 2015&nbsp;and March 2016&nbsp;</p>
+
+			<p>in the amount of $260.62 per payment,&nbsp;due as listed &nbsp;below.&nbsp;</p>
+
+			<div class="editor_payments_region" contenteditable="false" id="editor_payments_region"><p>39% of the total due on Apr 25, 2015, in the amount of $1153.17</p><p>9% of the total due on May 12, 2015, in the amount of $260.62</p><p>9% of the total due on Jul 10, 2015, in the amount of $260.62</p><p>9% of the total due on Sep 11, 2015, in the amount of $260.62</p><p>9% of the total due on Nov 12, 2015, in the amount of $260.62</p><p>9% of the total due on Jan 12, 2016, in the amount of $260.62</p><p>9% of the total due on Mar 12, 2016, in the amount of $260.62</p><p>9% of the total due on May 13, 2016, in the amount of $260.61</p></div>
+
+			<p>Remaining balance of $260.61 is&nbsp;due thirty (30) days prior to the Wedding, on or before <u>May 13, 2016</u></p>
+
+			<p>Any additional remaining balance accrued after the second payment, including travel fees and</p>
+
+			<p>reimbursement of expenses, will be due no later than the day of the Wedding, or within five (5)</p>
+
+			<p>days of presentation of invoice or receipt by Consultant, whichever is sooner.</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Any additional remaining balance, including travel fees and reimbursement of expenses, will be due no later than&nbsp;the day of the Wedding, or within five (5) days of presentation of invoice or receipt by Consultant, whichever is sooner.</p>
+
+<p><span style="font-family:inherit; font-size:13px; line-height:1.6">All payments are non-refundable once tendered.&nbsp; Payments not postmarked or received by Consultant by the due date shall incur a late fee equal to five dollars ($5.00) per day.&nbsp; Clients shall pay any attorneys’ fees, court costs, or other costs incurred in collection of delinquent accounts.&nbsp; Note that services and coordination prior to, or on the Wedding day, shall cease until any balance more than five (5) days past due is paid in full.&nbsp; After any payment is ten (10) days past due, Consultant shall be entitled to terminate this Agreement immediately, and shall retain the Retainer Fee and any payments already tendered by Clients.&nbsp; If this Agreement is signed less than sixty (60) days from the Wedding date, payment in full shall be due upon the signing of this Agreement and all payments shall be non-refundable.</span>Both this signed Agreement and the Retainer Fee must be received in order to book Consultant for Clients’ Wedding.&nbsp; This Agreement is an offer that must be accepted by Clients within seven (7) days, by returning the signed Agreement and paying the Retainer Fee, or said offer shall expire.&nbsp;</p>
+
+<p>Payments shall be made by cash, check, or Visa, MasterCard, American Express or Discover.&nbsp; Checks shall be made payable to This Moment Events, LLC and mailed to:</p>
+
+<p>269 Bolton Road</p>
+
+<p>East Windsor, NJ 08520</p>
+
+<p>Returned checks shall be subject to a forty dollar ($40.00) fee and any subsequent payments must be made via cash, cashier’s check or money order.</p>
+
+<p><b>Travel:</b></p>
+
+<p>Travel required for meetings, appointments and venues more than thirty-five (35) miles from Consultant’s offices shall be billed to Clients at the rate of twenty-five cents $0.25 per mile.&nbsp; Destination weddings shall require additional air, ground transportation and hotel accommodations, arrangements for which are to be determined prior to the signing of this Agreement whenever possible.&nbsp; Any travel arrangements booked by Clients on Consultant’s behalf are subject to Consultant’s input and advance approval.&nbsp; Consultant shall be reimbursed by Clients for any travel expenses within seven (7) days of presentation of an invoice or receipt to Clients.</p>
+
+<p><b>Purchases and Expenses:</b></p>
+
+<p>Consultant shall be reimbursed for any purchases made by Consultant on behalf of Clients (such as Wedding décor, Wedding details and last-minute items on the Wedding day) or expenses incurred (such as parking and toll road fees) within seven (7) days of presentation of an invoice or receipt to Clients.&nbsp;</p>
+
+<p><b>Additional Services:</b></p>
+
+<p>Clients agree to compensate Consultant for any additional services not specified in this Agreement, at the rate of sixty-eight dollars and fifty cents ($68.50) per hour or at a flat rate set by Consultant based upon the specific services.&nbsp; In the event that additional services are necessary, Consultant will provide Clients with an estimate prior to commencing such services whenever possible (time constraints and last-minute requests may require Clients’ approval via phone, email, etc.).&nbsp; Consultant shall provide Clients with an invoice for all additional services and payment by Clients is due within seven (7) days of presentation of the invoice.</p>
+
+<p><b>Additional Assistants:</b></p>
+
+<p>Should Consultant determine that additional assistants are needed for the day of the Wedding, due to factors such as the guest count, venue type and/or amount of set-up required, Clients shall be responsible for the additional cost of each additional assistant at the rate of two hundred and fifty dollars ($250.00) per assistant.</p>
+
+<p><b>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TERM</b></p>
+
+<p>This Agreement shall become effective as of the date that all Parties have executed the Agreement and the Retainer Fee is received by Consultant (herein the “Effective Date”), and unless otherwise terminated pursuant to the provisions of this Agreement, shall terminate automatically upon completion of the Services on the Wedding day.&nbsp; The provisions of Paragraphs 5, 6, 7, 8, 15, 16 and 17 herein shall continue in full force and effect following the termination of this Agreement.</p>
+
+<p><b>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLIENT RESPONSIBILITIES AND UNDERSTANDINGS</b></p>
+
+<p><b>a.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients shall provide Consultant with copies of all contact information, proposals and contracts/agreements with all hired Vendors in a timely manner, and under no circumstances any less than four (4) weeks prior to the Wedding date.</p>
+
+<p><b>b.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients shall notify Consultant of any changes to Vendors, schedules, locations or other Wedding details in a timely manner.&nbsp; Consultant shall not be responsible for any issues resulting from Clients’ failure to notify Consultant of any such changes.</p>
+
+<p><b>c.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients understand that failure to heed Consultant’s recommendations and advice may have an adverse impact on Clients’ Wedding, for which Consultant shall bear no responsibility.</p>
+
+<p><b>d.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients shall promptly communicate with Consultant in order to facilitate the planning process and Clients understand that communication delays may have an adverse impact on Clients’ Wedding (such as lost opportunities with respect to venues and vendors, rush fees, late fees and additional staffing needs due to a shortage of time), for which Consultant shall bear no responsibility or liability.</p>
+
+<p><b>e.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Consultant shall perform the Services in a professional manner and endeavor to plan and execute a successful event for Clients, but Clients understand and agree that weddings are fast-moving and often unpredictable, with unexpected circumstances that may arise during the course of the planning process and/or on the day of the Wedding, and Consultant cannot offer refunds following the occurrence of such circumstances.</p>
+
+<p><b>f.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients understand and agree to comply with Consultant’s business schedule and meetings policies: &nbsp;Office hours are as follows: Closed Mondays. 9:30 AM - 2:30 PM Tuesday through Thursday, 9:30 AM - 12:30 PM Fridays. 10:00 AM - 2:00 PM Saturdays by appointment only and when events are not scheduled. All phone calls and consultations/meetings are to be scheduled at a minimum of 48 hours in advance.</p>
+
+<p><b>g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients shall give Consultant at least twenty-four (24) hours’ notice in the event of the cancellation or rescheduling of any in-person meeting; failure to comply with this requirement will result in the assessment of a $100.00 cancellation fee.</p>
+
+<p><b>h.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients shall provide a meal on the Wedding day for each member of Consultant’s staff.</p>
+
+<p><b>i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients agree that in the event that Consultant determines in its discretion that it has suffered any inappropriate behavior by Clients, Clients’ family or Clients’ Wedding guests during the Wedding planning process or on the Wedding day which rises to the level of harassment (physical or verbal) toward Consultant or its agents, contractors or employees, the following steps will be taken: on the first offense: a verbal warning will be issued to Clients; on the second offense: the offending party (if a guest) will be required to leave the Wedding, or if the offending party is one or both of Clients, Consultant shall be entitled to terminate Services and if on the Wedding day, leave the Wedding, and in such a situation, Clients expressly agree to release and hold Consultant and its agents, contractors and employees harmless from any and all liability as a result of any resulting incomplete Wedding planning/coordination package, and Clients agree that all payments tendered up to the point of termination shall be retained by Consultant.</p>
+
+<p><b>j.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients shall be financially responsible for and reimburse to Consultant any and all costs, damages and expenses (including, without limitation, attorneys’ fees and associated costs) due to damage to any of Consultant’s equipment or materials caused by Clients or any Wedding guest.</p>
+
+<p><b>k.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Clients acknowledge and agree that Consultant is not responsible for monitoring the consumption of alcohol by Clients and Clients’ Wedding guests and Clients shall indemnify Consultant for any alcohol-related third party claims against Consultant, as specified in Section 8 of this Agreement.&nbsp; It is Clients’ responsibility to ensure that a properly licensed and trained bartender is responsible for the serving of all alcohol, and it is strongly suggested that Clients make arrangements for the transportation of guests from the Wedding, such as shuttle buses.</p>
+
+<p><b>l.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>It is Clients’ responsibility to inform Wedding guests of any food, favors or welcome bag items that may present food allergy concerns or choking hazards for small children. Clients acknowledge and agree that Consultant is not responsible for warning Wedding guests about these risks and Clients shall indemnify Consultant for any resulting third party claims against Consultant, as specified in Section 8 of this Agreement.</p>
+
+<p><b>m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>It is recommended that Clients obtain a policy of Wedding Day insurance.</p>
+
+<p><b>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTRACTS WITH VENDORS AND OTHER PARTIES</b></p>
+
+<p>Clients understand and agree that Consultant’s role is that of an advisor and coordinator, and Clients shall be responsible for making the actual selections of all vendors for the Wedding (herein “Vendors”). Consultant shall have no authority to represent itself as an agent of Clients, nor to assume or create any obligation on behalf of Clients.&nbsp; Clients shall contract directly with all Vendors and other persons who may provide services, goods or accommodations in connection with the Wedding.&nbsp; Clients shall be responsible for and shall satisfy all obligations owed to such Vendors or other persons in connection with the services, goods or accommodations they provide.&nbsp; Consultant is not responsible for the acts or omissions of any Vendor.</p>
+
+<p><b>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VENUE AND OFFICIANT RESTRICTIONS</b></p>
+
+<p>Consultant and its agents, employees and contractors, as well as Vendors hired by Clients, may be limited by the guidelines or rules of the venue management or officiant.&nbsp; Clients understand and agree that Consultant will abide by such guidelines or rules, and that they are outside of the control of Consultant. Negotiation with respect to modifying the guidelines and restrictions is the sole responsibility of Clients and Clients agree to hold Consultant harmless for the impact such guidelines or rules may have on the Wedding.</p>
+
+<p><b>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Limitation of Liability</b></p>
+
+<p>Clients agree that, to the fullest extent permitted by law, Consultant’s maximum total liability for any claims, breaches or damages by reason of any act or omission, including breach of contract and negligence, shall be limited solely to the dollar amount of the Fees paid by Clients to Consultant.&nbsp; Clients agree that, to the fullest extent permitted by law, Consultant shall not be liable for any claims for punitive damages, consequential damages, emotional distress, mental anguish, lost profit, loss of enjoyment, lost revenues and/or replacement costs.</p>
+
+<p>Consultant is not responsible for any defective products or imperfect resources purchased on behalf of Clients or provided by Vendors that may negatively impact or affect the Wedding or cause any type of injury, and Clients waive any right to pursue any claim, demand or cause of action against Consultant for such.&nbsp; Consultant is not responsible for any Vendor’s performance, or lack thereof, and Clients expressly agree to waive any claims, demands or causes of action against Consultant with respect to the goods or services of any Wedding Vendor, venue or other third party recommendations made by Consultant.</p>
+
+<p>Consultant is not responsible for any items lost, stolen or damaged during the Wedding, including, but not limited to, personal property of Clients or any Wedding guests, gifts, cards, Wedding décor and property of Wedding Vendors, and Clients agree to hold Consultant harmless for any such loss.</p>
+
+<p>Clients acknowledge and agree that these limitations reflect a fair allocation of risk and that Consultant would not enter into this Agreement without these limitations on its liability.</p>
+
+<p><b>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INDEMNIFICATION</b></p>
+
+<p>Clients agree to indemnify, defend and hold harmless Consultant and its employees, agents, independent contractors, officers, directors, members and/or managers for any injury, property damage, liability, claim or other cause of action arising out of or related to Clients’ Wedding, unless caused by the gross negligence or willful misconduct of Consultant.&nbsp; Clients agree to indemnify and hold harmless Consultant and its employees, agents, independent contractors, officers, directors, members and/or managers for any injury, property damage, liability, claim or other cause of action arising out of or related to the consumption of alcohol by Clients and/or their guests at the Wedding, and/or the use of candles, open flame, fireworks and other potentially dangerous items on the Wedding day.&nbsp;</p>
+
+<p><b>9. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Breach; Termination of Agreement</b></p>
+
+<p>Any Party to this Agreement may terminate the Agreement at any time following the failure of the other Party to cure a material breach within ten (10) days of such terminating Party’s having given the other Party written notice of such breach, or, if the breach is one that cannot be cured within ten (10) days, at any time following the failure of the other Party to commence and continue reasonable and good faith efforts to cure such breach in such period of time as is reasonably practicable under the circumstances.&nbsp; If the Agreement is terminated pursuant to this provision, Consultant shall be entitled to compensation for the reservation of Clients’ Wedding date and for time spent by Consultant in performance of Services, calculated based upon the rate of sixty-eight dollars and fifty cents ($68.50) per hour, as well as reimbursement by Clients for expenses incurred by Consultant before the effective time of such termination.</p>
+
+<p>Should Consultant wish to terminate this Agreement for any reason other than Clients’ breach of the terms of the Agreement or Clients’ cancellation of the Wedding, change of heart or date change/postponement of the Wedding, Consultant shall return all unearned Fees paid up to the point of termination and Consultant will have no further obligations to Clients.</p>
+
+<p><b>10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNKNOWN WEDDING DATE</b></p>
+
+<p>If the date of the Wedding has yet to be determined at the time of execution of this Agreement, Consultant reserves the right to cancel its Services and immediately terminate this Agreement in the event that Consultant is unavailable to perform the Services on the date ultimately chosen by Clients, and Consultant shall return the Retainer Fee to Clients, minus payment for Services already rendered by Consultant, calculated based upon the rate of sixty-eight dollars and fifty cents ($68.50) per hour.</p>
+
+<p><b>11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CANCELLATION OF WEDDING; CLIENTS’ CHANGE OF HEART REGARDING CONSULTANT’S SERVICES</b></p>
+
+<p>In the unfortunate event that either Client individually or both Clients jointly decide to cancel or call off the Wedding for any reason, or should Clients have a change of heart for any reason with respect to using Consultant’s services, official notice of termination of the Agreement due to the cancellation of the Wedding or change of heart must be given to Consultant in writing and the following terms shall apply:</p>
+
+<p>§&nbsp; Consultant shall be entitled to retain the non-refundable, non-transferable Retainer Fee identified in this Agreement regardless of when such notice is given to Consultant, as well as any subsequent payments made by Clients prior to Consultant’s receipt of the notice of termination.&nbsp;</p>
+
+<p>§&nbsp; If the notice of termination is received by Consultant less than ninety (90) days prior to the Wedding date, Clients shall be responsible for fifty percent (50%) of the remaining balance of the Fee, due to Consultant within five (5) business days of Consultant’s receipt of the written notice of termination.&nbsp;</p>
+
+<p>§&nbsp; If the notice of termination is received by Consultant less than thirty (30) days prior to the Wedding date, Clients shall be responsible for seventy-five percent (75%) of the remaining balance of the Fee, due to Consultant within five (5) business days of Consultant’s receipt of the written notice of termination.</p>
+
+<p>The termination fees stated herein represent a reasonable estimate of the loss suffered by Consultant in the event of a termination of the Agreement due to a cancellation of the Wedding or change of heart with respect to Consultant’s Services, as compensation for the decreasing likelihood of rebooking Clients’ Wedding date upon such late notice and for Services already rendered by Consultant prior to the termination, and are not intended to be a penalty.</p>
+
+<p><b>12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WEDDING DATE CHANGES/POSTPONEMENT</b></p>
+
+<p>If Clients decide, for any reason, to postpone or change the date of the Wedding, official notice must be given to Consultant in writing and the following terms shall apply:&nbsp;</p>
+
+<p>§&nbsp; In order for Consultant to consider applying the Retainer Fee and any subsequent payments toward an alternate date, Clients must select and notify Consultant of a new Wedding date within sixty (60) days of Consultant’s receipt of the written notice from Clients of the postponement/change of date and the new date must be within three hundred sixty-five (365) days from the original Wedding date.&nbsp;</p>
+
+<p>§&nbsp; If Consultant chooses to accommodate the new date, a five hundred dollar ($500.00) rescheduling fee will be due to Consultant in order to amend the Agreement to include the new date.&nbsp;</p>
+
+<p>§&nbsp; If Clients fail to select a new Wedding date within the 60-day period following notice of the postponement/change of date, or Consultant does not accommodate the new date selected by Clients, this Agreement shall terminate and Consultant shall be entitled to retain the non-refundable, non-transferable Retainer Fee identified in this Agreement regardless of when the written notice was received by Consultant, as well as any subsequent payments made by Clients prior to Consultant’s receipt of the notice of postponement/change of date.&nbsp;</p>
+
+<p>§&nbsp; If Clients fail to select a new Wedding date within the 60-day period following notice of the postponement/change of date, or Consultant does not accommodate the new date selected by Clients, and notice of the postponement/change of date was received by Consultant less than ninety (90) days prior to the original Wedding date, this Agreement shall terminate and Consultant shall be entitled to retain the Retainer Fee and any payments already made shall remain non-refundable, and Clients shall be also responsible for fifty percent (50%) of the remaining balance of the Fee, due to Consultant within five (5) business days of Consultant’s receipt of the written notice of postponement/change of date.&nbsp;</p>
+
+<p>§&nbsp; If Clients fail to select a new Wedding date within the 60-day period following notice of the postponement/change of date, or Consultant does not accommodate the new date selected by Clients, and notice of the postponement/change of date was received by Consultant less than thirty (30) days prior to the original Wedding date, this Agreement shall terminate and Clients shall also be responsible for seventy-five percent (75%) of the remaining balance of the Fee, due to Consultant within five (5) business days of Consultant’s receipt of the written notice of postponement/change of date.</p>
+
+<p>The termination fees stated herein represent a reasonable estimate of the loss suffered by Consultant in the event of a termination of the Agreement, as compensation for the reservation of Clients’ original Wedding date and for Services already rendered by Consultant prior to the termination, and are not intended to be a penalty.</p>
+
+<p><b>13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Incapacitation of Planner/coordinator</b></p>
+
+<p>If Clients’ assigned planner/coordinator should become materially or physically incapacitated, such as due to injury, severe illness, pregnancy or unexpected circumstances prohibiting them from performing the Services under this Agreement for any reason, Consultant shall be entitled to provide Clients with a substitute Wedding Planner/Coordinator of reasonably similar experience.&nbsp; In the unlikely scenario that such a situation does occur and a suitable replacement is not found by Consultant, or should Clients reject the proposed replacement, Clients agree that the maximum remedy shall be a prorated portion of the Fees paid by Clients prior to the date of the occurrence of incapacitation, based upon the extent of the Services rendered prior to incapacitation.</p>
+
+<p><b>14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Force Majeure</b></p>
+
+<p>No Party shall be liable in damages or have the right to terminate this Agreement for any delay or default in performing hereunder if such delay or default is caused by conditions beyond its control including, but not limited to, acts of God (such as hurricanes, earthquakes, flooding), fire, Government restrictions (including the denial or cancellation of any export or other necessary license), wars, terrorist acts, insurrections and/or any other cause beyond the reasonable control of the Party whose performance is affected.&nbsp; Should Clients’ Wedding be cancelled, postponed or otherwise adversely impacted as a result of a&nbsp;<i>force majeure</i>&nbsp;event, there shall be no refunds for payments already received by Consultant, but Consultant will use all reasonable efforts to work with Clients to produce the Wedding at a later date if necessary, subject to Consultant’s availability, and a substitute representative may be present on Consultant’s behalf on the rescheduled date.&nbsp; Additional fees may be incurred and due to Consultant and/or Wedding vendors as a result of a rescheduled event.</p>
+
+<p><b>15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Photo Release</b></p>
+
+<p>Clients agree that Consultant may use any images from the Wedding for Consultant’s portfolio, advertising, website, blog and magazine submissions and any other means of promotion of Consultant.&nbsp; Clients waive any right to payment, royalties or any other consideration for the use of the images.&nbsp; Clients waive the right to inspect or approve the finished product, including written or electronic copy, wherein Clients’ likeness appears.&nbsp; Consultant is hereby held harmless and released and forever discharged from all claims, demands, and causes of action which Clients, their heirs, representatives, executors, administrators, or any other persons acting on Clients’ behalf or on behalf of the Clients’ estates have or may have by reason of this authorization.</p>
+
+<p><b>16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confidentiality</b></p>
+
+<p>Consultant owns, possesses or controls certain trade secrets and other proprietary and confidential information acquired through the expenditure of time, effort and money, including, but not limited to, planning documents, instructional documents, timelines, schematics, checklists, vendor information and the terms of this Agreement, including pricing (herein “Confidential Information”).&nbsp; Clients agree to use all best efforts to protect Consultant’s interest in the Confidential Information and keep it strictly confidential.&nbsp; This includes a covenant to not directly or indirectly disclose, allow access to, transmit or transfer the Confidential Information to any third party, including but not limited to online forums, without Consultant’s prior written consent.</p>
+
+<p><b>17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADDITIONAL provisions</b></p>
+
+<p><b>a.&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Entire Agreement.&nbsp;&nbsp;</b>This Agreement constitutes the entire agreement between the Parties, and supersedes all prior agreements whether oral or written concerning the subject matter of this Agreement.</p>
+
+<p><b>b.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;NO IMPLIED Waiver.</b>&nbsp; The failure of any Party to require strict compliance with the performance of any obligations, terms and/or conditions of this Agreement shall not be deemed a waiver of that Party’s right to require strict compliance in the future, or construed as consent to any breach of the terms of this Agreement.</p>
+
+<p><b>c.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MODIFICATIONS.</b>&nbsp; Any modification or amendment to this Agreement requires the mutual consent of the Parties, and must be made in writing and signed by all Parties. &nbsp;The Parties may modify or amend this Agreement by way of email, so long as all Parties provide proper acknowledgment of receipt of the email and indicate their acceptance of the revised terms of the Agreement by way of an electronic signature in the following form: “Party Name”.&nbsp; Email modifications shall not become binding until all Parties have complied with these requirements.</p>
+
+<p><b>d.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOTICES.&nbsp;&nbsp;</b>Any notice or official communication provided for in this Agreement (such as notices of termination of the Agreement due to cancellation of the Wedding or Clients’ change of heart regarding Consultant’s Services, or notices of postponement or date change) shall be in writing and shall be delivered in person or by registered/certified U.S mail or tracked shipping (via UPS, Federal Express or other major carrier), and said notice shall be effective upon actual receipt by the other Party or within seventy-two (72) hours of mailing/shipping, whichever is sooner.&nbsp; Notices shall be sent to the Parties at the following addresses:</p>
+
+<table border="1" cellpadding="0" cellspacing="0" style="width:1440px;" width="1080">
+	<tbody>
+		<tr>
+			<td style="width:199px;">
+			<p>If to Consultant:</p>
+
+			<p>This Moment Events, LLC</p>
+
+			<p>269 Bolton Road</p>
+
+			<p>East Windsor, NJ 08520</p>
+			</td>
+			<td style="width:1241px;">
+			<p>If to Clients:</p>
+
+			<p><u>203 Elizabeth Avenue, Hamilton, NJ 08610</u> <u>15 Waverly Place, Hamilton, NJ, 08609</u></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><b>e.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Controlling Law; JURISDICTION.&nbsp;&nbsp;</b>The validity, construction and enforceability of this Agreement shall be governed in all respects by the laws of the State of New Jersey, and the Parties expressly agree that any dispute requiring resolution by a court shall be subject to the exclusive venue and jurisdiction of the state and federal courts located in Mercer County, New Jersey.</p>
+
+<p><b>f.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DISPUTE RESOLUTION.&nbsp;&nbsp;</b>Any dispute or claim arising under or in any way related to this Agreement, with the exception of recovery by Consultant of any unpaid Fees or unreimbursed expenses from Clients (which may be recovered by Consultant via collections, small claims court action, or any other legal remedy available to Consultant), shall be submitted to neutral, non-binding mediation prior to the commencement of arbitration or any other proceeding before a trier of fact.&nbsp; The Parties to the dispute or claim agree to act in good faith to participate in mediation, and to identify a mutually acceptable mediator in Mercer County, New Jersey.&nbsp; All Parties to the mediation shall share equally in its cost.&nbsp; If the dispute or claim is resolved successfully through the mediation, the resolution will be documented by a written agreement executed by all Parties.&nbsp; If the mediation does not successfully resolve the dispute or claim, the mediator shall provide written notice to the Parties reflecting the same, and the Parties may then proceed to seek an alternative form of resolution of the dispute or claim, in accordance with the remaining terms of this Agreement and other rights and remedies afforded to them by law.</p>
+
+<p>Following unsuccessful resolution through mediation, any dispute or claim arising under or in any way related to this Agreement, with the exception of the recovery by Consultant of any unpaid Fees or unreimbursed expenses from Clients and any disputes within small claims court jurisdiction, shall be submitted to binding arbitration.&nbsp; The Parties shall select a single arbitrator, and the arbitration shall take place in Mercer County, New Jersey.&nbsp; The arbitrator’s decision shall be binding on the Parties and judgment on the award rendered by the arbitrator may be entered in any court having jurisdiction.&nbsp;</p>
+
+<p>The prevailing Party in any arbitration, trial or other proceeding shall be awarded all filing fees, related administrative costs and reasonable attorneys’ fees.&nbsp; Administrative and other costs of enforcing an arbitration award or judgment, including the costs of subpoenas, depositions, transcripts, witness fees, payment of reasonable attorneys’ fees and similar costs, will be awarded to the prevailing Party.</p>
+
+<p><b>g.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Counterparts; SIGNATURES.</b>&nbsp; This Agreement may be executed in one or more counterparts, each of which shall be deemed an original and which collectively shall constitute one Agreement.&nbsp; Use of fax, email and electronic signatures shall have the same force and effect as an original signature.</p>
+
+<p><b>h.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Severability.</b>&nbsp; If any provision of this Agreement shall be held to be invalid or unenforceable for any reason, the remaining provisions shall continue to be valid and enforceable.&nbsp; If an arbitrator or court finds that any provision of this Agreement is invalid or unenforceable, but that by limiting such provision it would become valid and enforceable, then such provision shall be deemed to be written, construed and enforced as so limited.</p>
+
+<p><b>i.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Assignability and Parties of Interest.&nbsp;&nbsp;</b>No Party may assign, directly or indirectly, all or part of its rights or obligations under this Agreement without the prior written consent of the other Parties.&nbsp; Nothing in this Agreement, express or implied, will confer upon any person or entity not a Party to this Agreement, or the legal representatives of such person or entity, any rights, remedies, obligations, or liabilities of any nature or kind whatsoever under or by reason of this Agreement, except as expressly provided in this Agreement.</p>
+
+<p><b>j.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HEADINGS.&nbsp;&nbsp;</b>The headings contained in this Agreement are strictly for convenience, and shall not be used to construe meaning or intent.</p>
+
+<p>&nbsp;</p>
+
+<p>THE UNDERSIGNED ACKNOWLEDGE THAT THEY HAVE READ THIS AGREEMENT AND AGREE TO BE BOUND BY THE TERMS AND CONDITIONS SET FORTH ABOVE.</p>
+
+<p>&nbsp;</p>
+</td>
+      </tr>
+    </tbody></table>
+
+    <table class="signatures">
+          <tbody><tr valign="bottom" class="trSign">
+            <td><div class="sign">Jasmine E. Cianflone</div></td>
+            <td><div class="sign"> <form id="552db830c7cd77a7e0000039">
+
+              <div class="sig sigWrapper">
+                <div class="typed" style="display: none;"></div>
+                <canvas class="pad" height="100%"></canvas>
+                <input type="hidden" name="output" class="output" value="[{&quot;lx&quot;:12,&quot;ly&quot;:96,&quot;mx&quot;:12,&quot;my&quot;:95},{&quot;lx&quot;:12,&quot;ly&quot;:94,&quot;mx&quot;:12,&quot;my&quot;:96},{&quot;lx&quot;:12,&quot;ly&quot;:93,&quot;mx&quot;:12,&quot;my&quot;:94},{&quot;lx&quot;:13,&quot;ly&quot;:90,&quot;mx&quot;:12,&quot;my&quot;:93},{&quot;lx&quot;:17,&quot;ly&quot;:84,&quot;mx&quot;:13,&quot;my&quot;:90},{&quot;lx&quot;:21,&quot;ly&quot;:78,&quot;mx&quot;:17,&quot;my&quot;:84},{&quot;lx&quot;:23,&quot;ly&quot;:72,&quot;mx&quot;:21,&quot;my&quot;:78},{&quot;lx&quot;:25,&quot;ly&quot;:63,&quot;mx&quot;:23,&quot;my&quot;:72},{&quot;lx&quot;:25,&quot;ly&quot;:56,&quot;mx&quot;:25,&quot;my&quot;:63},{&quot;lx&quot;:23,&quot;ly&quot;:50,&quot;mx&quot;:25,&quot;my&quot;:56},{&quot;lx&quot;:21,&quot;ly&quot;:45,&quot;mx&quot;:23,&quot;my&quot;:50},{&quot;lx&quot;:19,&quot;ly&quot;:43,&quot;mx&quot;:21,&quot;my&quot;:45},{&quot;lx&quot;:18,&quot;ly&quot;:42,&quot;mx&quot;:19,&quot;my&quot;:43},{&quot;lx&quot;:17,&quot;ly&quot;:41,&quot;mx&quot;:18,&quot;my&quot;:42},{&quot;lx&quot;:16,&quot;ly&quot;:40,&quot;mx&quot;:17,&quot;my&quot;:41},{&quot;lx&quot;:15,&quot;ly&quot;:40,&quot;mx&quot;:16,&quot;my&quot;:40},{&quot;lx&quot;:14,&quot;ly&quot;:41,&quot;mx&quot;:15,&quot;my&quot;:40},{&quot;lx&quot;:11,&quot;ly&quot;:50,&quot;mx&quot;:14,&quot;my&quot;:41},{&quot;lx&quot;:11,&quot;ly&quot;:60,&quot;mx&quot;:11,&quot;my&quot;:50},{&quot;lx&quot;:16,&quot;ly&quot;:69,&quot;mx&quot;:11,&quot;my&quot;:60},{&quot;lx&quot;:23,&quot;ly&quot;:79,&quot;mx&quot;:16,&quot;my&quot;:69},{&quot;lx&quot;:26,&quot;ly&quot;:82,&quot;mx&quot;:23,&quot;my&quot;:79},{&quot;lx&quot;:26,&quot;ly&quot;:84,&quot;mx&quot;:26,&quot;my&quot;:82},{&quot;lx&quot;:26,&quot;ly&quot;:86,&quot;mx&quot;:26,&quot;my&quot;:84},{&quot;lx&quot;:26,&quot;ly&quot;:92,&quot;mx&quot;:26,&quot;my&quot;:86},{&quot;lx&quot;:26,&quot;ly&quot;:96,&quot;mx&quot;:26,&quot;my&quot;:92},{&quot;lx&quot;:25,&quot;ly&quot;:98,&quot;mx&quot;:26,&quot;my&quot;:96},{&quot;lx&quot;:25,&quot;ly&quot;:100,&quot;mx&quot;:25,&quot;my&quot;:98},{&quot;lx&quot;:24,&quot;ly&quot;:102,&quot;mx&quot;:25,&quot;my&quot;:100},{&quot;lx&quot;:21,&quot;ly&quot;:100,&quot;mx&quot;:21,&quot;my&quot;:99},{&quot;lx&quot;:19,&quot;ly&quot;:95,&quot;mx&quot;:21,&quot;my&quot;:100},{&quot;lx&quot;:19,&quot;ly&quot;:92,&quot;mx&quot;:19,&quot;my&quot;:95},{&quot;lx&quot;:18,&quot;ly&quot;:88,&quot;mx&quot;:19,&quot;my&quot;:92},{&quot;lx&quot;:18,&quot;ly&quot;:84,&quot;mx&quot;:18,&quot;my&quot;:88},{&quot;lx&quot;:20,&quot;ly&quot;:80,&quot;mx&quot;:18,&quot;my&quot;:84},{&quot;lx&quot;:23,&quot;ly&quot;:77,&quot;mx&quot;:20,&quot;my&quot;:80},{&quot;lx&quot;:28,&quot;ly&quot;:73,&quot;mx&quot;:23,&quot;my&quot;:77},{&quot;lx&quot;:31,&quot;ly&quot;:72,&quot;mx&quot;:28,&quot;my&quot;:73},{&quot;lx&quot;:35,&quot;ly&quot;:72,&quot;mx&quot;:31,&quot;my&quot;:72},{&quot;lx&quot;:36,&quot;ly&quot;:72,&quot;mx&quot;:35,&quot;my&quot;:72},{&quot;lx&quot;:36,&quot;ly&quot;:71,&quot;mx&quot;:36,&quot;my&quot;:72},{&quot;lx&quot;:36,&quot;ly&quot;:69,&quot;mx&quot;:36,&quot;my&quot;:71},{&quot;lx&quot;:35,&quot;ly&quot;:69,&quot;mx&quot;:36,&quot;my&quot;:69},{&quot;lx&quot;:33,&quot;ly&quot;:71,&quot;mx&quot;:35,&quot;my&quot;:69},{&quot;lx&quot;:29,&quot;ly&quot;:75,&quot;mx&quot;:33,&quot;my&quot;:71},{&quot;lx&quot;:29,&quot;ly&quot;:79,&quot;mx&quot;:29,&quot;my&quot;:75},{&quot;lx&quot;:29,&quot;ly&quot;:82,&quot;mx&quot;:29,&quot;my&quot;:79},{&quot;lx&quot;:30,&quot;ly&quot;:82,&quot;mx&quot;:29,&quot;my&quot;:82},{&quot;lx&quot;:36,&quot;ly&quot;:82,&quot;mx&quot;:30,&quot;my&quot;:82},{&quot;lx&quot;:39,&quot;ly&quot;:80,&quot;mx&quot;:36,&quot;my&quot;:82},{&quot;lx&quot;:42,&quot;ly&quot;:77,&quot;mx&quot;:39,&quot;my&quot;:80},{&quot;lx&quot;:42,&quot;ly&quot;:78,&quot;mx&quot;:42,&quot;my&quot;:77},{&quot;lx&quot;:40,&quot;ly&quot;:82,&quot;mx&quot;:42,&quot;my&quot;:78},{&quot;lx&quot;:40,&quot;ly&quot;:84,&quot;mx&quot;:40,&quot;my&quot;:82},{&quot;lx&quot;:43,&quot;ly&quot;:84,&quot;mx&quot;:40,&quot;my&quot;:84},{&quot;lx&quot;:46,&quot;ly&quot;:82,&quot;mx&quot;:43,&quot;my&quot;:84},{&quot;lx&quot;:48,&quot;ly&quot;:80,&quot;mx&quot;:46,&quot;my&quot;:82},{&quot;lx&quot;:48,&quot;ly&quot;:77,&quot;mx&quot;:48,&quot;my&quot;:80},{&quot;lx&quot;:48,&quot;ly&quot;:76,&quot;mx&quot;:48,&quot;my&quot;:77},{&quot;lx&quot;:49,&quot;ly&quot;:76,&quot;mx&quot;:48,&quot;my&quot;:76},{&quot;lx&quot;:50,&quot;ly&quot;:76,&quot;mx&quot;:49,&quot;my&quot;:76},{&quot;lx&quot;:51,&quot;ly&quot;:76,&quot;mx&quot;:50,&quot;my&quot;:76},{&quot;lx&quot;:50,&quot;ly&quot;:77,&quot;mx&quot;:51,&quot;my&quot;:76},{&quot;lx&quot;:46,&quot;ly&quot;:79,&quot;mx&quot;:50,&quot;my&quot;:77},{&quot;lx&quot;:41,&quot;ly&quot;:79,&quot;mx&quot;:46,&quot;my&quot;:79},{&quot;lx&quot;:33,&quot;ly&quot;:79,&quot;mx&quot;:41,&quot;my&quot;:79},{&quot;lx&quot;:31,&quot;ly&quot;:78,&quot;mx&quot;:33,&quot;my&quot;:79},{&quot;lx&quot;:30,&quot;ly&quot;:78,&quot;mx&quot;:31,&quot;my&quot;:78},{&quot;lx&quot;:30,&quot;ly&quot;:77,&quot;mx&quot;:30,&quot;my&quot;:78},{&quot;lx&quot;:31,&quot;ly&quot;:77,&quot;mx&quot;:30,&quot;my&quot;:77},{&quot;lx&quot;:60,&quot;ly&quot;:77,&quot;mx&quot;:31,&quot;my&quot;:77},{&quot;lx&quot;:71,&quot;ly&quot;:74,&quot;mx&quot;:60,&quot;my&quot;:77},{&quot;lx&quot;:72,&quot;ly&quot;:72,&quot;mx&quot;:71,&quot;my&quot;:74},{&quot;lx&quot;:72,&quot;ly&quot;:73,&quot;mx&quot;:72,&quot;my&quot;:72},{&quot;lx&quot;:70,&quot;ly&quot;:79,&quot;mx&quot;:72,&quot;my&quot;:73},{&quot;lx&quot;:68,&quot;ly&quot;:86,&quot;mx&quot;:70,&quot;my&quot;:79},{&quot;lx&quot;:68,&quot;ly&quot;:91,&quot;mx&quot;:68,&quot;my&quot;:86},{&quot;lx&quot;:68,&quot;ly&quot;:92,&quot;mx&quot;:68,&quot;my&quot;:91},{&quot;lx&quot;:69,&quot;ly&quot;:91,&quot;mx&quot;:68,&quot;my&quot;:92},{&quot;lx&quot;:70,&quot;ly&quot;:86,&quot;mx&quot;:69,&quot;my&quot;:91},{&quot;lx&quot;:72,&quot;ly&quot;:81,&quot;mx&quot;:70,&quot;my&quot;:86},{&quot;lx&quot;:74,&quot;ly&quot;:77,&quot;mx&quot;:72,&quot;my&quot;:81},{&quot;lx&quot;:75,&quot;ly&quot;:77,&quot;mx&quot;:74,&quot;my&quot;:77},{&quot;lx&quot;:75,&quot;ly&quot;:79,&quot;mx&quot;:75,&quot;my&quot;:77},{&quot;lx&quot;:76,&quot;ly&quot;:80,&quot;mx&quot;:75,&quot;my&quot;:79},{&quot;lx&quot;:77,&quot;ly&quot;:80,&quot;mx&quot;:76,&quot;my&quot;:80},{&quot;lx&quot;:119,&quot;ly&quot;:59,&quot;mx&quot;:119,&quot;my&quot;:58},{&quot;lx&quot;:118,&quot;ly&quot;:58,&quot;mx&quot;:119,&quot;my&quot;:59},{&quot;lx&quot;:117,&quot;ly&quot;:57,&quot;mx&quot;:118,&quot;my&quot;:58},{&quot;lx&quot;:115,&quot;ly&quot;:57,&quot;mx&quot;:117,&quot;my&quot;:57},{&quot;lx&quot;:114,&quot;ly&quot;:57,&quot;mx&quot;:115,&quot;my&quot;:57},{&quot;lx&quot;:104,&quot;ly&quot;:63,&quot;mx&quot;:114,&quot;my&quot;:57},{&quot;lx&quot;:98,&quot;ly&quot;:71,&quot;mx&quot;:104,&quot;my&quot;:63},{&quot;lx&quot;:93,&quot;ly&quot;:79,&quot;mx&quot;:98,&quot;my&quot;:71},{&quot;lx&quot;:92,&quot;ly&quot;:85,&quot;mx&quot;:93,&quot;my&quot;:79},{&quot;lx&quot;:93,&quot;ly&quot;:88,&quot;mx&quot;:92,&quot;my&quot;:85},{&quot;lx&quot;:97,&quot;ly&quot;:88,&quot;mx&quot;:93,&quot;my&quot;:88},{&quot;lx&quot;:103,&quot;ly&quot;:88,&quot;mx&quot;:97,&quot;my&quot;:88},{&quot;lx&quot;:111,&quot;ly&quot;:85,&quot;mx&quot;:103,&quot;my&quot;:88},{&quot;lx&quot;:120,&quot;ly&quot;:81,&quot;mx&quot;:111,&quot;my&quot;:85},{&quot;lx&quot;:124,&quot;ly&quot;:78,&quot;mx&quot;:120,&quot;my&quot;:81},{&quot;lx&quot;:122,&quot;ly&quot;:77,&quot;mx&quot;:124,&quot;my&quot;:78},{&quot;lx&quot;:116,&quot;ly&quot;:77,&quot;mx&quot;:122,&quot;my&quot;:77},{&quot;lx&quot;:109,&quot;ly&quot;:78,&quot;mx&quot;:116,&quot;my&quot;:77},{&quot;lx&quot;:100,&quot;ly&quot;:83,&quot;mx&quot;:109,&quot;my&quot;:78},{&quot;lx&quot;:94,&quot;ly&quot;:90,&quot;mx&quot;:100,&quot;my&quot;:83},{&quot;lx&quot;:93,&quot;ly&quot;:95,&quot;mx&quot;:94,&quot;my&quot;:90},{&quot;lx&quot;:93,&quot;ly&quot;:99,&quot;mx&quot;:93,&quot;my&quot;:95},{&quot;lx&quot;:96,&quot;ly&quot;:102,&quot;mx&quot;:93,&quot;my&quot;:99},{&quot;lx&quot;:131,&quot;ly&quot;:94,&quot;mx&quot;:131,&quot;my&quot;:93},{&quot;lx&quot;:132,&quot;ly&quot;:91,&quot;mx&quot;:131,&quot;my&quot;:94},{&quot;lx&quot;:174,&quot;ly&quot;:56,&quot;mx&quot;:174,&quot;my&quot;:55},{&quot;lx&quot;:173,&quot;ly&quot;:54,&quot;mx&quot;:174,&quot;my&quot;:56},{&quot;lx&quot;:171,&quot;ly&quot;:50,&quot;mx&quot;:173,&quot;my&quot;:54},{&quot;lx&quot;:169,&quot;ly&quot;:50,&quot;mx&quot;:171,&quot;my&quot;:50},{&quot;lx&quot;:168,&quot;ly&quot;:50,&quot;mx&quot;:169,&quot;my&quot;:50},{&quot;lx&quot;:166,&quot;ly&quot;:50,&quot;mx&quot;:168,&quot;my&quot;:50},{&quot;lx&quot;:162,&quot;ly&quot;:52,&quot;mx&quot;:166,&quot;my&quot;:50},{&quot;lx&quot;:159,&quot;ly&quot;:58,&quot;mx&quot;:162,&quot;my&quot;:52},{&quot;lx&quot;:154,&quot;ly&quot;:69,&quot;mx&quot;:159,&quot;my&quot;:58},{&quot;lx&quot;:152,&quot;ly&quot;:80,&quot;mx&quot;:154,&quot;my&quot;:69},{&quot;lx&quot;:152,&quot;ly&quot;:85,&quot;mx&quot;:152,&quot;my&quot;:80},{&quot;lx&quot;:154,&quot;ly&quot;:90,&quot;mx&quot;:152,&quot;my&quot;:85},{&quot;lx&quot;:156,&quot;ly&quot;:92,&quot;mx&quot;:154,&quot;my&quot;:90},{&quot;lx&quot;:158,&quot;ly&quot;:92,&quot;mx&quot;:156,&quot;my&quot;:92},{&quot;lx&quot;:164,&quot;ly&quot;:92,&quot;mx&quot;:158,&quot;my&quot;:92},{&quot;lx&quot;:166,&quot;ly&quot;:90,&quot;mx&quot;:164,&quot;my&quot;:92},{&quot;lx&quot;:168,&quot;ly&quot;:88,&quot;mx&quot;:166,&quot;my&quot;:90},{&quot;lx&quot;:170,&quot;ly&quot;:84,&quot;mx&quot;:168,&quot;my&quot;:88},{&quot;lx&quot;:171,&quot;ly&quot;:82,&quot;mx&quot;:170,&quot;my&quot;:84},{&quot;lx&quot;:171,&quot;ly&quot;:81,&quot;mx&quot;:171,&quot;my&quot;:82},{&quot;lx&quot;:171,&quot;ly&quot;:83,&quot;mx&quot;:171,&quot;my&quot;:81},{&quot;lx&quot;:171,&quot;ly&quot;:85,&quot;mx&quot;:171,&quot;my&quot;:83},{&quot;lx&quot;:172,&quot;ly&quot;:85,&quot;mx&quot;:171,&quot;my&quot;:85},{&quot;lx&quot;:174,&quot;ly&quot;:85,&quot;mx&quot;:172,&quot;my&quot;:85},{&quot;lx&quot;:176,&quot;ly&quot;:83,&quot;mx&quot;:174,&quot;my&quot;:85},{&quot;lx&quot;:180,&quot;ly&quot;:78,&quot;mx&quot;:176,&quot;my&quot;:83},{&quot;lx&quot;:184,&quot;ly&quot;:74,&quot;mx&quot;:180,&quot;my&quot;:78},{&quot;lx&quot;:185,&quot;ly&quot;:69,&quot;mx&quot;:184,&quot;my&quot;:74},{&quot;lx&quot;:185,&quot;ly&quot;:66,&quot;mx&quot;:185,&quot;my&quot;:69},{&quot;lx&quot;:184,&quot;ly&quot;:67,&quot;mx&quot;:185,&quot;my&quot;:66},{&quot;lx&quot;:182,&quot;ly&quot;:79,&quot;mx&quot;:184,&quot;my&quot;:67},{&quot;lx&quot;:181,&quot;ly&quot;:89,&quot;mx&quot;:182,&quot;my&quot;:79},{&quot;lx&quot;:181,&quot;ly&quot;:100,&quot;mx&quot;:181,&quot;my&quot;:89},{&quot;lx&quot;:181,&quot;ly&quot;:107,&quot;mx&quot;:181,&quot;my&quot;:100},{&quot;lx&quot;:184,&quot;ly&quot;:91,&quot;mx&quot;:184,&quot;my&quot;:90},{&quot;lx&quot;:187,&quot;ly&quot;:73,&quot;mx&quot;:184,&quot;my&quot;:91},{&quot;lx&quot;:190,&quot;ly&quot;:55,&quot;mx&quot;:187,&quot;my&quot;:73},{&quot;lx&quot;:193,&quot;ly&quot;:39,&quot;mx&quot;:190,&quot;my&quot;:55},{&quot;lx&quot;:194,&quot;ly&quot;:34,&quot;mx&quot;:193,&quot;my&quot;:39},{&quot;lx&quot;:194,&quot;ly&quot;:41,&quot;mx&quot;:194,&quot;my&quot;:34},{&quot;lx&quot;:194,&quot;ly&quot;:63,&quot;mx&quot;:194,&quot;my&quot;:41},{&quot;lx&quot;:189,&quot;ly&quot;:91,&quot;mx&quot;:194,&quot;my&quot;:63},{&quot;lx&quot;:185,&quot;ly&quot;:115,&quot;mx&quot;:189,&quot;my&quot;:91},{&quot;lx&quot;:194,&quot;ly&quot;:95,&quot;mx&quot;:194,&quot;my&quot;:94},{&quot;lx&quot;:201,&quot;ly&quot;:75,&quot;mx&quot;:194,&quot;my&quot;:95},{&quot;lx&quot;:207,&quot;ly&quot;:56,&quot;mx&quot;:201,&quot;my&quot;:75},{&quot;lx&quot;:208,&quot;ly&quot;:48,&quot;mx&quot;:207,&quot;my&quot;:56},{&quot;lx&quot;:209,&quot;ly&quot;:48,&quot;mx&quot;:208,&quot;my&quot;:48},{&quot;lx&quot;:210,&quot;ly&quot;:47,&quot;mx&quot;:209,&quot;my&quot;:48},{&quot;lx&quot;:215,&quot;ly&quot;:44,&quot;mx&quot;:210,&quot;my&quot;:47},{&quot;lx&quot;:225,&quot;ly&quot;:37,&quot;mx&quot;:215,&quot;my&quot;:44},{&quot;lx&quot;:235,&quot;ly&quot;:31,&quot;mx&quot;:225,&quot;my&quot;:37}]">
+              </div>
+
+            </form></div></td>
+          </tr>
+          <tr valign="bottom">
+            <td><div>Jasmine Cianflone, This Moment Events</div></td>
+            <td><div>Apr 25, 2015</div></td>
+          </tr>
+
+          <tr valign="bottom" class="trSign">
+            <td><div class="sign">Joane Jasmin</div></td>
+            <td><div class="sign"> <form id="552db830c7cd77a7e000003a">
+
+              <div class="sig sigWrapper">
+                <div class="typed" style="display: none;"></div>
+                <canvas class="pad" height="100%"></canvas>
+                <input type="hidden" name="output" class="output" value="[{&quot;lx&quot;:28,&quot;ly&quot;:75,&quot;mx&quot;:28,&quot;my&quot;:74},{&quot;lx&quot;:28,&quot;ly&quot;:73,&quot;mx&quot;:28,&quot;my&quot;:75},{&quot;lx&quot;:26,&quot;ly&quot;:73,&quot;mx&quot;:28,&quot;my&quot;:73},{&quot;lx&quot;:24,&quot;ly&quot;:73,&quot;mx&quot;:26,&quot;my&quot;:73},{&quot;lx&quot;:21,&quot;ly&quot;:72,&quot;mx&quot;:24,&quot;my&quot;:73},{&quot;lx&quot;:19,&quot;ly&quot;:71,&quot;mx&quot;:21,&quot;my&quot;:72},{&quot;lx&quot;:15,&quot;ly&quot;:71,&quot;mx&quot;:19,&quot;my&quot;:71},{&quot;lx&quot;:13,&quot;ly&quot;:70,&quot;mx&quot;:15,&quot;my&quot;:71},{&quot;lx&quot;:11,&quot;ly&quot;:70,&quot;mx&quot;:13,&quot;my&quot;:70},{&quot;lx&quot;:9,&quot;ly&quot;:68,&quot;mx&quot;:11,&quot;my&quot;:70},{&quot;lx&quot;:8,&quot;ly&quot;:67,&quot;mx&quot;:9,&quot;my&quot;:68},{&quot;lx&quot;:6,&quot;ly&quot;:66,&quot;mx&quot;:8,&quot;my&quot;:67},{&quot;lx&quot;:6,&quot;ly&quot;:65,&quot;mx&quot;:6,&quot;my&quot;:66},{&quot;lx&quot;:5,&quot;ly&quot;:64,&quot;mx&quot;:6,&quot;my&quot;:65},{&quot;lx&quot;:4,&quot;ly&quot;:63,&quot;mx&quot;:5,&quot;my&quot;:64},{&quot;lx&quot;:4,&quot;ly&quot;:62,&quot;mx&quot;:4,&quot;my&quot;:63},{&quot;lx&quot;:3,&quot;ly&quot;:60,&quot;mx&quot;:4,&quot;my&quot;:62},{&quot;lx&quot;:2,&quot;ly&quot;:59,&quot;mx&quot;:3,&quot;my&quot;:60},{&quot;lx&quot;:1,&quot;ly&quot;:56,&quot;mx&quot;:2,&quot;my&quot;:59},{&quot;lx&quot;:1,&quot;ly&quot;:54,&quot;mx&quot;:1,&quot;my&quot;:56},{&quot;lx&quot;:1,&quot;ly&quot;:51,&quot;mx&quot;:1,&quot;my&quot;:54},{&quot;lx&quot;:0,&quot;ly&quot;:49,&quot;mx&quot;:1,&quot;my&quot;:51},{&quot;lx&quot;:0,&quot;ly&quot;:47,&quot;mx&quot;:0,&quot;my&quot;:49},{&quot;lx&quot;:0,&quot;ly&quot;:44,&quot;mx&quot;:0,&quot;my&quot;:47},{&quot;lx&quot;:0,&quot;ly&quot;:43,&quot;mx&quot;:0,&quot;my&quot;:44},{&quot;lx&quot;:0,&quot;ly&quot;:42,&quot;mx&quot;:0,&quot;my&quot;:43},{&quot;lx&quot;:0,&quot;ly&quot;:41,&quot;mx&quot;:0,&quot;my&quot;:42},{&quot;lx&quot;:0,&quot;ly&quot;:40,&quot;mx&quot;:0,&quot;my&quot;:41},{&quot;lx&quot;:1,&quot;ly&quot;:39,&quot;mx&quot;:0,&quot;my&quot;:40},{&quot;lx&quot;:2,&quot;ly&quot;:38,&quot;mx&quot;:1,&quot;my&quot;:39},{&quot;lx&quot;:4,&quot;ly&quot;:36,&quot;mx&quot;:2,&quot;my&quot;:38},{&quot;lx&quot;:5,&quot;ly&quot;:36,&quot;mx&quot;:4,&quot;my&quot;:36},{&quot;lx&quot;:5,&quot;ly&quot;:35,&quot;mx&quot;:5,&quot;my&quot;:36},{&quot;lx&quot;:7,&quot;ly&quot;:35,&quot;mx&quot;:5,&quot;my&quot;:35},{&quot;lx&quot;:8,&quot;ly&quot;:35,&quot;mx&quot;:7,&quot;my&quot;:35},{&quot;lx&quot;:9,&quot;ly&quot;:35,&quot;mx&quot;:8,&quot;my&quot;:35},{&quot;lx&quot;:10,&quot;ly&quot;:35,&quot;mx&quot;:9,&quot;my&quot;:35},{&quot;lx&quot;:12,&quot;ly&quot;:35,&quot;mx&quot;:10,&quot;my&quot;:35},{&quot;lx&quot;:13,&quot;ly&quot;:35,&quot;mx&quot;:12,&quot;my&quot;:35},{&quot;lx&quot;:14,&quot;ly&quot;:35,&quot;mx&quot;:13,&quot;my&quot;:35},{&quot;lx&quot;:15,&quot;ly&quot;:39,&quot;mx&quot;:14,&quot;my&quot;:35},{&quot;lx&quot;:17,&quot;ly&quot;:42,&quot;mx&quot;:15,&quot;my&quot;:39},{&quot;lx&quot;:17,&quot;ly&quot;:44,&quot;mx&quot;:17,&quot;my&quot;:42},{&quot;lx&quot;:18,&quot;ly&quot;:47,&quot;mx&quot;:17,&quot;my&quot;:44},{&quot;lx&quot;:21,&quot;ly&quot;:50,&quot;mx&quot;:18,&quot;my&quot;:47},{&quot;lx&quot;:21,&quot;ly&quot;:54,&quot;mx&quot;:21,&quot;my&quot;:50},{&quot;lx&quot;:22,&quot;ly&quot;:56,&quot;mx&quot;:21,&quot;my&quot;:54},{&quot;lx&quot;:23,&quot;ly&quot;:59,&quot;mx&quot;:22,&quot;my&quot;:56},{&quot;lx&quot;:24,&quot;ly&quot;:63,&quot;mx&quot;:23,&quot;my&quot;:59},{&quot;lx&quot;:24,&quot;ly&quot;:66,&quot;mx&quot;:24,&quot;my&quot;:63},{&quot;lx&quot;:24,&quot;ly&quot;:68,&quot;mx&quot;:24,&quot;my&quot;:66},{&quot;lx&quot;:25,&quot;ly&quot;:71,&quot;mx&quot;:24,&quot;my&quot;:68},{&quot;lx&quot;:25,&quot;ly&quot;:72,&quot;mx&quot;:25,&quot;my&quot;:71},{&quot;lx&quot;:26,&quot;ly&quot;:75,&quot;mx&quot;:25,&quot;my&quot;:72},{&quot;lx&quot;:26,&quot;ly&quot;:78,&quot;mx&quot;:26,&quot;my&quot;:75},{&quot;lx&quot;:28,&quot;ly&quot;:80,&quot;mx&quot;:26,&quot;my&quot;:78},{&quot;lx&quot;:28,&quot;ly&quot;:83,&quot;mx&quot;:28,&quot;my&quot;:80},{&quot;lx&quot;:28,&quot;ly&quot;:85,&quot;mx&quot;:28,&quot;my&quot;:83},{&quot;lx&quot;:28,&quot;ly&quot;:88,&quot;mx&quot;:28,&quot;my&quot;:85},{&quot;lx&quot;:28,&quot;ly&quot;:91,&quot;mx&quot;:28,&quot;my&quot;:88},{&quot;lx&quot;:28,&quot;ly&quot;:93,&quot;mx&quot;:28,&quot;my&quot;:91},{&quot;lx&quot;:28,&quot;ly&quot;:95,&quot;mx&quot;:28,&quot;my&quot;:93},{&quot;lx&quot;:28,&quot;ly&quot;:97,&quot;mx&quot;:28,&quot;my&quot;:95},{&quot;lx&quot;:28,&quot;ly&quot;:99,&quot;mx&quot;:28,&quot;my&quot;:97},{&quot;lx&quot;:28,&quot;ly&quot;:103,&quot;mx&quot;:28,&quot;my&quot;:99},{&quot;lx&quot;:18,&quot;ly&quot;:100,&quot;mx&quot;:18,&quot;my&quot;:99},{&quot;lx&quot;:21,&quot;ly&quot;:98,&quot;mx&quot;:18,&quot;my&quot;:100},{&quot;lx&quot;:25,&quot;ly&quot;:96,&quot;mx&quot;:21,&quot;my&quot;:98},{&quot;lx&quot;:27,&quot;ly&quot;:95,&quot;mx&quot;:25,&quot;my&quot;:96},{&quot;lx&quot;:30,&quot;ly&quot;:93,&quot;mx&quot;:27,&quot;my&quot;:95},{&quot;lx&quot;:32,&quot;ly&quot;:92,&quot;mx&quot;:30,&quot;my&quot;:93},{&quot;lx&quot;:33,&quot;ly&quot;:91,&quot;mx&quot;:32,&quot;my&quot;:92},{&quot;lx&quot;:35,&quot;ly&quot;:91,&quot;mx&quot;:33,&quot;my&quot;:91},{&quot;lx&quot;:36,&quot;ly&quot;:90,&quot;mx&quot;:35,&quot;my&quot;:91},{&quot;lx&quot;:37,&quot;ly&quot;:89,&quot;mx&quot;:36,&quot;my&quot;:90},{&quot;lx&quot;:37,&quot;ly&quot;:88,&quot;mx&quot;:37,&quot;my&quot;:89},{&quot;lx&quot;:38,&quot;ly&quot;:87,&quot;mx&quot;:37,&quot;my&quot;:88},{&quot;lx&quot;:40,&quot;ly&quot;:87,&quot;mx&quot;:38,&quot;my&quot;:87},{&quot;lx&quot;:41,&quot;ly&quot;:85,&quot;mx&quot;:40,&quot;my&quot;:87},{&quot;lx&quot;:42,&quot;ly&quot;:85,&quot;mx&quot;:41,&quot;my&quot;:85},{&quot;lx&quot;:43,&quot;ly&quot;:84,&quot;mx&quot;:42,&quot;my&quot;:85},{&quot;lx&quot;:45,&quot;ly&quot;:83,&quot;mx&quot;:43,&quot;my&quot;:84},{&quot;lx&quot;:45,&quot;ly&quot;:82,&quot;mx&quot;:45,&quot;my&quot;:83},{&quot;lx&quot;:47,&quot;ly&quot;:80,&quot;mx&quot;:45,&quot;my&quot;:82},{&quot;lx&quot;:48,&quot;ly&quot;:79,&quot;mx&quot;:47,&quot;my&quot;:80},{&quot;lx&quot;:49,&quot;ly&quot;:79,&quot;mx&quot;:48,&quot;my&quot;:79},{&quot;lx&quot;:49,&quot;ly&quot;:78,&quot;mx&quot;:49,&quot;my&quot;:79},{&quot;lx&quot;:50,&quot;ly&quot;:77,&quot;mx&quot;:49,&quot;my&quot;:78},{&quot;lx&quot;:50,&quot;ly&quot;:76,&quot;mx&quot;:50,&quot;my&quot;:77},{&quot;lx&quot;:50,&quot;ly&quot;:75,&quot;mx&quot;:50,&quot;my&quot;:76},{&quot;lx&quot;:50,&quot;ly&quot;:74,&quot;mx&quot;:50,&quot;my&quot;:75},{&quot;lx&quot;:50,&quot;ly&quot;:73,&quot;mx&quot;:50,&quot;my&quot;:74},{&quot;lx&quot;:50,&quot;ly&quot;:72,&quot;mx&quot;:50,&quot;my&quot;:73},{&quot;lx&quot;:49,&quot;ly&quot;:72,&quot;mx&quot;:50,&quot;my&quot;:72},{&quot;lx&quot;:48,&quot;ly&quot;:72,&quot;mx&quot;:49,&quot;my&quot;:72},{&quot;lx&quot;:47,&quot;ly&quot;:73,&quot;mx&quot;:48,&quot;my&quot;:72},{&quot;lx&quot;:46,&quot;ly&quot;:74,&quot;mx&quot;:47,&quot;my&quot;:73},{&quot;lx&quot;:46,&quot;ly&quot;:75,&quot;mx&quot;:46,&quot;my&quot;:74},{&quot;lx&quot;:46,&quot;ly&quot;:76,&quot;mx&quot;:46,&quot;my&quot;:75},{&quot;lx&quot;:46,&quot;ly&quot;:77,&quot;mx&quot;:46,&quot;my&quot;:76},{&quot;lx&quot;:45,&quot;ly&quot;:78,&quot;mx&quot;:46,&quot;my&quot;:77},{&quot;lx&quot;:45,&quot;ly&quot;:79,&quot;mx&quot;:45,&quot;my&quot;:78},{&quot;lx&quot;:45,&quot;ly&quot;:80,&quot;mx&quot;:45,&quot;my&quot;:79},{&quot;lx&quot;:45,&quot;ly&quot;:81,&quot;mx&quot;:45,&quot;my&quot;:80},{&quot;lx&quot;:45,&quot;ly&quot;:83,&quot;mx&quot;:45,&quot;my&quot;:81},{&quot;lx&quot;:45,&quot;ly&quot;:84,&quot;mx&quot;:45,&quot;my&quot;:83},{&quot;lx&quot;:45,&quot;ly&quot;:85,&quot;mx&quot;:45,&quot;my&quot;:84},{&quot;lx&quot;:45,&quot;ly&quot;:87,&quot;mx&quot;:45,&quot;my&quot;:85},{&quot;lx&quot;:45,&quot;ly&quot;:88,&quot;mx&quot;:45,&quot;my&quot;:87},{&quot;lx&quot;:45,&quot;ly&quot;:89,&quot;mx&quot;:45,&quot;my&quot;:88},{&quot;lx&quot;:46,&quot;ly&quot;:89,&quot;mx&quot;:45,&quot;my&quot;:89},{&quot;lx&quot;:46,&quot;ly&quot;:90,&quot;mx&quot;:46,&quot;my&quot;:89},{&quot;lx&quot;:48,&quot;ly&quot;:90,&quot;mx&quot;:46,&quot;my&quot;:90},{&quot;lx&quot;:49,&quot;ly&quot;:91,&quot;mx&quot;:48,&quot;my&quot;:90},{&quot;lx&quot;:50,&quot;ly&quot;:91,&quot;mx&quot;:49,&quot;my&quot;:91},{&quot;lx&quot;:51,&quot;ly&quot;:91,&quot;mx&quot;:50,&quot;my&quot;:91},{&quot;lx&quot;:53,&quot;ly&quot;:91,&quot;mx&quot;:51,&quot;my&quot;:91},{&quot;lx&quot;:55,&quot;ly&quot;:91,&quot;mx&quot;:53,&quot;my&quot;:91},{&quot;lx&quot;:56,&quot;ly&quot;:91,&quot;mx&quot;:55,&quot;my&quot;:91},{&quot;lx&quot;:57,&quot;ly&quot;:89,&quot;mx&quot;:56,&quot;my&quot;:91},{&quot;lx&quot;:58,&quot;ly&quot;:87,&quot;mx&quot;:57,&quot;my&quot;:89},{&quot;lx&quot;:60,&quot;ly&quot;:87,&quot;mx&quot;:58,&quot;my&quot;:87},{&quot;lx&quot;:61,&quot;ly&quot;:86,&quot;mx&quot;:60,&quot;my&quot;:87},{&quot;lx&quot;:61,&quot;ly&quot;:85,&quot;mx&quot;:61,&quot;my&quot;:86},{&quot;lx&quot;:61,&quot;ly&quot;:84,&quot;mx&quot;:61,&quot;my&quot;:85},{&quot;lx&quot;:61,&quot;ly&quot;:83,&quot;mx&quot;:61,&quot;my&quot;:84},{&quot;lx&quot;:61,&quot;ly&quot;:80,&quot;mx&quot;:61,&quot;my&quot;:83},{&quot;lx&quot;:61,&quot;ly&quot;:79,&quot;mx&quot;:61,&quot;my&quot;:80},{&quot;lx&quot;:61,&quot;ly&quot;:77,&quot;mx&quot;:61,&quot;my&quot;:79},{&quot;lx&quot;:61,&quot;ly&quot;:75,&quot;mx&quot;:61,&quot;my&quot;:77},{&quot;lx&quot;:61,&quot;ly&quot;:73,&quot;mx&quot;:61,&quot;my&quot;:75},{&quot;lx&quot;:61,&quot;ly&quot;:71,&quot;mx&quot;:61,&quot;my&quot;:73},{&quot;lx&quot;:60,&quot;ly&quot;:69,&quot;mx&quot;:61,&quot;my&quot;:71},{&quot;lx&quot;:59,&quot;ly&quot;:69,&quot;mx&quot;:60,&quot;my&quot;:69},{&quot;lx&quot;:59,&quot;ly&quot;:67,&quot;mx&quot;:59,&quot;my&quot;:69},{&quot;lx&quot;:58,&quot;ly&quot;:65,&quot;mx&quot;:59,&quot;my&quot;:67},{&quot;lx&quot;:57,&quot;ly&quot;:63,&quot;mx&quot;:58,&quot;my&quot;:65},{&quot;lx&quot;:56,&quot;ly&quot;:63,&quot;mx&quot;:57,&quot;my&quot;:63},{&quot;lx&quot;:55,&quot;ly&quot;:63,&quot;mx&quot;:56,&quot;my&quot;:63},{&quot;lx&quot;:53,&quot;ly&quot;:63,&quot;mx&quot;:55,&quot;my&quot;:63},{&quot;lx&quot;:53,&quot;ly&quot;:64,&quot;mx&quot;:53,&quot;my&quot;:63},{&quot;lx&quot;:53,&quot;ly&quot;:65,&quot;mx&quot;:53,&quot;my&quot;:64},{&quot;lx&quot;:53,&quot;ly&quot;:66,&quot;mx&quot;:53,&quot;my&quot;:65},{&quot;lx&quot;:53,&quot;ly&quot;:67,&quot;mx&quot;:53,&quot;my&quot;:66},{&quot;lx&quot;:53,&quot;ly&quot;:68,&quot;mx&quot;:53,&quot;my&quot;:67},{&quot;lx&quot;:54,&quot;ly&quot;:69,&quot;mx&quot;:53,&quot;my&quot;:68},{&quot;lx&quot;:55,&quot;ly&quot;:69,&quot;mx&quot;:54,&quot;my&quot;:69},{&quot;lx&quot;:57,&quot;ly&quot;:70,&quot;mx&quot;:55,&quot;my&quot;:69},{&quot;lx&quot;:57,&quot;ly&quot;:71,&quot;mx&quot;:57,&quot;my&quot;:70},{&quot;lx&quot;:58,&quot;ly&quot;:71,&quot;mx&quot;:57,&quot;my&quot;:71},{&quot;lx&quot;:59,&quot;ly&quot;:71,&quot;mx&quot;:58,&quot;my&quot;:71},{&quot;lx&quot;:60,&quot;ly&quot;:71,&quot;mx&quot;:59,&quot;my&quot;:71},{&quot;lx&quot;:61,&quot;ly&quot;:71,&quot;mx&quot;:60,&quot;my&quot;:71},{&quot;lx&quot;:62,&quot;ly&quot;:71,&quot;mx&quot;:61,&quot;my&quot;:71},{&quot;lx&quot;:63,&quot;ly&quot;:71,&quot;mx&quot;:62,&quot;my&quot;:71},{&quot;lx&quot;:64,&quot;ly&quot;:71,&quot;mx&quot;:63,&quot;my&quot;:71},{&quot;lx&quot;:65,&quot;ly&quot;:71,&quot;mx&quot;:64,&quot;my&quot;:71},{&quot;lx&quot;:66,&quot;ly&quot;:71,&quot;mx&quot;:65,&quot;my&quot;:71},{&quot;lx&quot;:67,&quot;ly&quot;:71,&quot;mx&quot;:66,&quot;my&quot;:71},{&quot;lx&quot;:68,&quot;ly&quot;:71,&quot;mx&quot;:67,&quot;my&quot;:71},{&quot;lx&quot;:69,&quot;ly&quot;:71,&quot;mx&quot;:68,&quot;my&quot;:71},{&quot;lx&quot;:70,&quot;ly&quot;:71,&quot;mx&quot;:69,&quot;my&quot;:71},{&quot;lx&quot;:71,&quot;ly&quot;:71,&quot;mx&quot;:70,&quot;my&quot;:71},{&quot;lx&quot;:71,&quot;ly&quot;:72,&quot;mx&quot;:71,&quot;my&quot;:71},{&quot;lx&quot;:71,&quot;ly&quot;:74,&quot;mx&quot;:71,&quot;my&quot;:72},{&quot;lx&quot;:71,&quot;ly&quot;:75,&quot;mx&quot;:71,&quot;my&quot;:74},{&quot;lx&quot;:71,&quot;ly&quot;:77,&quot;mx&quot;:71,&quot;my&quot;:75},{&quot;lx&quot;:71,&quot;ly&quot;:79,&quot;mx&quot;:71,&quot;my&quot;:77},{&quot;lx&quot;:71,&quot;ly&quot;:82,&quot;mx&quot;:71,&quot;my&quot;:79},{&quot;lx&quot;:71,&quot;ly&quot;:83,&quot;mx&quot;:71,&quot;my&quot;:82},{&quot;lx&quot;:71,&quot;ly&quot;:85,&quot;mx&quot;:71,&quot;my&quot;:83},{&quot;lx&quot;:72,&quot;ly&quot;:86,&quot;mx&quot;:71,&quot;my&quot;:85},{&quot;lx&quot;:72,&quot;ly&quot;:87,&quot;mx&quot;:72,&quot;my&quot;:86},{&quot;lx&quot;:72,&quot;ly&quot;:88,&quot;mx&quot;:72,&quot;my&quot;:87},{&quot;lx&quot;:73,&quot;ly&quot;:88,&quot;mx&quot;:72,&quot;my&quot;:88},{&quot;lx&quot;:73,&quot;ly&quot;:89,&quot;mx&quot;:73,&quot;my&quot;:88},{&quot;lx&quot;:74,&quot;ly&quot;:89,&quot;mx&quot;:73,&quot;my&quot;:89},{&quot;lx&quot;:75,&quot;ly&quot;:89,&quot;mx&quot;:74,&quot;my&quot;:89},{&quot;lx&quot;:76,&quot;ly&quot;:91,&quot;mx&quot;:75,&quot;my&quot;:89},{&quot;lx&quot;:77,&quot;ly&quot;:91,&quot;mx&quot;:76,&quot;my&quot;:91},{&quot;lx&quot;:79,&quot;ly&quot;:91,&quot;mx&quot;:77,&quot;my&quot;:91},{&quot;lx&quot;:80,&quot;ly&quot;:91,&quot;mx&quot;:79,&quot;my&quot;:91},{&quot;lx&quot;:81,&quot;ly&quot;:91,&quot;mx&quot;:80,&quot;my&quot;:91},{&quot;lx&quot;:81,&quot;ly&quot;:90,&quot;mx&quot;:81,&quot;my&quot;:91},{&quot;lx&quot;:82,&quot;ly&quot;:90,&quot;mx&quot;:81,&quot;my&quot;:90},{&quot;lx&quot;:83,&quot;ly&quot;:88,&quot;mx&quot;:82,&quot;my&quot;:90},{&quot;lx&quot;:85,&quot;ly&quot;:86,&quot;mx&quot;:83,&quot;my&quot;:88},{&quot;lx&quot;:85,&quot;ly&quot;:85,&quot;mx&quot;:85,&quot;my&quot;:86},{&quot;lx&quot;:85,&quot;ly&quot;:84,&quot;mx&quot;:85,&quot;my&quot;:85},{&quot;lx&quot;:85,&quot;ly&quot;:83,&quot;mx&quot;:85,&quot;my&quot;:84},{&quot;lx&quot;:85,&quot;ly&quot;:82,&quot;mx&quot;:85,&quot;my&quot;:83},{&quot;lx&quot;:85,&quot;ly&quot;:81,&quot;mx&quot;:85,&quot;my&quot;:82},{&quot;lx&quot;:85,&quot;ly&quot;:79,&quot;mx&quot;:85,&quot;my&quot;:81},{&quot;lx&quot;:85,&quot;ly&quot;:77,&quot;mx&quot;:85,&quot;my&quot;:79},{&quot;lx&quot;:85,&quot;ly&quot;:75,&quot;mx&quot;:85,&quot;my&quot;:77},{&quot;lx&quot;:85,&quot;ly&quot;:74,&quot;mx&quot;:85,&quot;my&quot;:75},{&quot;lx&quot;:84,&quot;ly&quot;:74,&quot;mx&quot;:85,&quot;my&quot;:74},{&quot;lx&quot;:83,&quot;ly&quot;:72,&quot;mx&quot;:84,&quot;my&quot;:74},{&quot;lx&quot;:83,&quot;ly&quot;:70,&quot;mx&quot;:83,&quot;my&quot;:72},{&quot;lx&quot;:82,&quot;ly&quot;:70,&quot;mx&quot;:83,&quot;my&quot;:70},{&quot;lx&quot;:82,&quot;ly&quot;:69,&quot;mx&quot;:82,&quot;my&quot;:70},{&quot;lx&quot;:81,&quot;ly&quot;:69,&quot;mx&quot;:82,&quot;my&quot;:69},{&quot;lx&quot;:80,&quot;ly&quot;:68,&quot;mx&quot;:81,&quot;my&quot;:69},{&quot;lx&quot;:79,&quot;ly&quot;:68,&quot;mx&quot;:80,&quot;my&quot;:68},{&quot;lx&quot;:78,&quot;ly&quot;:68,&quot;mx&quot;:79,&quot;my&quot;:68},{&quot;lx&quot;:76,&quot;ly&quot;:71,&quot;mx&quot;:78,&quot;my&quot;:68},{&quot;lx&quot;:75,&quot;ly&quot;:71,&quot;mx&quot;:76,&quot;my&quot;:71},{&quot;lx&quot;:73,&quot;ly&quot;:73,&quot;mx&quot;:75,&quot;my&quot;:71},{&quot;lx&quot;:73,&quot;ly&quot;:74,&quot;mx&quot;:73,&quot;my&quot;:73},{&quot;lx&quot;:72,&quot;ly&quot;:75,&quot;mx&quot;:73,&quot;my&quot;:74},{&quot;lx&quot;:72,&quot;ly&quot;:76,&quot;mx&quot;:72,&quot;my&quot;:75},{&quot;lx&quot;:70,&quot;ly&quot;:79,&quot;mx&quot;:72,&quot;my&quot;:76},{&quot;lx&quot;:70,&quot;ly&quot;:80,&quot;mx&quot;:70,&quot;my&quot;:79},{&quot;lx&quot;:70,&quot;ly&quot;:82,&quot;mx&quot;:70,&quot;my&quot;:80},{&quot;lx&quot;:70,&quot;ly&quot;:83,&quot;mx&quot;:70,&quot;my&quot;:82},{&quot;lx&quot;:70,&quot;ly&quot;:84,&quot;mx&quot;:70,&quot;my&quot;:83},{&quot;lx&quot;:70,&quot;ly&quot;:85,&quot;mx&quot;:70,&quot;my&quot;:84},{&quot;lx&quot;:70,&quot;ly&quot;:86,&quot;mx&quot;:70,&quot;my&quot;:85},{&quot;lx&quot;:70,&quot;ly&quot;:87,&quot;mx&quot;:70,&quot;my&quot;:86},{&quot;lx&quot;:70,&quot;ly&quot;:90,&quot;mx&quot;:70,&quot;my&quot;:87},{&quot;lx&quot;:70,&quot;ly&quot;:91,&quot;mx&quot;:70,&quot;my&quot;:90},{&quot;lx&quot;:70,&quot;ly&quot;:92,&quot;mx&quot;:70,&quot;my&quot;:91},{&quot;lx&quot;:70,&quot;ly&quot;:94,&quot;mx&quot;:70,&quot;my&quot;:92},{&quot;lx&quot;:71,&quot;ly&quot;:95,&quot;mx&quot;:70,&quot;my&quot;:94},{&quot;lx&quot;:72,&quot;ly&quot;:95,&quot;mx&quot;:71,&quot;my&quot;:95},{&quot;lx&quot;:73,&quot;ly&quot;:95,&quot;mx&quot;:72,&quot;my&quot;:95},{&quot;lx&quot;:74,&quot;ly&quot;:95,&quot;mx&quot;:73,&quot;my&quot;:95},{&quot;lx&quot;:75,&quot;ly&quot;:95,&quot;mx&quot;:74,&quot;my&quot;:95},{&quot;lx&quot;:76,&quot;ly&quot;:95,&quot;mx&quot;:75,&quot;my&quot;:95},{&quot;lx&quot;:77,&quot;ly&quot;:95,&quot;mx&quot;:76,&quot;my&quot;:95},{&quot;lx&quot;:78,&quot;ly&quot;:94,&quot;mx&quot;:77,&quot;my&quot;:95},{&quot;lx&quot;:79,&quot;ly&quot;:94,&quot;mx&quot;:78,&quot;my&quot;:94},{&quot;lx&quot;:80,&quot;ly&quot;:93,&quot;mx&quot;:79,&quot;my&quot;:94},{&quot;lx&quot;:80,&quot;ly&quot;:92,&quot;mx&quot;:80,&quot;my&quot;:93},{&quot;lx&quot;:80,&quot;ly&quot;:90,&quot;mx&quot;:80,&quot;my&quot;:92},{&quot;lx&quot;:80,&quot;ly&quot;:88,&quot;mx&quot;:80,&quot;my&quot;:90},{&quot;lx&quot;:80,&quot;ly&quot;:87,&quot;mx&quot;:80,&quot;my&quot;:88},{&quot;lx&quot;:80,&quot;ly&quot;:86,&quot;mx&quot;:80,&quot;my&quot;:87},{&quot;lx&quot;:80,&quot;ly&quot;:85,&quot;mx&quot;:80,&quot;my&quot;:86},{&quot;lx&quot;:80,&quot;ly&quot;:83,&quot;mx&quot;:80,&quot;my&quot;:85},{&quot;lx&quot;:80,&quot;ly&quot;:82,&quot;mx&quot;:80,&quot;my&quot;:83},{&quot;lx&quot;:80,&quot;ly&quot;:81,&quot;mx&quot;:80,&quot;my&quot;:82},{&quot;lx&quot;:80,&quot;ly&quot;:79,&quot;mx&quot;:80,&quot;my&quot;:81},{&quot;lx&quot;:81,&quot;ly&quot;:79,&quot;mx&quot;:80,&quot;my&quot;:79},{&quot;lx&quot;:81,&quot;ly&quot;:83,&quot;mx&quot;:81,&quot;my&quot;:79},{&quot;lx&quot;:83,&quot;ly&quot;:84,&quot;mx&quot;:81,&quot;my&quot;:83},{&quot;lx&quot;:83,&quot;ly&quot;:85,&quot;mx&quot;:83,&quot;my&quot;:84},{&quot;lx&quot;:85,&quot;ly&quot;:86,&quot;mx&quot;:83,&quot;my&quot;:85},{&quot;lx&quot;:85,&quot;ly&quot;:87,&quot;mx&quot;:85,&quot;my&quot;:86},{&quot;lx&quot;:86,&quot;ly&quot;:87,&quot;mx&quot;:85,&quot;my&quot;:87},{&quot;lx&quot;:87,&quot;ly&quot;:88,&quot;mx&quot;:86,&quot;my&quot;:87},{&quot;lx&quot;:88,&quot;ly&quot;:88,&quot;mx&quot;:87,&quot;my&quot;:88},{&quot;lx&quot;:89,&quot;ly&quot;:88,&quot;mx&quot;:88,&quot;my&quot;:88},{&quot;lx&quot;:90,&quot;ly&quot;:88,&quot;mx&quot;:89,&quot;my&quot;:88},{&quot;lx&quot;:91,&quot;ly&quot;:87,&quot;mx&quot;:90,&quot;my&quot;:88},{&quot;lx&quot;:92,&quot;ly&quot;:87,&quot;mx&quot;:91,&quot;my&quot;:87},{&quot;lx&quot;:92,&quot;ly&quot;:86,&quot;mx&quot;:92,&quot;my&quot;:87},{&quot;lx&quot;:92,&quot;ly&quot;:85,&quot;mx&quot;:92,&quot;my&quot;:86},{&quot;lx&quot;:92,&quot;ly&quot;:84,&quot;mx&quot;:92,&quot;my&quot;:85},{&quot;lx&quot;:93,&quot;ly&quot;:83,&quot;mx&quot;:92,&quot;my&quot;:84},{&quot;lx&quot;:93,&quot;ly&quot;:82,&quot;mx&quot;:93,&quot;my&quot;:83},{&quot;lx&quot;:93,&quot;ly&quot;:80,&quot;mx&quot;:93,&quot;my&quot;:82},{&quot;lx&quot;:93,&quot;ly&quot;:79,&quot;mx&quot;:93,&quot;my&quot;:80},{&quot;lx&quot;:93,&quot;ly&quot;:78,&quot;mx&quot;:93,&quot;my&quot;:79},{&quot;lx&quot;:93,&quot;ly&quot;:77,&quot;mx&quot;:93,&quot;my&quot;:78},{&quot;lx&quot;:93,&quot;ly&quot;:75,&quot;mx&quot;:93,&quot;my&quot;:77},{&quot;lx&quot;:94,&quot;ly&quot;:74,&quot;mx&quot;:93,&quot;my&quot;:75},{&quot;lx&quot;:94,&quot;ly&quot;:73,&quot;mx&quot;:94,&quot;my&quot;:74},{&quot;lx&quot;:94,&quot;ly&quot;:72,&quot;mx&quot;:94,&quot;my&quot;:73},{&quot;lx&quot;:94,&quot;ly&quot;:71,&quot;mx&quot;:94,&quot;my&quot;:72},{&quot;lx&quot;:95,&quot;ly&quot;:71,&quot;mx&quot;:94,&quot;my&quot;:71},{&quot;lx&quot;:97,&quot;ly&quot;:71,&quot;mx&quot;:95,&quot;my&quot;:71},{&quot;lx&quot;:97,&quot;ly&quot;:72,&quot;mx&quot;:97,&quot;my&quot;:71},{&quot;lx&quot;:97,&quot;ly&quot;:74,&quot;mx&quot;:97,&quot;my&quot;:72},{&quot;lx&quot;:97,&quot;ly&quot;:75,&quot;mx&quot;:97,&quot;my&quot;:74},{&quot;lx&quot;:97,&quot;ly&quot;:77,&quot;mx&quot;:97,&quot;my&quot;:75},{&quot;lx&quot;:97,&quot;ly&quot;:78,&quot;mx&quot;:97,&quot;my&quot;:77},{&quot;lx&quot;:97,&quot;ly&quot;:79,&quot;mx&quot;:97,&quot;my&quot;:78},{&quot;lx&quot;:97,&quot;ly&quot;:80,&quot;mx&quot;:97,&quot;my&quot;:79},{&quot;lx&quot;:97,&quot;ly&quot;:81,&quot;mx&quot;:97,&quot;my&quot;:80},{&quot;lx&quot;:97,&quot;ly&quot;:82,&quot;mx&quot;:97,&quot;my&quot;:81},{&quot;lx&quot;:97,&quot;ly&quot;:83,&quot;mx&quot;:97,&quot;my&quot;:82},{&quot;lx&quot;:97,&quot;ly&quot;:84,&quot;mx&quot;:97,&quot;my&quot;:83},{&quot;lx&quot;:97,&quot;ly&quot;:85,&quot;mx&quot;:97,&quot;my&quot;:84},{&quot;lx&quot;:97,&quot;ly&quot;:86,&quot;mx&quot;:97,&quot;my&quot;:85},{&quot;lx&quot;:97,&quot;ly&quot;:87,&quot;mx&quot;:97,&quot;my&quot;:86},{&quot;lx&quot;:97,&quot;ly&quot;:89,&quot;mx&quot;:97,&quot;my&quot;:87},{&quot;lx&quot;:97,&quot;ly&quot;:90,&quot;mx&quot;:97,&quot;my&quot;:89},{&quot;lx&quot;:97,&quot;ly&quot;:91,&quot;mx&quot;:97,&quot;my&quot;:90},{&quot;lx&quot;:97,&quot;ly&quot;:92,&quot;mx&quot;:97,&quot;my&quot;:91},{&quot;lx&quot;:97,&quot;ly&quot;:93,&quot;mx&quot;:97,&quot;my&quot;:92},{&quot;lx&quot;:98,&quot;ly&quot;:93,&quot;mx&quot;:97,&quot;my&quot;:93},{&quot;lx&quot;:99,&quot;ly&quot;:93,&quot;mx&quot;:98,&quot;my&quot;:93},{&quot;lx&quot;:99,&quot;ly&quot;:92,&quot;mx&quot;:99,&quot;my&quot;:93},{&quot;lx&quot;:99,&quot;ly&quot;:91,&quot;mx&quot;:99,&quot;my&quot;:92},{&quot;lx&quot;:99,&quot;ly&quot;:90,&quot;mx&quot;:99,&quot;my&quot;:91},{&quot;lx&quot;:99,&quot;ly&quot;:89,&quot;mx&quot;:99,&quot;my&quot;:90},{&quot;lx&quot;:100,&quot;ly&quot;:89,&quot;mx&quot;:99,&quot;my&quot;:89},{&quot;lx&quot;:100,&quot;ly&quot;:87,&quot;mx&quot;:100,&quot;my&quot;:89},{&quot;lx&quot;:100,&quot;ly&quot;:86,&quot;mx&quot;:100,&quot;my&quot;:87},{&quot;lx&quot;:100,&quot;ly&quot;:85,&quot;mx&quot;:100,&quot;my&quot;:86},{&quot;lx&quot;:100,&quot;ly&quot;:84,&quot;mx&quot;:100,&quot;my&quot;:85},{&quot;lx&quot;:100,&quot;ly&quot;:83,&quot;mx&quot;:100,&quot;my&quot;:84},{&quot;lx&quot;:100,&quot;ly&quot;:82,&quot;mx&quot;:100,&quot;my&quot;:83},{&quot;lx&quot;:101,&quot;ly&quot;:81,&quot;mx&quot;:100,&quot;my&quot;:82},{&quot;lx&quot;:101,&quot;ly&quot;:80,&quot;mx&quot;:101,&quot;my&quot;:81},{&quot;lx&quot;:101,&quot;ly&quot;:79,&quot;mx&quot;:101,&quot;my&quot;:80},{&quot;lx&quot;:102,&quot;ly&quot;:79,&quot;mx&quot;:101,&quot;my&quot;:79},{&quot;lx&quot;:103,&quot;ly&quot;:79,&quot;mx&quot;:102,&quot;my&quot;:79},{&quot;lx&quot;:104,&quot;ly&quot;:78,&quot;mx&quot;:103,&quot;my&quot;:79},{&quot;lx&quot;:104,&quot;ly&quot;:77,&quot;mx&quot;:104,&quot;my&quot;:78},{&quot;lx&quot;:105,&quot;ly&quot;:76,&quot;mx&quot;:104,&quot;my&quot;:77},{&quot;lx&quot;:105,&quot;ly&quot;:75,&quot;mx&quot;:105,&quot;my&quot;:76},{&quot;lx&quot;:106,&quot;ly&quot;:75,&quot;mx&quot;:105,&quot;my&quot;:75},{&quot;lx&quot;:106,&quot;ly&quot;:78,&quot;mx&quot;:106,&quot;my&quot;:75},{&quot;lx&quot;:107,&quot;ly&quot;:79,&quot;mx&quot;:106,&quot;my&quot;:78},{&quot;lx&quot;:107,&quot;ly&quot;:80,&quot;mx&quot;:107,&quot;my&quot;:79},{&quot;lx&quot;:107,&quot;ly&quot;:81,&quot;mx&quot;:107,&quot;my&quot;:80},{&quot;lx&quot;:107,&quot;ly&quot;:83,&quot;mx&quot;:107,&quot;my&quot;:81},{&quot;lx&quot;:107,&quot;ly&quot;:84,&quot;mx&quot;:107,&quot;my&quot;:83},{&quot;lx&quot;:107,&quot;ly&quot;:87,&quot;mx&quot;:107,&quot;my&quot;:84},{&quot;lx&quot;:107,&quot;ly&quot;:88,&quot;mx&quot;:107,&quot;my&quot;:87},{&quot;lx&quot;:108,&quot;ly&quot;:90,&quot;mx&quot;:107,&quot;my&quot;:88},{&quot;lx&quot;:109,&quot;ly&quot;:91,&quot;mx&quot;:108,&quot;my&quot;:90},{&quot;lx&quot;:110,&quot;ly&quot;:93,&quot;mx&quot;:109,&quot;my&quot;:91},{&quot;lx&quot;:112,&quot;ly&quot;:94,&quot;mx&quot;:110,&quot;my&quot;:93},{&quot;lx&quot;:113,&quot;ly&quot;:94,&quot;mx&quot;:112,&quot;my&quot;:94},{&quot;lx&quot;:114,&quot;ly&quot;:94,&quot;mx&quot;:113,&quot;my&quot;:94},{&quot;lx&quot;:115,&quot;ly&quot;:94,&quot;mx&quot;:114,&quot;my&quot;:94},{&quot;lx&quot;:116,&quot;ly&quot;:94,&quot;mx&quot;:115,&quot;my&quot;:94},{&quot;lx&quot;:117,&quot;ly&quot;:94,&quot;mx&quot;:116,&quot;my&quot;:94},{&quot;lx&quot;:119,&quot;ly&quot;:92,&quot;mx&quot;:117,&quot;my&quot;:94},{&quot;lx&quot;:120,&quot;ly&quot;:91,&quot;mx&quot;:119,&quot;my&quot;:92},{&quot;lx&quot;:121,&quot;ly&quot;:91,&quot;mx&quot;:120,&quot;my&quot;:91},{&quot;lx&quot;:121,&quot;ly&quot;:89,&quot;mx&quot;:121,&quot;my&quot;:91},{&quot;lx&quot;:122,&quot;ly&quot;:86,&quot;mx&quot;:121,&quot;my&quot;:89},{&quot;lx&quot;:123,&quot;ly&quot;:84,&quot;mx&quot;:122,&quot;my&quot;:86},{&quot;lx&quot;:123,&quot;ly&quot;:83,&quot;mx&quot;:123,&quot;my&quot;:84},{&quot;lx&quot;:125,&quot;ly&quot;:81,&quot;mx&quot;:123,&quot;my&quot;:83},{&quot;lx&quot;:125,&quot;ly&quot;:79,&quot;mx&quot;:125,&quot;my&quot;:81},{&quot;lx&quot;:125,&quot;ly&quot;:78,&quot;mx&quot;:125,&quot;my&quot;:79},{&quot;lx&quot;:125,&quot;ly&quot;:76,&quot;mx&quot;:125,&quot;my&quot;:78},{&quot;lx&quot;:125,&quot;ly&quot;:75,&quot;mx&quot;:125,&quot;my&quot;:76},{&quot;lx&quot;:125,&quot;ly&quot;:74,&quot;mx&quot;:125,&quot;my&quot;:75},{&quot;lx&quot;:125,&quot;ly&quot;:71,&quot;mx&quot;:125,&quot;my&quot;:74},{&quot;lx&quot;:125,&quot;ly&quot;:68,&quot;mx&quot;:125,&quot;my&quot;:71},{&quot;lx&quot;:125,&quot;ly&quot;:67,&quot;mx&quot;:125,&quot;my&quot;:68},{&quot;lx&quot;:125,&quot;ly&quot;:65,&quot;mx&quot;:125,&quot;my&quot;:67},{&quot;lx&quot;:125,&quot;ly&quot;:64,&quot;mx&quot;:125,&quot;my&quot;:65},{&quot;lx&quot;:125,&quot;ly&quot;:62,&quot;mx&quot;:125,&quot;my&quot;:64},{&quot;lx&quot;:125,&quot;ly&quot;:61,&quot;mx&quot;:125,&quot;my&quot;:62},{&quot;lx&quot;:125,&quot;ly&quot;:60,&quot;mx&quot;:125,&quot;my&quot;:61},{&quot;lx&quot;:124,&quot;ly&quot;:59,&quot;mx&quot;:125,&quot;my&quot;:60},{&quot;lx&quot;:123,&quot;ly&quot;:59,&quot;mx&quot;:124,&quot;my&quot;:59},{&quot;lx&quot;:121,&quot;ly&quot;:58,&quot;mx&quot;:123,&quot;my&quot;:59},{&quot;lx&quot;:121,&quot;ly&quot;:57,&quot;mx&quot;:121,&quot;my&quot;:58},{&quot;lx&quot;:120,&quot;ly&quot;:57,&quot;mx&quot;:121,&quot;my&quot;:57},{&quot;lx&quot;:119,&quot;ly&quot;:57,&quot;mx&quot;:120,&quot;my&quot;:57},{&quot;lx&quot;:119,&quot;ly&quot;:59,&quot;mx&quot;:119,&quot;my&quot;:57},{&quot;lx&quot;:119,&quot;ly&quot;:60,&quot;mx&quot;:119,&quot;my&quot;:59},{&quot;lx&quot;:119,&quot;ly&quot;:61,&quot;mx&quot;:119,&quot;my&quot;:60},{&quot;lx&quot;:119,&quot;ly&quot;:63,&quot;mx&quot;:119,&quot;my&quot;:61},{&quot;lx&quot;:119,&quot;ly&quot;:64,&quot;mx&quot;:119,&quot;my&quot;:63},{&quot;lx&quot;:119,&quot;ly&quot;:65,&quot;mx&quot;:119,&quot;my&quot;:64},{&quot;lx&quot;:119,&quot;ly&quot;:66,&quot;mx&quot;:119,&quot;my&quot;:65},{&quot;lx&quot;:119,&quot;ly&quot;:67,&quot;mx&quot;:119,&quot;my&quot;:66},{&quot;lx&quot;:120,&quot;ly&quot;:69,&quot;mx&quot;:119,&quot;my&quot;:67},{&quot;lx&quot;:120,&quot;ly&quot;:71,&quot;mx&quot;:120,&quot;my&quot;:69},{&quot;lx&quot;:121,&quot;ly&quot;:72,&quot;mx&quot;:120,&quot;my&quot;:71},{&quot;lx&quot;:121,&quot;ly&quot;:73,&quot;mx&quot;:121,&quot;my&quot;:72},{&quot;lx&quot;:121,&quot;ly&quot;:74,&quot;mx&quot;:121,&quot;my&quot;:73},{&quot;lx&quot;:122,&quot;ly&quot;:74,&quot;mx&quot;:121,&quot;my&quot;:74},{&quot;lx&quot;:123,&quot;ly&quot;:75,&quot;mx&quot;:122,&quot;my&quot;:74},{&quot;lx&quot;:124,&quot;ly&quot;:75,&quot;mx&quot;:123,&quot;my&quot;:75},{&quot;lx&quot;:125,&quot;ly&quot;:75,&quot;mx&quot;:124,&quot;my&quot;:75},{&quot;lx&quot;:125,&quot;ly&quot;:77,&quot;mx&quot;:125,&quot;my&quot;:75},{&quot;lx&quot;:126,&quot;ly&quot;:78,&quot;mx&quot;:125,&quot;my&quot;:77},{&quot;lx&quot;:128,&quot;ly&quot;:78,&quot;mx&quot;:126,&quot;my&quot;:78},{&quot;lx&quot;:129,&quot;ly&quot;:78,&quot;mx&quot;:128,&quot;my&quot;:78},{&quot;lx&quot;:129,&quot;ly&quot;:79,&quot;mx&quot;:129,&quot;my&quot;:78},{&quot;lx&quot;:130,&quot;ly&quot;:79,&quot;mx&quot;:129,&quot;my&quot;:79},{&quot;lx&quot;:131,&quot;ly&quot;:79,&quot;mx&quot;:130,&quot;my&quot;:79},{&quot;lx&quot;:132,&quot;ly&quot;:79,&quot;mx&quot;:131,&quot;my&quot;:79},{&quot;lx&quot;:133,&quot;ly&quot;:79,&quot;mx&quot;:132,&quot;my&quot;:79},{&quot;lx&quot;:135,&quot;ly&quot;:79,&quot;mx&quot;:133,&quot;my&quot;:79},{&quot;lx&quot;:136,&quot;ly&quot;:79,&quot;mx&quot;:135,&quot;my&quot;:79},{&quot;lx&quot;:188,&quot;ly&quot;:64,&quot;mx&quot;:188,&quot;my&quot;:63},{&quot;lx&quot;:188,&quot;ly&quot;:65,&quot;mx&quot;:188,&quot;my&quot;:64},{&quot;lx&quot;:188,&quot;ly&quot;:66,&quot;mx&quot;:188,&quot;my&quot;:65},{&quot;lx&quot;:187,&quot;ly&quot;:66,&quot;mx&quot;:188,&quot;my&quot;:66},{&quot;lx&quot;:186,&quot;ly&quot;:67,&quot;mx&quot;:187,&quot;my&quot;:66},{&quot;lx&quot;:185,&quot;ly&quot;:67,&quot;mx&quot;:186,&quot;my&quot;:67},{&quot;lx&quot;:185,&quot;ly&quot;:69,&quot;mx&quot;:185,&quot;my&quot;:67},{&quot;lx&quot;:181,&quot;ly&quot;:70,&quot;mx&quot;:185,&quot;my&quot;:69},{&quot;lx&quot;:179,&quot;ly&quot;:71,&quot;mx&quot;:181,&quot;my&quot;:70},{&quot;lx&quot;:177,&quot;ly&quot;:72,&quot;mx&quot;:179,&quot;my&quot;:71},{&quot;lx&quot;:174,&quot;ly&quot;:73,&quot;mx&quot;:177,&quot;my&quot;:72},{&quot;lx&quot;:173,&quot;ly&quot;:74,&quot;mx&quot;:174,&quot;my&quot;:73},{&quot;lx&quot;:171,&quot;ly&quot;:74,&quot;mx&quot;:173,&quot;my&quot;:74},{&quot;lx&quot;:170,&quot;ly&quot;:74,&quot;mx&quot;:171,&quot;my&quot;:74},{&quot;lx&quot;:169,&quot;ly&quot;:74,&quot;mx&quot;:170,&quot;my&quot;:74},{&quot;lx&quot;:168,&quot;ly&quot;:74,&quot;mx&quot;:169,&quot;my&quot;:74},{&quot;lx&quot;:167,&quot;ly&quot;:74,&quot;mx&quot;:168,&quot;my&quot;:74},{&quot;lx&quot;:165,&quot;ly&quot;:74,&quot;mx&quot;:167,&quot;my&quot;:74},{&quot;lx&quot;:164,&quot;ly&quot;:74,&quot;mx&quot;:165,&quot;my&quot;:74},{&quot;lx&quot;:162,&quot;ly&quot;:74,&quot;mx&quot;:164,&quot;my&quot;:74},{&quot;lx&quot;:160,&quot;ly&quot;:72,&quot;mx&quot;:162,&quot;my&quot;:74},{&quot;lx&quot;:159,&quot;ly&quot;:71,&quot;mx&quot;:160,&quot;my&quot;:72},{&quot;lx&quot;:157,&quot;ly&quot;:69,&quot;mx&quot;:159,&quot;my&quot;:71},{&quot;lx&quot;:155,&quot;ly&quot;:67,&quot;mx&quot;:157,&quot;my&quot;:69},{&quot;lx&quot;:154,&quot;ly&quot;:66,&quot;mx&quot;:155,&quot;my&quot;:67},{&quot;lx&quot;:153,&quot;ly&quot;:65,&quot;mx&quot;:154,&quot;my&quot;:66},{&quot;lx&quot;:153,&quot;ly&quot;:62,&quot;mx&quot;:153,&quot;my&quot;:65},{&quot;lx&quot;:152,&quot;ly&quot;:59,&quot;mx&quot;:153,&quot;my&quot;:62},{&quot;lx&quot;:152,&quot;ly&quot;:58,&quot;mx&quot;:152,&quot;my&quot;:59},{&quot;lx&quot;:152,&quot;ly&quot;:55,&quot;mx&quot;:152,&quot;my&quot;:58},{&quot;lx&quot;:152,&quot;ly&quot;:51,&quot;mx&quot;:152,&quot;my&quot;:55},{&quot;lx&quot;:152,&quot;ly&quot;:50,&quot;mx&quot;:152,&quot;my&quot;:51},{&quot;lx&quot;:152,&quot;ly&quot;:49,&quot;mx&quot;:152,&quot;my&quot;:50},{&quot;lx&quot;:152,&quot;ly&quot;:47,&quot;mx&quot;:152,&quot;my&quot;:49},{&quot;lx&quot;:152,&quot;ly&quot;:46,&quot;mx&quot;:152,&quot;my&quot;:47},{&quot;lx&quot;:152,&quot;ly&quot;:44,&quot;mx&quot;:152,&quot;my&quot;:46},{&quot;lx&quot;:153,&quot;ly&quot;:43,&quot;mx&quot;:152,&quot;my&quot;:44},{&quot;lx&quot;:154,&quot;ly&quot;:42,&quot;mx&quot;:153,&quot;my&quot;:43},{&quot;lx&quot;:154,&quot;ly&quot;:44,&quot;mx&quot;:154,&quot;my&quot;:42},{&quot;lx&quot;:154,&quot;ly&quot;:47,&quot;mx&quot;:154,&quot;my&quot;:44},{&quot;lx&quot;:154,&quot;ly&quot;:50,&quot;mx&quot;:154,&quot;my&quot;:47},{&quot;lx&quot;:154,&quot;ly&quot;:51,&quot;mx&quot;:154,&quot;my&quot;:50},{&quot;lx&quot;:155,&quot;ly&quot;:54,&quot;mx&quot;:154,&quot;my&quot;:51},{&quot;lx&quot;:155,&quot;ly&quot;:57,&quot;mx&quot;:155,&quot;my&quot;:54},{&quot;lx&quot;:155,&quot;ly&quot;:59,&quot;mx&quot;:155,&quot;my&quot;:57},{&quot;lx&quot;:156,&quot;ly&quot;:63,&quot;mx&quot;:155,&quot;my&quot;:59},{&quot;lx&quot;:156,&quot;ly&quot;:64,&quot;mx&quot;:156,&quot;my&quot;:63},{&quot;lx&quot;:156,&quot;ly&quot;:66,&quot;mx&quot;:156,&quot;my&quot;:64},{&quot;lx&quot;:156,&quot;ly&quot;:67,&quot;mx&quot;:156,&quot;my&quot;:66},{&quot;lx&quot;:156,&quot;ly&quot;:70,&quot;mx&quot;:156,&quot;my&quot;:67},{&quot;lx&quot;:156,&quot;ly&quot;:72,&quot;mx&quot;:156,&quot;my&quot;:70},{&quot;lx&quot;:156,&quot;ly&quot;:75,&quot;mx&quot;:156,&quot;my&quot;:72},{&quot;lx&quot;:156,&quot;ly&quot;:77,&quot;mx&quot;:156,&quot;my&quot;:75},{&quot;lx&quot;:156,&quot;ly&quot;:79,&quot;mx&quot;:156,&quot;my&quot;:77},{&quot;lx&quot;:156,&quot;ly&quot;:82,&quot;mx&quot;:156,&quot;my&quot;:79},{&quot;lx&quot;:156,&quot;ly&quot;:83,&quot;mx&quot;:156,&quot;my&quot;:82},{&quot;lx&quot;:156,&quot;ly&quot;:84,&quot;mx&quot;:156,&quot;my&quot;:83},{&quot;lx&quot;:156,&quot;ly&quot;:85,&quot;mx&quot;:156,&quot;my&quot;:84},{&quot;lx&quot;:156,&quot;ly&quot;:87,&quot;mx&quot;:156,&quot;my&quot;:85},{&quot;lx&quot;:156,&quot;ly&quot;:89,&quot;mx&quot;:156,&quot;my&quot;:87},{&quot;lx&quot;:156,&quot;ly&quot;:90,&quot;mx&quot;:156,&quot;my&quot;:89},{&quot;lx&quot;:156,&quot;ly&quot;:91,&quot;mx&quot;:156,&quot;my&quot;:90},{&quot;lx&quot;:156,&quot;ly&quot;:92,&quot;mx&quot;:156,&quot;my&quot;:91},{&quot;lx&quot;:156,&quot;ly&quot;:94,&quot;mx&quot;:156,&quot;my&quot;:92},{&quot;lx&quot;:156,&quot;ly&quot;:95,&quot;mx&quot;:156,&quot;my&quot;:94},{&quot;lx&quot;:156,&quot;ly&quot;:96,&quot;mx&quot;:156,&quot;my&quot;:95},{&quot;lx&quot;:156,&quot;ly&quot;:97,&quot;mx&quot;:156,&quot;my&quot;:96},{&quot;lx&quot;:154,&quot;ly&quot;:99,&quot;mx&quot;:156,&quot;my&quot;:97},{&quot;lx&quot;:154,&quot;ly&quot;:102,&quot;mx&quot;:154,&quot;my&quot;:99},{&quot;lx&quot;:130,&quot;ly&quot;:101,&quot;mx&quot;:130,&quot;my&quot;:100},{&quot;lx&quot;:130,&quot;ly&quot;:99,&quot;mx&quot;:130,&quot;my&quot;:101},{&quot;lx&quot;:130,&quot;ly&quot;:95,&quot;mx&quot;:130,&quot;my&quot;:99},{&quot;lx&quot;:130,&quot;ly&quot;:94,&quot;mx&quot;:130,&quot;my&quot;:95},{&quot;lx&quot;:130,&quot;ly&quot;:92,&quot;mx&quot;:130,&quot;my&quot;:94},{&quot;lx&quot;:130,&quot;ly&quot;:91,&quot;mx&quot;:130,&quot;my&quot;:92},{&quot;lx&quot;:131,&quot;ly&quot;:90,&quot;mx&quot;:130,&quot;my&quot;:91},{&quot;lx&quot;:132,&quot;ly&quot;:88,&quot;mx&quot;:131,&quot;my&quot;:90},{&quot;lx&quot;:133,&quot;ly&quot;:87,&quot;mx&quot;:132,&quot;my&quot;:88},{&quot;lx&quot;:133,&quot;ly&quot;:86,&quot;mx&quot;:133,&quot;my&quot;:87},{&quot;lx&quot;:135,&quot;ly&quot;:85,&quot;mx&quot;:133,&quot;my&quot;:86},{&quot;lx&quot;:135,&quot;ly&quot;:83,&quot;mx&quot;:135,&quot;my&quot;:85},{&quot;lx&quot;:136,&quot;ly&quot;:83,&quot;mx&quot;:135,&quot;my&quot;:83},{&quot;lx&quot;:136,&quot;ly&quot;:82,&quot;mx&quot;:136,&quot;my&quot;:83},{&quot;lx&quot;:136,&quot;ly&quot;:81,&quot;mx&quot;:136,&quot;my&quot;:82},{&quot;lx&quot;:137,&quot;ly&quot;:80,&quot;mx&quot;:136,&quot;my&quot;:81},{&quot;lx&quot;:137,&quot;ly&quot;:79,&quot;mx&quot;:137,&quot;my&quot;:80},{&quot;lx&quot;:138,&quot;ly&quot;:78,&quot;mx&quot;:137,&quot;my&quot;:79},{&quot;lx&quot;:139,&quot;ly&quot;:76,&quot;mx&quot;:138,&quot;my&quot;:78},{&quot;lx&quot;:140,&quot;ly&quot;:75,&quot;mx&quot;:139,&quot;my&quot;:76},{&quot;lx&quot;:141,&quot;ly&quot;:74,&quot;mx&quot;:140,&quot;my&quot;:75},{&quot;lx&quot;:142,&quot;ly&quot;:73,&quot;mx&quot;:141,&quot;my&quot;:74},{&quot;lx&quot;:143,&quot;ly&quot;:73,&quot;mx&quot;:142,&quot;my&quot;:73},{&quot;lx&quot;:144,&quot;ly&quot;:74,&quot;mx&quot;:143,&quot;my&quot;:73},{&quot;lx&quot;:145,&quot;ly&quot;:74,&quot;mx&quot;:144,&quot;my&quot;:74},{&quot;lx&quot;:146,&quot;ly&quot;:74,&quot;mx&quot;:145,&quot;my&quot;:74},{&quot;lx&quot;:146,&quot;ly&quot;:75,&quot;mx&quot;:146,&quot;my&quot;:74},{&quot;lx&quot;:147,&quot;ly&quot;:75,&quot;mx&quot;:146,&quot;my&quot;:75},{&quot;lx&quot;:148,&quot;ly&quot;:75,&quot;mx&quot;:147,&quot;my&quot;:75},{&quot;lx&quot;:149,&quot;ly&quot;:75,&quot;mx&quot;:148,&quot;my&quot;:75},{&quot;lx&quot;:150,&quot;ly&quot;:76,&quot;mx&quot;:149,&quot;my&quot;:75},{&quot;lx&quot;:152,&quot;ly&quot;:76,&quot;mx&quot;:150,&quot;my&quot;:76},{&quot;lx&quot;:153,&quot;ly&quot;:76,&quot;mx&quot;:152,&quot;my&quot;:76},{&quot;lx&quot;:154,&quot;ly&quot;:76,&quot;mx&quot;:153,&quot;my&quot;:76},{&quot;lx&quot;:155,&quot;ly&quot;:76,&quot;mx&quot;:154,&quot;my&quot;:76},{&quot;lx&quot;:156,&quot;ly&quot;:76,&quot;mx&quot;:155,&quot;my&quot;:76},{&quot;lx&quot;:157,&quot;ly&quot;:76,&quot;mx&quot;:156,&quot;my&quot;:76},{&quot;lx&quot;:158,&quot;ly&quot;:76,&quot;mx&quot;:157,&quot;my&quot;:76},{&quot;lx&quot;:159,&quot;ly&quot;:75,&quot;mx&quot;:158,&quot;my&quot;:76},{&quot;lx&quot;:160,&quot;ly&quot;:74,&quot;mx&quot;:159,&quot;my&quot;:75},{&quot;lx&quot;:160,&quot;ly&quot;:73,&quot;mx&quot;:160,&quot;my&quot;:74},{&quot;lx&quot;:161,&quot;ly&quot;:72,&quot;mx&quot;:160,&quot;my&quot;:73},{&quot;lx&quot;:161,&quot;ly&quot;:71,&quot;mx&quot;:161,&quot;my&quot;:72},{&quot;lx&quot;:163,&quot;ly&quot;:71,&quot;mx&quot;:161,&quot;my&quot;:71},{&quot;lx&quot;:163,&quot;ly&quot;:70,&quot;mx&quot;:163,&quot;my&quot;:71},{&quot;lx&quot;:165,&quot;ly&quot;:69,&quot;mx&quot;:163,&quot;my&quot;:70},{&quot;lx&quot;:165,&quot;ly&quot;:68,&quot;mx&quot;:165,&quot;my&quot;:69},{&quot;lx&quot;:166,&quot;ly&quot;:67,&quot;mx&quot;:165,&quot;my&quot;:68},{&quot;lx&quot;:167,&quot;ly&quot;:67,&quot;mx&quot;:166,&quot;my&quot;:67},{&quot;lx&quot;:167,&quot;ly&quot;:66,&quot;mx&quot;:167,&quot;my&quot;:67},{&quot;lx&quot;:166,&quot;ly&quot;:66,&quot;mx&quot;:167,&quot;my&quot;:66},{&quot;lx&quot;:166,&quot;ly&quot;:67,&quot;mx&quot;:166,&quot;my&quot;:66},{&quot;lx&quot;:165,&quot;ly&quot;:67,&quot;mx&quot;:166,&quot;my&quot;:67},{&quot;lx&quot;:164,&quot;ly&quot;:67,&quot;mx&quot;:165,&quot;my&quot;:67},{&quot;lx&quot;:163,&quot;ly&quot;:67,&quot;mx&quot;:164,&quot;my&quot;:67},{&quot;lx&quot;:163,&quot;ly&quot;:69,&quot;mx&quot;:163,&quot;my&quot;:67},{&quot;lx&quot;:163,&quot;ly&quot;:70,&quot;mx&quot;:163,&quot;my&quot;:69},{&quot;lx&quot;:162,&quot;ly&quot;:71,&quot;mx&quot;:163,&quot;my&quot;:70},{&quot;lx&quot;:162,&quot;ly&quot;:72,&quot;mx&quot;:162,&quot;my&quot;:71},{&quot;lx&quot;:162,&quot;ly&quot;:73,&quot;mx&quot;:162,&quot;my&quot;:72},{&quot;lx&quot;:162,&quot;ly&quot;:74,&quot;mx&quot;:162,&quot;my&quot;:73},{&quot;lx&quot;:162,&quot;ly&quot;:75,&quot;mx&quot;:162,&quot;my&quot;:74},{&quot;lx&quot;:162,&quot;ly&quot;:76,&quot;mx&quot;:162,&quot;my&quot;:75},{&quot;lx&quot;:162,&quot;ly&quot;:78,&quot;mx&quot;:162,&quot;my&quot;:76},{&quot;lx&quot;:162,&quot;ly&quot;:79,&quot;mx&quot;:162,&quot;my&quot;:78},{&quot;lx&quot;:162,&quot;ly&quot;:80,&quot;mx&quot;:162,&quot;my&quot;:79},{&quot;lx&quot;:162,&quot;ly&quot;:81,&quot;mx&quot;:162,&quot;my&quot;:80},{&quot;lx&quot;:162,&quot;ly&quot;:83,&quot;mx&quot;:162,&quot;my&quot;:81},{&quot;lx&quot;:163,&quot;ly&quot;:84,&quot;mx&quot;:162,&quot;my&quot;:83},{&quot;lx&quot;:163,&quot;ly&quot;:85,&quot;mx&quot;:163,&quot;my&quot;:84},{&quot;lx&quot;:164,&quot;ly&quot;:86,&quot;mx&quot;:163,&quot;my&quot;:85},{&quot;lx&quot;:164,&quot;ly&quot;:87,&quot;mx&quot;:164,&quot;my&quot;:86},{&quot;lx&quot;:165,&quot;ly&quot;:87,&quot;mx&quot;:164,&quot;my&quot;:87},{&quot;lx&quot;:166,&quot;ly&quot;:87,&quot;mx&quot;:165,&quot;my&quot;:87},{&quot;lx&quot;:167,&quot;ly&quot;:87,&quot;mx&quot;:166,&quot;my&quot;:87},{&quot;lx&quot;:168,&quot;ly&quot;:87,&quot;mx&quot;:167,&quot;my&quot;:87},{&quot;lx&quot;:169,&quot;ly&quot;:87,&quot;mx&quot;:168,&quot;my&quot;:87},{&quot;lx&quot;:171,&quot;ly&quot;:87,&quot;mx&quot;:169,&quot;my&quot;:87},{&quot;lx&quot;:173,&quot;ly&quot;:87,&quot;mx&quot;:171,&quot;my&quot;:87},{&quot;lx&quot;:173,&quot;ly&quot;:86,&quot;mx&quot;:173,&quot;my&quot;:87},{&quot;lx&quot;:174,&quot;ly&quot;:83,&quot;mx&quot;:173,&quot;my&quot;:86},{&quot;lx&quot;:175,&quot;ly&quot;:82,&quot;mx&quot;:174,&quot;my&quot;:83},{&quot;lx&quot;:175,&quot;ly&quot;:81,&quot;mx&quot;:175,&quot;my&quot;:82},{&quot;lx&quot;:176,&quot;ly&quot;:80,&quot;mx&quot;:175,&quot;my&quot;:81},{&quot;lx&quot;:176,&quot;ly&quot;:79,&quot;mx&quot;:176,&quot;my&quot;:80},{&quot;lx&quot;:177,&quot;ly&quot;:78,&quot;mx&quot;:176,&quot;my&quot;:79},{&quot;lx&quot;:177,&quot;ly&quot;:77,&quot;mx&quot;:177,&quot;my&quot;:78},{&quot;lx&quot;:177,&quot;ly&quot;:76,&quot;mx&quot;:177,&quot;my&quot;:77},{&quot;lx&quot;:177,&quot;ly&quot;:75,&quot;mx&quot;:177,&quot;my&quot;:76},{&quot;lx&quot;:177,&quot;ly&quot;:74,&quot;mx&quot;:177,&quot;my&quot;:75},{&quot;lx&quot;:176,&quot;ly&quot;:72,&quot;mx&quot;:177,&quot;my&quot;:74},{&quot;lx&quot;:175,&quot;ly&quot;:71,&quot;mx&quot;:176,&quot;my&quot;:72},{&quot;lx&quot;:175,&quot;ly&quot;:67,&quot;mx&quot;:175,&quot;my&quot;:71},{&quot;lx&quot;:174,&quot;ly&quot;:67,&quot;mx&quot;:175,&quot;my&quot;:67},{&quot;lx&quot;:173,&quot;ly&quot;:64,&quot;mx&quot;:174,&quot;my&quot;:67},{&quot;lx&quot;:173,&quot;ly&quot;:63,&quot;mx&quot;:173,&quot;my&quot;:64},{&quot;lx&quot;:173,&quot;ly&quot;:62,&quot;mx&quot;:173,&quot;my&quot;:63},{&quot;lx&quot;:171,&quot;ly&quot;:62,&quot;mx&quot;:173,&quot;my&quot;:62},{&quot;lx&quot;:171,&quot;ly&quot;:61,&quot;mx&quot;:171,&quot;my&quot;:62},{&quot;lx&quot;:171,&quot;ly&quot;:60,&quot;mx&quot;:171,&quot;my&quot;:61},{&quot;lx&quot;:171,&quot;ly&quot;:59,&quot;mx&quot;:171,&quot;my&quot;:60},{&quot;lx&quot;:170,&quot;ly&quot;:59,&quot;mx&quot;:171,&quot;my&quot;:59},{&quot;lx&quot;:170,&quot;ly&quot;:58,&quot;mx&quot;:170,&quot;my&quot;:59},{&quot;lx&quot;:170,&quot;ly&quot;:59,&quot;mx&quot;:170,&quot;my&quot;:58},{&quot;lx&quot;:170,&quot;ly&quot;:60,&quot;mx&quot;:170,&quot;my&quot;:59},{&quot;lx&quot;:171,&quot;ly&quot;:61,&quot;mx&quot;:170,&quot;my&quot;:60},{&quot;lx&quot;:172,&quot;ly&quot;:63,&quot;mx&quot;:171,&quot;my&quot;:61},{&quot;lx&quot;:173,&quot;ly&quot;:63,&quot;mx&quot;:172,&quot;my&quot;:63},{&quot;lx&quot;:173,&quot;ly&quot;:64,&quot;mx&quot;:173,&quot;my&quot;:63},{&quot;lx&quot;:174,&quot;ly&quot;:64,&quot;mx&quot;:173,&quot;my&quot;:64},{&quot;lx&quot;:175,&quot;ly&quot;:65,&quot;mx&quot;:174,&quot;my&quot;:64},{&quot;lx&quot;:176,&quot;ly&quot;:65,&quot;mx&quot;:175,&quot;my&quot;:65},{&quot;lx&quot;:177,&quot;ly&quot;:66,&quot;mx&quot;:176,&quot;my&quot;:65},{&quot;lx&quot;:177,&quot;ly&quot;:67,&quot;mx&quot;:177,&quot;my&quot;:66},{&quot;lx&quot;:177,&quot;ly&quot;:68,&quot;mx&quot;:177,&quot;my&quot;:67},{&quot;lx&quot;:177,&quot;ly&quot;:69,&quot;mx&quot;:177,&quot;my&quot;:68},{&quot;lx&quot;:177,&quot;ly&quot;:70,&quot;mx&quot;:177,&quot;my&quot;:69},{&quot;lx&quot;:177,&quot;ly&quot;:71,&quot;mx&quot;:177,&quot;my&quot;:70},{&quot;lx&quot;:179,&quot;ly&quot;:71,&quot;mx&quot;:177,&quot;my&quot;:71},{&quot;lx&quot;:179,&quot;ly&quot;:72,&quot;mx&quot;:179,&quot;my&quot;:71},{&quot;lx&quot;:179,&quot;ly&quot;:73,&quot;mx&quot;:179,&quot;my&quot;:72},{&quot;lx&quot;:181,&quot;ly&quot;:73,&quot;mx&quot;:179,&quot;my&quot;:73},{&quot;lx&quot;:181,&quot;ly&quot;:74,&quot;mx&quot;:181,&quot;my&quot;:73},{&quot;lx&quot;:181,&quot;ly&quot;:75,&quot;mx&quot;:181,&quot;my&quot;:74},{&quot;lx&quot;:181,&quot;ly&quot;:76,&quot;mx&quot;:181,&quot;my&quot;:75},{&quot;lx&quot;:182,&quot;ly&quot;:76,&quot;mx&quot;:181,&quot;my&quot;:76},{&quot;lx&quot;:183,&quot;ly&quot;:76,&quot;mx&quot;:182,&quot;my&quot;:76},{&quot;lx&quot;:185,&quot;ly&quot;:75,&quot;mx&quot;:183,&quot;my&quot;:76},{&quot;lx&quot;:186,&quot;ly&quot;:74,&quot;mx&quot;:185,&quot;my&quot;:75},{&quot;lx&quot;:187,&quot;ly&quot;:73,&quot;mx&quot;:186,&quot;my&quot;:74},{&quot;lx&quot;:187,&quot;ly&quot;:72,&quot;mx&quot;:187,&quot;my&quot;:73},{&quot;lx&quot;:187,&quot;ly&quot;:71,&quot;mx&quot;:187,&quot;my&quot;:72},{&quot;lx&quot;:188,&quot;ly&quot;:71,&quot;mx&quot;:187,&quot;my&quot;:71},{&quot;lx&quot;:188,&quot;ly&quot;:70,&quot;mx&quot;:188,&quot;my&quot;:71},{&quot;lx&quot;:188,&quot;ly&quot;:68,&quot;mx&quot;:188,&quot;my&quot;:70},{&quot;lx&quot;:189,&quot;ly&quot;:68,&quot;mx&quot;:188,&quot;my&quot;:68},{&quot;lx&quot;:191,&quot;ly&quot;:69,&quot;mx&quot;:189,&quot;my&quot;:68},{&quot;lx&quot;:192,&quot;ly&quot;:71,&quot;mx&quot;:191,&quot;my&quot;:69},{&quot;lx&quot;:196,&quot;ly&quot;:75,&quot;mx&quot;:192,&quot;my&quot;:71},{&quot;lx&quot;:197,&quot;ly&quot;:77,&quot;mx&quot;:196,&quot;my&quot;:75},{&quot;lx&quot;:198,&quot;ly&quot;:78,&quot;mx&quot;:197,&quot;my&quot;:77},{&quot;lx&quot;:199,&quot;ly&quot;:79,&quot;mx&quot;:198,&quot;my&quot;:78},{&quot;lx&quot;:199,&quot;ly&quot;:80,&quot;mx&quot;:199,&quot;my&quot;:79},{&quot;lx&quot;:199,&quot;ly&quot;:81,&quot;mx&quot;:199,&quot;my&quot;:80},{&quot;lx&quot;:200,&quot;ly&quot;:81,&quot;mx&quot;:199,&quot;my&quot;:81},{&quot;lx&quot;:200,&quot;ly&quot;:83,&quot;mx&quot;:200,&quot;my&quot;:81},{&quot;lx&quot;:201,&quot;ly&quot;:84,&quot;mx&quot;:200,&quot;my&quot;:83},{&quot;lx&quot;:201,&quot;ly&quot;:85,&quot;mx&quot;:201,&quot;my&quot;:84},{&quot;lx&quot;:201,&quot;ly&quot;:87,&quot;mx&quot;:201,&quot;my&quot;:85},{&quot;lx&quot;:201,&quot;ly&quot;:89,&quot;mx&quot;:201,&quot;my&quot;:87},{&quot;lx&quot;:201,&quot;ly&quot;:91,&quot;mx&quot;:201,&quot;my&quot;:89},{&quot;lx&quot;:201,&quot;ly&quot;:92,&quot;mx&quot;:201,&quot;my&quot;:91},{&quot;lx&quot;:201,&quot;ly&quot;:94,&quot;mx&quot;:201,&quot;my&quot;:92},{&quot;lx&quot;:201,&quot;ly&quot;:95,&quot;mx&quot;:201,&quot;my&quot;:94},{&quot;lx&quot;:201,&quot;ly&quot;:96,&quot;mx&quot;:201,&quot;my&quot;:95},{&quot;lx&quot;:198,&quot;ly&quot;:96,&quot;mx&quot;:201,&quot;my&quot;:96},{&quot;lx&quot;:197,&quot;ly&quot;:96,&quot;mx&quot;:198,&quot;my&quot;:96},{&quot;lx&quot;:196,&quot;ly&quot;:95,&quot;mx&quot;:197,&quot;my&quot;:96},{&quot;lx&quot;:195,&quot;ly&quot;:94,&quot;mx&quot;:196,&quot;my&quot;:95},{&quot;lx&quot;:193,&quot;ly&quot;:93,&quot;mx&quot;:195,&quot;my&quot;:94},{&quot;lx&quot;:193,&quot;ly&quot;:91,&quot;mx&quot;:193,&quot;my&quot;:93},{&quot;lx&quot;:191,&quot;ly&quot;:91,&quot;mx&quot;:193,&quot;my&quot;:91},{&quot;lx&quot;:190,&quot;ly&quot;:90,&quot;mx&quot;:191,&quot;my&quot;:91},{&quot;lx&quot;:189,&quot;ly&quot;:89,&quot;mx&quot;:190,&quot;my&quot;:90},{&quot;lx&quot;:189,&quot;ly&quot;:88,&quot;mx&quot;:189,&quot;my&quot;:89},{&quot;lx&quot;:189,&quot;ly&quot;:87,&quot;mx&quot;:189,&quot;my&quot;:88},{&quot;lx&quot;:189,&quot;ly&quot;:86,&quot;mx&quot;:189,&quot;my&quot;:87},{&quot;lx&quot;:189,&quot;ly&quot;:85,&quot;mx&quot;:189,&quot;my&quot;:86},{&quot;lx&quot;:189,&quot;ly&quot;:83,&quot;mx&quot;:189,&quot;my&quot;:85},{&quot;lx&quot;:188,&quot;ly&quot;:83,&quot;mx&quot;:189,&quot;my&quot;:83},{&quot;lx&quot;:187,&quot;ly&quot;:83,&quot;mx&quot;:188,&quot;my&quot;:83},{&quot;lx&quot;:186,&quot;ly&quot;:83,&quot;mx&quot;:187,&quot;my&quot;:83},{&quot;lx&quot;:187,&quot;ly&quot;:83,&quot;mx&quot;:186,&quot;my&quot;:83},{&quot;lx&quot;:188,&quot;ly&quot;:83,&quot;mx&quot;:187,&quot;my&quot;:83},{&quot;lx&quot;:189,&quot;ly&quot;:84,&quot;mx&quot;:188,&quot;my&quot;:83},{&quot;lx&quot;:190,&quot;ly&quot;:84,&quot;mx&quot;:189,&quot;my&quot;:84},{&quot;lx&quot;:191,&quot;ly&quot;:84,&quot;mx&quot;:190,&quot;my&quot;:84},{&quot;lx&quot;:192,&quot;ly&quot;:84,&quot;mx&quot;:191,&quot;my&quot;:84},{&quot;lx&quot;:192,&quot;ly&quot;:83,&quot;mx&quot;:192,&quot;my&quot;:84},{&quot;lx&quot;:192,&quot;ly&quot;:82,&quot;mx&quot;:192,&quot;my&quot;:83},{&quot;lx&quot;:193,&quot;ly&quot;:82,&quot;mx&quot;:192,&quot;my&quot;:82},{&quot;lx&quot;:193,&quot;ly&quot;:80,&quot;mx&quot;:193,&quot;my&quot;:82},{&quot;lx&quot;:194,&quot;ly&quot;:79,&quot;mx&quot;:193,&quot;my&quot;:80},{&quot;lx&quot;:194,&quot;ly&quot;:78,&quot;mx&quot;:194,&quot;my&quot;:79},{&quot;lx&quot;:194,&quot;ly&quot;:77,&quot;mx&quot;:194,&quot;my&quot;:78},{&quot;lx&quot;:195,&quot;ly&quot;:76,&quot;mx&quot;:194,&quot;my&quot;:77},{&quot;lx&quot;:196,&quot;ly&quot;:75,&quot;mx&quot;:195,&quot;my&quot;:76},{&quot;lx&quot;:197,&quot;ly&quot;:75,&quot;mx&quot;:196,&quot;my&quot;:75},{&quot;lx&quot;:197,&quot;ly&quot;:74,&quot;mx&quot;:197,&quot;my&quot;:75},{&quot;lx&quot;:198,&quot;ly&quot;:74,&quot;mx&quot;:197,&quot;my&quot;:74},{&quot;lx&quot;:199,&quot;ly&quot;:75,&quot;mx&quot;:198,&quot;my&quot;:74},{&quot;lx&quot;:199,&quot;ly&quot;:76,&quot;mx&quot;:199,&quot;my&quot;:75},{&quot;lx&quot;:199,&quot;ly&quot;:78,&quot;mx&quot;:199,&quot;my&quot;:76},{&quot;lx&quot;:201,&quot;ly&quot;:80,&quot;mx&quot;:199,&quot;my&quot;:78},{&quot;lx&quot;:201,&quot;ly&quot;:82,&quot;mx&quot;:201,&quot;my&quot;:80},{&quot;lx&quot;:202,&quot;ly&quot;:83,&quot;mx&quot;:201,&quot;my&quot;:82},{&quot;lx&quot;:204,&quot;ly&quot;:84,&quot;mx&quot;:202,&quot;my&quot;:83},{&quot;lx&quot;:205,&quot;ly&quot;:86,&quot;mx&quot;:204,&quot;my&quot;:84},{&quot;lx&quot;:206,&quot;ly&quot;:87,&quot;mx&quot;:205,&quot;my&quot;:86},{&quot;lx&quot;:207,&quot;ly&quot;:88,&quot;mx&quot;:206,&quot;my&quot;:87},{&quot;lx&quot;:208,&quot;ly&quot;:89,&quot;mx&quot;:207,&quot;my&quot;:88},{&quot;lx&quot;:209,&quot;ly&quot;:90,&quot;mx&quot;:208,&quot;my&quot;:89},{&quot;lx&quot;:209,&quot;ly&quot;:91,&quot;mx&quot;:209,&quot;my&quot;:90},{&quot;lx&quot;:209,&quot;ly&quot;:90,&quot;mx&quot;:209,&quot;my&quot;:91},{&quot;lx&quot;:209,&quot;ly&quot;:88,&quot;mx&quot;:209,&quot;my&quot;:90},{&quot;lx&quot;:209,&quot;ly&quot;:87,&quot;mx&quot;:209,&quot;my&quot;:88},{&quot;lx&quot;:209,&quot;ly&quot;:85,&quot;mx&quot;:209,&quot;my&quot;:87},{&quot;lx&quot;:209,&quot;ly&quot;:84,&quot;mx&quot;:209,&quot;my&quot;:85},{&quot;lx&quot;:209,&quot;ly&quot;:81,&quot;mx&quot;:209,&quot;my&quot;:84},{&quot;lx&quot;:209,&quot;ly&quot;:80,&quot;mx&quot;:209,&quot;my&quot;:81},{&quot;lx&quot;:209,&quot;ly&quot;:79,&quot;mx&quot;:209,&quot;my&quot;:80},{&quot;lx&quot;:209,&quot;ly&quot;:78,&quot;mx&quot;:209,&quot;my&quot;:79},{&quot;lx&quot;:209,&quot;ly&quot;:77,&quot;mx&quot;:209,&quot;my&quot;:78},{&quot;lx&quot;:209,&quot;ly&quot;:75,&quot;mx&quot;:209,&quot;my&quot;:77},{&quot;lx&quot;:209,&quot;ly&quot;:74,&quot;mx&quot;:209,&quot;my&quot;:75},{&quot;lx&quot;:209,&quot;ly&quot;:73,&quot;mx&quot;:209,&quot;my&quot;:74},{&quot;lx&quot;:210,&quot;ly&quot;:72,&quot;mx&quot;:209,&quot;my&quot;:73},{&quot;lx&quot;:211,&quot;ly&quot;:72,&quot;mx&quot;:210,&quot;my&quot;:72},{&quot;lx&quot;:211,&quot;ly&quot;:71,&quot;mx&quot;:211,&quot;my&quot;:72},{&quot;lx&quot;:212,&quot;ly&quot;:71,&quot;mx&quot;:211,&quot;my&quot;:71},{&quot;lx&quot;:213,&quot;ly&quot;:71,&quot;mx&quot;:212,&quot;my&quot;:71},{&quot;lx&quot;:214,&quot;ly&quot;:71,&quot;mx&quot;:213,&quot;my&quot;:71},{&quot;lx&quot;:214,&quot;ly&quot;:73,&quot;mx&quot;:214,&quot;my&quot;:71},{&quot;lx&quot;:214,&quot;ly&quot;:74,&quot;mx&quot;:214,&quot;my&quot;:73},{&quot;lx&quot;:214,&quot;ly&quot;:75,&quot;mx&quot;:214,&quot;my&quot;:74},{&quot;lx&quot;:217,&quot;ly&quot;:75,&quot;mx&quot;:214,&quot;my&quot;:75},{&quot;lx&quot;:217,&quot;ly&quot;:77,&quot;mx&quot;:217,&quot;my&quot;:75},{&quot;lx&quot;:217,&quot;ly&quot;:79,&quot;mx&quot;:217,&quot;my&quot;:77},{&quot;lx&quot;:219,&quot;ly&quot;:81,&quot;mx&quot;:217,&quot;my&quot;:79},{&quot;lx&quot;:219,&quot;ly&quot;:82,&quot;mx&quot;:219,&quot;my&quot;:81},{&quot;lx&quot;:219,&quot;ly&quot;:83,&quot;mx&quot;:219,&quot;my&quot;:82},{&quot;lx&quot;:220,&quot;ly&quot;:83,&quot;mx&quot;:219,&quot;my&quot;:83},{&quot;lx&quot;:220,&quot;ly&quot;:84,&quot;mx&quot;:220,&quot;my&quot;:83},{&quot;lx&quot;:220,&quot;ly&quot;:85,&quot;mx&quot;:220,&quot;my&quot;:84},{&quot;lx&quot;:220,&quot;ly&quot;:83,&quot;mx&quot;:220,&quot;my&quot;:85},{&quot;lx&quot;:221,&quot;ly&quot;:82,&quot;mx&quot;:220,&quot;my&quot;:83},{&quot;lx&quot;:221,&quot;ly&quot;:80,&quot;mx&quot;:221,&quot;my&quot;:82},{&quot;lx&quot;:221,&quot;ly&quot;:79,&quot;mx&quot;:221,&quot;my&quot;:80},{&quot;lx&quot;:221,&quot;ly&quot;:78,&quot;mx&quot;:221,&quot;my&quot;:79},{&quot;lx&quot;:221,&quot;ly&quot;:77,&quot;mx&quot;:221,&quot;my&quot;:78},{&quot;lx&quot;:222,&quot;ly&quot;:77,&quot;mx&quot;:221,&quot;my&quot;:77},{&quot;lx&quot;:223,&quot;ly&quot;:76,&quot;mx&quot;:222,&quot;my&quot;:77},{&quot;lx&quot;:224,&quot;ly&quot;:76,&quot;mx&quot;:223,&quot;my&quot;:76},{&quot;lx&quot;:225,&quot;ly&quot;:75,&quot;mx&quot;:224,&quot;my&quot;:76},{&quot;lx&quot;:225,&quot;ly&quot;:74,&quot;mx&quot;:225,&quot;my&quot;:75},{&quot;lx&quot;:226,&quot;ly&quot;:74,&quot;mx&quot;:225,&quot;my&quot;:74},{&quot;lx&quot;:226,&quot;ly&quot;:73,&quot;mx&quot;:226,&quot;my&quot;:74},{&quot;lx&quot;:228,&quot;ly&quot;:73,&quot;mx&quot;:226,&quot;my&quot;:73},{&quot;lx&quot;:229,&quot;ly&quot;:73,&quot;mx&quot;:228,&quot;my&quot;:73},{&quot;lx&quot;:230,&quot;ly&quot;:73,&quot;mx&quot;:229,&quot;my&quot;:73},{&quot;lx&quot;:231,&quot;ly&quot;:75,&quot;mx&quot;:230,&quot;my&quot;:73},{&quot;lx&quot;:232,&quot;ly&quot;:75,&quot;mx&quot;:231,&quot;my&quot;:75},{&quot;lx&quot;:233,&quot;ly&quot;:75,&quot;mx&quot;:232,&quot;my&quot;:75},{&quot;lx&quot;:233,&quot;ly&quot;:76,&quot;mx&quot;:233,&quot;my&quot;:75},{&quot;lx&quot;:233,&quot;ly&quot;:77,&quot;mx&quot;:233,&quot;my&quot;:76},{&quot;lx&quot;:233,&quot;ly&quot;:78,&quot;mx&quot;:233,&quot;my&quot;:77},{&quot;lx&quot;:233,&quot;ly&quot;:79,&quot;mx&quot;:233,&quot;my&quot;:78},{&quot;lx&quot;:233,&quot;ly&quot;:80,&quot;mx&quot;:233,&quot;my&quot;:79},{&quot;lx&quot;:233,&quot;ly&quot;:81,&quot;mx&quot;:233,&quot;my&quot;:80},{&quot;lx&quot;:233,&quot;ly&quot;:82,&quot;mx&quot;:233,&quot;my&quot;:81},{&quot;lx&quot;:233,&quot;ly&quot;:83,&quot;mx&quot;:233,&quot;my&quot;:82},{&quot;lx&quot;:233,&quot;ly&quot;:84,&quot;mx&quot;:233,&quot;my&quot;:83},{&quot;lx&quot;:233,&quot;ly&quot;:86,&quot;mx&quot;:233,&quot;my&quot;:84},{&quot;lx&quot;:233,&quot;ly&quot;:87,&quot;mx&quot;:233,&quot;my&quot;:86},{&quot;lx&quot;:233,&quot;ly&quot;:88,&quot;mx&quot;:233,&quot;my&quot;:87},{&quot;lx&quot;:234,&quot;ly&quot;:88,&quot;mx&quot;:233,&quot;my&quot;:88},{&quot;lx&quot;:235,&quot;ly&quot;:88,&quot;mx&quot;:234,&quot;my&quot;:88},{&quot;lx&quot;:236,&quot;ly&quot;:87,&quot;mx&quot;:235,&quot;my&quot;:88},{&quot;lx&quot;:237,&quot;ly&quot;:87,&quot;mx&quot;:236,&quot;my&quot;:87},{&quot;lx&quot;:237,&quot;ly&quot;:86,&quot;mx&quot;:237,&quot;my&quot;:87},{&quot;lx&quot;:237,&quot;ly&quot;:83,&quot;mx&quot;:237,&quot;my&quot;:86},{&quot;lx&quot;:237,&quot;ly&quot;:82,&quot;mx&quot;:237,&quot;my&quot;:83},{&quot;lx&quot;:237,&quot;ly&quot;:81,&quot;mx&quot;:237,&quot;my&quot;:82},{&quot;lx&quot;:237,&quot;ly&quot;:80,&quot;mx&quot;:237,&quot;my&quot;:81},{&quot;lx&quot;:237,&quot;ly&quot;:79,&quot;mx&quot;:237,&quot;my&quot;:80},{&quot;lx&quot;:238,&quot;ly&quot;:79,&quot;mx&quot;:237,&quot;my&quot;:79},{&quot;lx&quot;:239,&quot;ly&quot;:79,&quot;mx&quot;:238,&quot;my&quot;:79},{&quot;lx&quot;:240,&quot;ly&quot;:81,&quot;mx&quot;:239,&quot;my&quot;:79},{&quot;lx&quot;:240,&quot;ly&quot;:82,&quot;mx&quot;:240,&quot;my&quot;:81},{&quot;lx&quot;:240,&quot;ly&quot;:83,&quot;mx&quot;:240,&quot;my&quot;:82},{&quot;lx&quot;:241,&quot;ly&quot;:84,&quot;mx&quot;:240,&quot;my&quot;:83},{&quot;lx&quot;:241,&quot;ly&quot;:85,&quot;mx&quot;:241,&quot;my&quot;:84},{&quot;lx&quot;:242,&quot;ly&quot;:85,&quot;mx&quot;:241,&quot;my&quot;:85},{&quot;lx&quot;:243,&quot;ly&quot;:85,&quot;mx&quot;:242,&quot;my&quot;:85},{&quot;lx&quot;:243,&quot;ly&quot;:83,&quot;mx&quot;:243,&quot;my&quot;:85},{&quot;lx&quot;:244,&quot;ly&quot;:82,&quot;mx&quot;:243,&quot;my&quot;:83},{&quot;lx&quot;:245,&quot;ly&quot;:82,&quot;mx&quot;:244,&quot;my&quot;:82},{&quot;lx&quot;:245,&quot;ly&quot;:81,&quot;mx&quot;:245,&quot;my&quot;:82},{&quot;lx&quot;:245,&quot;ly&quot;:79,&quot;mx&quot;:245,&quot;my&quot;:81},{&quot;lx&quot;:245,&quot;ly&quot;:78,&quot;mx&quot;:245,&quot;my&quot;:79},{&quot;lx&quot;:245,&quot;ly&quot;:76,&quot;mx&quot;:245,&quot;my&quot;:78},{&quot;lx&quot;:245,&quot;ly&quot;:75,&quot;mx&quot;:245,&quot;my&quot;:76},{&quot;lx&quot;:246,&quot;ly&quot;:74,&quot;mx&quot;:245,&quot;my&quot;:75},{&quot;lx&quot;:246,&quot;ly&quot;:72,&quot;mx&quot;:246,&quot;my&quot;:74},{&quot;lx&quot;:247,&quot;ly&quot;:72,&quot;mx&quot;:246,&quot;my&quot;:72},{&quot;lx&quot;:248,&quot;ly&quot;:72,&quot;mx&quot;:247,&quot;my&quot;:72},{&quot;lx&quot;:248,&quot;ly&quot;:73,&quot;mx&quot;:248,&quot;my&quot;:72},{&quot;lx&quot;:249,&quot;ly&quot;:74,&quot;mx&quot;:248,&quot;my&quot;:73},{&quot;lx&quot;:250,&quot;ly&quot;:75,&quot;mx&quot;:249,&quot;my&quot;:74},{&quot;lx&quot;:250,&quot;ly&quot;:77,&quot;mx&quot;:250,&quot;my&quot;:75},{&quot;lx&quot;:253,&quot;ly&quot;:79,&quot;mx&quot;:250,&quot;my&quot;:77},{&quot;lx&quot;:253,&quot;ly&quot;:82,&quot;mx&quot;:253,&quot;my&quot;:79},{&quot;lx&quot;:254,&quot;ly&quot;:82,&quot;mx&quot;:253,&quot;my&quot;:82},{&quot;lx&quot;:255,&quot;ly&quot;:84,&quot;mx&quot;:254,&quot;my&quot;:82},{&quot;lx&quot;:255,&quot;ly&quot;:85,&quot;mx&quot;:255,&quot;my&quot;:84},{&quot;lx&quot;:257,&quot;ly&quot;:87,&quot;mx&quot;:255,&quot;my&quot;:85},{&quot;lx&quot;:257,&quot;ly&quot;:89,&quot;mx&quot;:257,&quot;my&quot;:87},{&quot;lx&quot;:257,&quot;ly&quot;:90,&quot;mx&quot;:257,&quot;my&quot;:89},{&quot;lx&quot;:260,&quot;ly&quot;:91,&quot;mx&quot;:257,&quot;my&quot;:90},{&quot;lx&quot;:260,&quot;ly&quot;:92,&quot;mx&quot;:260,&quot;my&quot;:91},{&quot;lx&quot;:260,&quot;ly&quot;:93,&quot;mx&quot;:260,&quot;my&quot;:92},{&quot;lx&quot;:261,&quot;ly&quot;:94,&quot;mx&quot;:260,&quot;my&quot;:93},{&quot;lx&quot;:261,&quot;ly&quot;:95,&quot;mx&quot;:261,&quot;my&quot;:94},{&quot;lx&quot;:261,&quot;ly&quot;:96,&quot;mx&quot;:261,&quot;my&quot;:95},{&quot;lx&quot;:261,&quot;ly&quot;:95,&quot;mx&quot;:261,&quot;my&quot;:96},{&quot;lx&quot;:261,&quot;ly&quot;:92,&quot;mx&quot;:261,&quot;my&quot;:95},{&quot;lx&quot;:261,&quot;ly&quot;:91,&quot;mx&quot;:261,&quot;my&quot;:92},{&quot;lx&quot;:261,&quot;ly&quot;:89,&quot;mx&quot;:261,&quot;my&quot;:91},{&quot;lx&quot;:261,&quot;ly&quot;:88,&quot;mx&quot;:261,&quot;my&quot;:89},{&quot;lx&quot;:261,&quot;ly&quot;:87,&quot;mx&quot;:261,&quot;my&quot;:88},{&quot;lx&quot;:261,&quot;ly&quot;:86,&quot;mx&quot;:261,&quot;my&quot;:87},{&quot;lx&quot;:261,&quot;ly&quot;:85,&quot;mx&quot;:261,&quot;my&quot;:86},{&quot;lx&quot;:261,&quot;ly&quot;:83,&quot;mx&quot;:261,&quot;my&quot;:85},{&quot;lx&quot;:261,&quot;ly&quot;:81,&quot;mx&quot;:261,&quot;my&quot;:83},{&quot;lx&quot;:261,&quot;ly&quot;:80,&quot;mx&quot;:261,&quot;my&quot;:81},{&quot;lx&quot;:261,&quot;ly&quot;:79,&quot;mx&quot;:261,&quot;my&quot;:80},{&quot;lx&quot;:262,&quot;ly&quot;:79,&quot;mx&quot;:261,&quot;my&quot;:79},{&quot;lx&quot;:262,&quot;ly&quot;:77,&quot;mx&quot;:262,&quot;my&quot;:79},{&quot;lx&quot;:264,&quot;ly&quot;:79,&quot;mx&quot;:262,&quot;my&quot;:77},{&quot;lx&quot;:266,&quot;ly&quot;:81,&quot;mx&quot;:266,&quot;my&quot;:80},{&quot;lx&quot;:266,&quot;ly&quot;:82,&quot;mx&quot;:266,&quot;my&quot;:81},{&quot;lx&quot;:268,&quot;ly&quot;:85,&quot;mx&quot;:266,&quot;my&quot;:82},{&quot;lx&quot;:269,&quot;ly&quot;:87,&quot;mx&quot;:268,&quot;my&quot;:85},{&quot;lx&quot;:271,&quot;ly&quot;:89,&quot;mx&quot;:269,&quot;my&quot;:87},{&quot;lx&quot;:273,&quot;ly&quot;:91,&quot;mx&quot;:271,&quot;my&quot;:89},{&quot;lx&quot;:274,&quot;ly&quot;:93,&quot;mx&quot;:273,&quot;my&quot;:91},{&quot;lx&quot;:277,&quot;ly&quot;:95,&quot;mx&quot;:274,&quot;my&quot;:93},{&quot;lx&quot;:277,&quot;ly&quot;:97,&quot;mx&quot;:277,&quot;my&quot;:95},{&quot;lx&quot;:278,&quot;ly&quot;:97,&quot;mx&quot;:277,&quot;my&quot;:97},{&quot;lx&quot;:278,&quot;ly&quot;:98,&quot;mx&quot;:278,&quot;my&quot;:97},{&quot;lx&quot;:242,&quot;ly&quot;:60,&quot;mx&quot;:242,&quot;my&quot;:59}]">
+              </div>
+
+            </form></div></td>
+          </tr>
+          <tr valign="bottom">
+            <td><div>Client Signature</div></td>
+            <td><div>Apr 25, 2015</div></td>
+          </tr>
+
+    </tbody></table>
+    <script>
+        $("#552db830c7cd77a7e0000039").signaturePad({displayOnly: true, lineWidth: null}).regenerate([{"lx":12,"ly":96,"mx":12,"my":95},{"lx":12,"ly":94,"mx":12,"my":96},{"lx":12,"ly":93,"mx":12,"my":94},{"lx":13,"ly":90,"mx":12,"my":93},{"lx":17,"ly":84,"mx":13,"my":90},{"lx":21,"ly":78,"mx":17,"my":84},{"lx":23,"ly":72,"mx":21,"my":78},{"lx":25,"ly":63,"mx":23,"my":72},{"lx":25,"ly":56,"mx":25,"my":63},{"lx":23,"ly":50,"mx":25,"my":56},{"lx":21,"ly":45,"mx":23,"my":50},{"lx":19,"ly":43,"mx":21,"my":45},{"lx":18,"ly":42,"mx":19,"my":43},{"lx":17,"ly":41,"mx":18,"my":42},{"lx":16,"ly":40,"mx":17,"my":41},{"lx":15,"ly":40,"mx":16,"my":40},{"lx":14,"ly":41,"mx":15,"my":40},{"lx":11,"ly":50,"mx":14,"my":41},{"lx":11,"ly":60,"mx":11,"my":50},{"lx":16,"ly":69,"mx":11,"my":60},{"lx":23,"ly":79,"mx":16,"my":69},{"lx":26,"ly":82,"mx":23,"my":79},{"lx":26,"ly":84,"mx":26,"my":82},{"lx":26,"ly":86,"mx":26,"my":84},{"lx":26,"ly":92,"mx":26,"my":86},{"lx":26,"ly":96,"mx":26,"my":92},{"lx":25,"ly":98,"mx":26,"my":96},{"lx":25,"ly":100,"mx":25,"my":98},{"lx":24,"ly":102,"mx":25,"my":100},{"lx":21,"ly":100,"mx":21,"my":99},{"lx":19,"ly":95,"mx":21,"my":100},{"lx":19,"ly":92,"mx":19,"my":95},{"lx":18,"ly":88,"mx":19,"my":92},{"lx":18,"ly":84,"mx":18,"my":88},{"lx":20,"ly":80,"mx":18,"my":84},{"lx":23,"ly":77,"mx":20,"my":80},{"lx":28,"ly":73,"mx":23,"my":77},{"lx":31,"ly":72,"mx":28,"my":73},{"lx":35,"ly":72,"mx":31,"my":72},{"lx":36,"ly":72,"mx":35,"my":72},{"lx":36,"ly":71,"mx":36,"my":72},{"lx":36,"ly":69,"mx":36,"my":71},{"lx":35,"ly":69,"mx":36,"my":69},{"lx":33,"ly":71,"mx":35,"my":69},{"lx":29,"ly":75,"mx":33,"my":71},{"lx":29,"ly":79,"mx":29,"my":75},{"lx":29,"ly":82,"mx":29,"my":79},{"lx":30,"ly":82,"mx":29,"my":82},{"lx":36,"ly":82,"mx":30,"my":82},{"lx":39,"ly":80,"mx":36,"my":82},{"lx":42,"ly":77,"mx":39,"my":80},{"lx":42,"ly":78,"mx":42,"my":77},{"lx":40,"ly":82,"mx":42,"my":78},{"lx":40,"ly":84,"mx":40,"my":82},{"lx":43,"ly":84,"mx":40,"my":84},{"lx":46,"ly":82,"mx":43,"my":84},{"lx":48,"ly":80,"mx":46,"my":82},{"lx":48,"ly":77,"mx":48,"my":80},{"lx":48,"ly":76,"mx":48,"my":77},{"lx":49,"ly":76,"mx":48,"my":76},{"lx":50,"ly":76,"mx":49,"my":76},{"lx":51,"ly":76,"mx":50,"my":76},{"lx":50,"ly":77,"mx":51,"my":76},{"lx":46,"ly":79,"mx":50,"my":77},{"lx":41,"ly":79,"mx":46,"my":79},{"lx":33,"ly":79,"mx":41,"my":79},{"lx":31,"ly":78,"mx":33,"my":79},{"lx":30,"ly":78,"mx":31,"my":78},{"lx":30,"ly":77,"mx":30,"my":78},{"lx":31,"ly":77,"mx":30,"my":77},{"lx":60,"ly":77,"mx":31,"my":77},{"lx":71,"ly":74,"mx":60,"my":77},{"lx":72,"ly":72,"mx":71,"my":74},{"lx":72,"ly":73,"mx":72,"my":72},{"lx":70,"ly":79,"mx":72,"my":73},{"lx":68,"ly":86,"mx":70,"my":79},{"lx":68,"ly":91,"mx":68,"my":86},{"lx":68,"ly":92,"mx":68,"my":91},{"lx":69,"ly":91,"mx":68,"my":92},{"lx":70,"ly":86,"mx":69,"my":91},{"lx":72,"ly":81,"mx":70,"my":86},{"lx":74,"ly":77,"mx":72,"my":81},{"lx":75,"ly":77,"mx":74,"my":77},{"lx":75,"ly":79,"mx":75,"my":77},{"lx":76,"ly":80,"mx":75,"my":79},{"lx":77,"ly":80,"mx":76,"my":80},{"lx":119,"ly":59,"mx":119,"my":58},{"lx":118,"ly":58,"mx":119,"my":59},{"lx":117,"ly":57,"mx":118,"my":58},{"lx":115,"ly":57,"mx":117,"my":57},{"lx":114,"ly":57,"mx":115,"my":57},{"lx":104,"ly":63,"mx":114,"my":57},{"lx":98,"ly":71,"mx":104,"my":63},{"lx":93,"ly":79,"mx":98,"my":71},{"lx":92,"ly":85,"mx":93,"my":79},{"lx":93,"ly":88,"mx":92,"my":85},{"lx":97,"ly":88,"mx":93,"my":88},{"lx":103,"ly":88,"mx":97,"my":88},{"lx":111,"ly":85,"mx":103,"my":88},{"lx":120,"ly":81,"mx":111,"my":85},{"lx":124,"ly":78,"mx":120,"my":81},{"lx":122,"ly":77,"mx":124,"my":78},{"lx":116,"ly":77,"mx":122,"my":77},{"lx":109,"ly":78,"mx":116,"my":77},{"lx":100,"ly":83,"mx":109,"my":78},{"lx":94,"ly":90,"mx":100,"my":83},{"lx":93,"ly":95,"mx":94,"my":90},{"lx":93,"ly":99,"mx":93,"my":95},{"lx":96,"ly":102,"mx":93,"my":99},{"lx":131,"ly":94,"mx":131,"my":93},{"lx":132,"ly":91,"mx":131,"my":94},{"lx":174,"ly":56,"mx":174,"my":55},{"lx":173,"ly":54,"mx":174,"my":56},{"lx":171,"ly":50,"mx":173,"my":54},{"lx":169,"ly":50,"mx":171,"my":50},{"lx":168,"ly":50,"mx":169,"my":50},{"lx":166,"ly":50,"mx":168,"my":50},{"lx":162,"ly":52,"mx":166,"my":50},{"lx":159,"ly":58,"mx":162,"my":52},{"lx":154,"ly":69,"mx":159,"my":58},{"lx":152,"ly":80,"mx":154,"my":69},{"lx":152,"ly":85,"mx":152,"my":80},{"lx":154,"ly":90,"mx":152,"my":85},{"lx":156,"ly":92,"mx":154,"my":90},{"lx":158,"ly":92,"mx":156,"my":92},{"lx":164,"ly":92,"mx":158,"my":92},{"lx":166,"ly":90,"mx":164,"my":92},{"lx":168,"ly":88,"mx":166,"my":90},{"lx":170,"ly":84,"mx":168,"my":88},{"lx":171,"ly":82,"mx":170,"my":84},{"lx":171,"ly":81,"mx":171,"my":82},{"lx":171,"ly":83,"mx":171,"my":81},{"lx":171,"ly":85,"mx":171,"my":83},{"lx":172,"ly":85,"mx":171,"my":85},{"lx":174,"ly":85,"mx":172,"my":85},{"lx":176,"ly":83,"mx":174,"my":85},{"lx":180,"ly":78,"mx":176,"my":83},{"lx":184,"ly":74,"mx":180,"my":78},{"lx":185,"ly":69,"mx":184,"my":74},{"lx":185,"ly":66,"mx":185,"my":69},{"lx":184,"ly":67,"mx":185,"my":66},{"lx":182,"ly":79,"mx":184,"my":67},{"lx":181,"ly":89,"mx":182,"my":79},{"lx":181,"ly":100,"mx":181,"my":89},{"lx":181,"ly":107,"mx":181,"my":100},{"lx":184,"ly":91,"mx":184,"my":90},{"lx":187,"ly":73,"mx":184,"my":91},{"lx":190,"ly":55,"mx":187,"my":73},{"lx":193,"ly":39,"mx":190,"my":55},{"lx":194,"ly":34,"mx":193,"my":39},{"lx":194,"ly":41,"mx":194,"my":34},{"lx":194,"ly":63,"mx":194,"my":41},{"lx":189,"ly":91,"mx":194,"my":63},{"lx":185,"ly":115,"mx":189,"my":91},{"lx":194,"ly":95,"mx":194,"my":94},{"lx":201,"ly":75,"mx":194,"my":95},{"lx":207,"ly":56,"mx":201,"my":75},{"lx":208,"ly":48,"mx":207,"my":56},{"lx":209,"ly":48,"mx":208,"my":48},{"lx":210,"ly":47,"mx":209,"my":48},{"lx":215,"ly":44,"mx":210,"my":47},{"lx":225,"ly":37,"mx":215,"my":44},{"lx":235,"ly":31,"mx":225,"my":37}])
+        $("#552db830c7cd77a7e000003a").signaturePad({displayOnly: true, lineWidth: null}).regenerate([{"lx":28,"ly":75,"mx":28,"my":74},{"lx":28,"ly":73,"mx":28,"my":75},{"lx":26,"ly":73,"mx":28,"my":73},{"lx":24,"ly":73,"mx":26,"my":73},{"lx":21,"ly":72,"mx":24,"my":73},{"lx":19,"ly":71,"mx":21,"my":72},{"lx":15,"ly":71,"mx":19,"my":71},{"lx":13,"ly":70,"mx":15,"my":71},{"lx":11,"ly":70,"mx":13,"my":70},{"lx":9,"ly":68,"mx":11,"my":70},{"lx":8,"ly":67,"mx":9,"my":68},{"lx":6,"ly":66,"mx":8,"my":67},{"lx":6,"ly":65,"mx":6,"my":66},{"lx":5,"ly":64,"mx":6,"my":65},{"lx":4,"ly":63,"mx":5,"my":64},{"lx":4,"ly":62,"mx":4,"my":63},{"lx":3,"ly":60,"mx":4,"my":62},{"lx":2,"ly":59,"mx":3,"my":60},{"lx":1,"ly":56,"mx":2,"my":59},{"lx":1,"ly":54,"mx":1,"my":56},{"lx":1,"ly":51,"mx":1,"my":54},{"lx":0,"ly":49,"mx":1,"my":51},{"lx":0,"ly":47,"mx":0,"my":49},{"lx":0,"ly":44,"mx":0,"my":47},{"lx":0,"ly":43,"mx":0,"my":44},{"lx":0,"ly":42,"mx":0,"my":43},{"lx":0,"ly":41,"mx":0,"my":42},{"lx":0,"ly":40,"mx":0,"my":41},{"lx":1,"ly":39,"mx":0,"my":40},{"lx":2,"ly":38,"mx":1,"my":39},{"lx":4,"ly":36,"mx":2,"my":38},{"lx":5,"ly":36,"mx":4,"my":36},{"lx":5,"ly":35,"mx":5,"my":36},{"lx":7,"ly":35,"mx":5,"my":35},{"lx":8,"ly":35,"mx":7,"my":35},{"lx":9,"ly":35,"mx":8,"my":35},{"lx":10,"ly":35,"mx":9,"my":35},{"lx":12,"ly":35,"mx":10,"my":35},{"lx":13,"ly":35,"mx":12,"my":35},{"lx":14,"ly":35,"mx":13,"my":35},{"lx":15,"ly":39,"mx":14,"my":35},{"lx":17,"ly":42,"mx":15,"my":39},{"lx":17,"ly":44,"mx":17,"my":42},{"lx":18,"ly":47,"mx":17,"my":44},{"lx":21,"ly":50,"mx":18,"my":47},{"lx":21,"ly":54,"mx":21,"my":50},{"lx":22,"ly":56,"mx":21,"my":54},{"lx":23,"ly":59,"mx":22,"my":56},{"lx":24,"ly":63,"mx":23,"my":59},{"lx":24,"ly":66,"mx":24,"my":63},{"lx":24,"ly":68,"mx":24,"my":66},{"lx":25,"ly":71,"mx":24,"my":68},{"lx":25,"ly":72,"mx":25,"my":71},{"lx":26,"ly":75,"mx":25,"my":72},{"lx":26,"ly":78,"mx":26,"my":75},{"lx":28,"ly":80,"mx":26,"my":78},{"lx":28,"ly":83,"mx":28,"my":80},{"lx":28,"ly":85,"mx":28,"my":83},{"lx":28,"ly":88,"mx":28,"my":85},{"lx":28,"ly":91,"mx":28,"my":88},{"lx":28,"ly":93,"mx":28,"my":91},{"lx":28,"ly":95,"mx":28,"my":93},{"lx":28,"ly":97,"mx":28,"my":95},{"lx":28,"ly":99,"mx":28,"my":97},{"lx":28,"ly":103,"mx":28,"my":99},{"lx":18,"ly":100,"mx":18,"my":99},{"lx":21,"ly":98,"mx":18,"my":100},{"lx":25,"ly":96,"mx":21,"my":98},{"lx":27,"ly":95,"mx":25,"my":96},{"lx":30,"ly":93,"mx":27,"my":95},{"lx":32,"ly":92,"mx":30,"my":93},{"lx":33,"ly":91,"mx":32,"my":92},{"lx":35,"ly":91,"mx":33,"my":91},{"lx":36,"ly":90,"mx":35,"my":91},{"lx":37,"ly":89,"mx":36,"my":90},{"lx":37,"ly":88,"mx":37,"my":89},{"lx":38,"ly":87,"mx":37,"my":88},{"lx":40,"ly":87,"mx":38,"my":87},{"lx":41,"ly":85,"mx":40,"my":87},{"lx":42,"ly":85,"mx":41,"my":85},{"lx":43,"ly":84,"mx":42,"my":85},{"lx":45,"ly":83,"mx":43,"my":84},{"lx":45,"ly":82,"mx":45,"my":83},{"lx":47,"ly":80,"mx":45,"my":82},{"lx":48,"ly":79,"mx":47,"my":80},{"lx":49,"ly":79,"mx":48,"my":79},{"lx":49,"ly":78,"mx":49,"my":79},{"lx":50,"ly":77,"mx":49,"my":78},{"lx":50,"ly":76,"mx":50,"my":77},{"lx":50,"ly":75,"mx":50,"my":76},{"lx":50,"ly":74,"mx":50,"my":75},{"lx":50,"ly":73,"mx":50,"my":74},{"lx":50,"ly":72,"mx":50,"my":73},{"lx":49,"ly":72,"mx":50,"my":72},{"lx":48,"ly":72,"mx":49,"my":72},{"lx":47,"ly":73,"mx":48,"my":72},{"lx":46,"ly":74,"mx":47,"my":73},{"lx":46,"ly":75,"mx":46,"my":74},{"lx":46,"ly":76,"mx":46,"my":75},{"lx":46,"ly":77,"mx":46,"my":76},{"lx":45,"ly":78,"mx":46,"my":77},{"lx":45,"ly":79,"mx":45,"my":78},{"lx":45,"ly":80,"mx":45,"my":79},{"lx":45,"ly":81,"mx":45,"my":80},{"lx":45,"ly":83,"mx":45,"my":81},{"lx":45,"ly":84,"mx":45,"my":83},{"lx":45,"ly":85,"mx":45,"my":84},{"lx":45,"ly":87,"mx":45,"my":85},{"lx":45,"ly":88,"mx":45,"my":87},{"lx":45,"ly":89,"mx":45,"my":88},{"lx":46,"ly":89,"mx":45,"my":89},{"lx":46,"ly":90,"mx":46,"my":89},{"lx":48,"ly":90,"mx":46,"my":90},{"lx":49,"ly":91,"mx":48,"my":90},{"lx":50,"ly":91,"mx":49,"my":91},{"lx":51,"ly":91,"mx":50,"my":91},{"lx":53,"ly":91,"mx":51,"my":91},{"lx":55,"ly":91,"mx":53,"my":91},{"lx":56,"ly":91,"mx":55,"my":91},{"lx":57,"ly":89,"mx":56,"my":91},{"lx":58,"ly":87,"mx":57,"my":89},{"lx":60,"ly":87,"mx":58,"my":87},{"lx":61,"ly":86,"mx":60,"my":87},{"lx":61,"ly":85,"mx":61,"my":86},{"lx":61,"ly":84,"mx":61,"my":85},{"lx":61,"ly":83,"mx":61,"my":84},{"lx":61,"ly":80,"mx":61,"my":83},{"lx":61,"ly":79,"mx":61,"my":80},{"lx":61,"ly":77,"mx":61,"my":79},{"lx":61,"ly":75,"mx":61,"my":77},{"lx":61,"ly":73,"mx":61,"my":75},{"lx":61,"ly":71,"mx":61,"my":73},{"lx":60,"ly":69,"mx":61,"my":71},{"lx":59,"ly":69,"mx":60,"my":69},{"lx":59,"ly":67,"mx":59,"my":69},{"lx":58,"ly":65,"mx":59,"my":67},{"lx":57,"ly":63,"mx":58,"my":65},{"lx":56,"ly":63,"mx":57,"my":63},{"lx":55,"ly":63,"mx":56,"my":63},{"lx":53,"ly":63,"mx":55,"my":63},{"lx":53,"ly":64,"mx":53,"my":63},{"lx":53,"ly":65,"mx":53,"my":64},{"lx":53,"ly":66,"mx":53,"my":65},{"lx":53,"ly":67,"mx":53,"my":66},{"lx":53,"ly":68,"mx":53,"my":67},{"lx":54,"ly":69,"mx":53,"my":68},{"lx":55,"ly":69,"mx":54,"my":69},{"lx":57,"ly":70,"mx":55,"my":69},{"lx":57,"ly":71,"mx":57,"my":70},{"lx":58,"ly":71,"mx":57,"my":71},{"lx":59,"ly":71,"mx":58,"my":71},{"lx":60,"ly":71,"mx":59,"my":71},{"lx":61,"ly":71,"mx":60,"my":71},{"lx":62,"ly":71,"mx":61,"my":71},{"lx":63,"ly":71,"mx":62,"my":71},{"lx":64,"ly":71,"mx":63,"my":71},{"lx":65,"ly":71,"mx":64,"my":71},{"lx":66,"ly":71,"mx":65,"my":71},{"lx":67,"ly":71,"mx":66,"my":71},{"lx":68,"ly":71,"mx":67,"my":71},{"lx":69,"ly":71,"mx":68,"my":71},{"lx":70,"ly":71,"mx":69,"my":71},{"lx":71,"ly":71,"mx":70,"my":71},{"lx":71,"ly":72,"mx":71,"my":71},{"lx":71,"ly":74,"mx":71,"my":72},{"lx":71,"ly":75,"mx":71,"my":74},{"lx":71,"ly":77,"mx":71,"my":75},{"lx":71,"ly":79,"mx":71,"my":77},{"lx":71,"ly":82,"mx":71,"my":79},{"lx":71,"ly":83,"mx":71,"my":82},{"lx":71,"ly":85,"mx":71,"my":83},{"lx":72,"ly":86,"mx":71,"my":85},{"lx":72,"ly":87,"mx":72,"my":86},{"lx":72,"ly":88,"mx":72,"my":87},{"lx":73,"ly":88,"mx":72,"my":88},{"lx":73,"ly":89,"mx":73,"my":88},{"lx":74,"ly":89,"mx":73,"my":89},{"lx":75,"ly":89,"mx":74,"my":89},{"lx":76,"ly":91,"mx":75,"my":89},{"lx":77,"ly":91,"mx":76,"my":91},{"lx":79,"ly":91,"mx":77,"my":91},{"lx":80,"ly":91,"mx":79,"my":91},{"lx":81,"ly":91,"mx":80,"my":91},{"lx":81,"ly":90,"mx":81,"my":91},{"lx":82,"ly":90,"mx":81,"my":90},{"lx":83,"ly":88,"mx":82,"my":90},{"lx":85,"ly":86,"mx":83,"my":88},{"lx":85,"ly":85,"mx":85,"my":86},{"lx":85,"ly":84,"mx":85,"my":85},{"lx":85,"ly":83,"mx":85,"my":84},{"lx":85,"ly":82,"mx":85,"my":83},{"lx":85,"ly":81,"mx":85,"my":82},{"lx":85,"ly":79,"mx":85,"my":81},{"lx":85,"ly":77,"mx":85,"my":79},{"lx":85,"ly":75,"mx":85,"my":77},{"lx":85,"ly":74,"mx":85,"my":75},{"lx":84,"ly":74,"mx":85,"my":74},{"lx":83,"ly":72,"mx":84,"my":74},{"lx":83,"ly":70,"mx":83,"my":72},{"lx":82,"ly":70,"mx":83,"my":70},{"lx":82,"ly":69,"mx":82,"my":70},{"lx":81,"ly":69,"mx":82,"my":69},{"lx":80,"ly":68,"mx":81,"my":69},{"lx":79,"ly":68,"mx":80,"my":68},{"lx":78,"ly":68,"mx":79,"my":68},{"lx":76,"ly":71,"mx":78,"my":68},{"lx":75,"ly":71,"mx":76,"my":71},{"lx":73,"ly":73,"mx":75,"my":71},{"lx":73,"ly":74,"mx":73,"my":73},{"lx":72,"ly":75,"mx":73,"my":74},{"lx":72,"ly":76,"mx":72,"my":75},{"lx":70,"ly":79,"mx":72,"my":76},{"lx":70,"ly":80,"mx":70,"my":79},{"lx":70,"ly":82,"mx":70,"my":80},{"lx":70,"ly":83,"mx":70,"my":82},{"lx":70,"ly":84,"mx":70,"my":83},{"lx":70,"ly":85,"mx":70,"my":84},{"lx":70,"ly":86,"mx":70,"my":85},{"lx":70,"ly":87,"mx":70,"my":86},{"lx":70,"ly":90,"mx":70,"my":87},{"lx":70,"ly":91,"mx":70,"my":90},{"lx":70,"ly":92,"mx":70,"my":91},{"lx":70,"ly":94,"mx":70,"my":92},{"lx":71,"ly":95,"mx":70,"my":94},{"lx":72,"ly":95,"mx":71,"my":95},{"lx":73,"ly":95,"mx":72,"my":95},{"lx":74,"ly":95,"mx":73,"my":95},{"lx":75,"ly":95,"mx":74,"my":95},{"lx":76,"ly":95,"mx":75,"my":95},{"lx":77,"ly":95,"mx":76,"my":95},{"lx":78,"ly":94,"mx":77,"my":95},{"lx":79,"ly":94,"mx":78,"my":94},{"lx":80,"ly":93,"mx":79,"my":94},{"lx":80,"ly":92,"mx":80,"my":93},{"lx":80,"ly":90,"mx":80,"my":92},{"lx":80,"ly":88,"mx":80,"my":90},{"lx":80,"ly":87,"mx":80,"my":88},{"lx":80,"ly":86,"mx":80,"my":87},{"lx":80,"ly":85,"mx":80,"my":86},{"lx":80,"ly":83,"mx":80,"my":85},{"lx":80,"ly":82,"mx":80,"my":83},{"lx":80,"ly":81,"mx":80,"my":82},{"lx":80,"ly":79,"mx":80,"my":81},{"lx":81,"ly":79,"mx":80,"my":79},{"lx":81,"ly":83,"mx":81,"my":79},{"lx":83,"ly":84,"mx":81,"my":83},{"lx":83,"ly":85,"mx":83,"my":84},{"lx":85,"ly":86,"mx":83,"my":85},{"lx":85,"ly":87,"mx":85,"my":86},{"lx":86,"ly":87,"mx":85,"my":87},{"lx":87,"ly":88,"mx":86,"my":87},{"lx":88,"ly":88,"mx":87,"my":88},{"lx":89,"ly":88,"mx":88,"my":88},{"lx":90,"ly":88,"mx":89,"my":88},{"lx":91,"ly":87,"mx":90,"my":88},{"lx":92,"ly":87,"mx":91,"my":87},{"lx":92,"ly":86,"mx":92,"my":87},{"lx":92,"ly":85,"mx":92,"my":86},{"lx":92,"ly":84,"mx":92,"my":85},{"lx":93,"ly":83,"mx":92,"my":84},{"lx":93,"ly":82,"mx":93,"my":83},{"lx":93,"ly":80,"mx":93,"my":82},{"lx":93,"ly":79,"mx":93,"my":80},{"lx":93,"ly":78,"mx":93,"my":79},{"lx":93,"ly":77,"mx":93,"my":78},{"lx":93,"ly":75,"mx":93,"my":77},{"lx":94,"ly":74,"mx":93,"my":75},{"lx":94,"ly":73,"mx":94,"my":74},{"lx":94,"ly":72,"mx":94,"my":73},{"lx":94,"ly":71,"mx":94,"my":72},{"lx":95,"ly":71,"mx":94,"my":71},{"lx":97,"ly":71,"mx":95,"my":71},{"lx":97,"ly":72,"mx":97,"my":71},{"lx":97,"ly":74,"mx":97,"my":72},{"lx":97,"ly":75,"mx":97,"my":74},{"lx":97,"ly":77,"mx":97,"my":75},{"lx":97,"ly":78,"mx":97,"my":77},{"lx":97,"ly":79,"mx":97,"my":78},{"lx":97,"ly":80,"mx":97,"my":79},{"lx":97,"ly":81,"mx":97,"my":80},{"lx":97,"ly":82,"mx":97,"my":81},{"lx":97,"ly":83,"mx":97,"my":82},{"lx":97,"ly":84,"mx":97,"my":83},{"lx":97,"ly":85,"mx":97,"my":84},{"lx":97,"ly":86,"mx":97,"my":85},{"lx":97,"ly":87,"mx":97,"my":86},{"lx":97,"ly":89,"mx":97,"my":87},{"lx":97,"ly":90,"mx":97,"my":89},{"lx":97,"ly":91,"mx":97,"my":90},{"lx":97,"ly":92,"mx":97,"my":91},{"lx":97,"ly":93,"mx":97,"my":92},{"lx":98,"ly":93,"mx":97,"my":93},{"lx":99,"ly":93,"mx":98,"my":93},{"lx":99,"ly":92,"mx":99,"my":93},{"lx":99,"ly":91,"mx":99,"my":92},{"lx":99,"ly":90,"mx":99,"my":91},{"lx":99,"ly":89,"mx":99,"my":90},{"lx":100,"ly":89,"mx":99,"my":89},{"lx":100,"ly":87,"mx":100,"my":89},{"lx":100,"ly":86,"mx":100,"my":87},{"lx":100,"ly":85,"mx":100,"my":86},{"lx":100,"ly":84,"mx":100,"my":85},{"lx":100,"ly":83,"mx":100,"my":84},{"lx":100,"ly":82,"mx":100,"my":83},{"lx":101,"ly":81,"mx":100,"my":82},{"lx":101,"ly":80,"mx":101,"my":81},{"lx":101,"ly":79,"mx":101,"my":80},{"lx":102,"ly":79,"mx":101,"my":79},{"lx":103,"ly":79,"mx":102,"my":79},{"lx":104,"ly":78,"mx":103,"my":79},{"lx":104,"ly":77,"mx":104,"my":78},{"lx":105,"ly":76,"mx":104,"my":77},{"lx":105,"ly":75,"mx":105,"my":76},{"lx":106,"ly":75,"mx":105,"my":75},{"lx":106,"ly":78,"mx":106,"my":75},{"lx":107,"ly":79,"mx":106,"my":78},{"lx":107,"ly":80,"mx":107,"my":79},{"lx":107,"ly":81,"mx":107,"my":80},{"lx":107,"ly":83,"mx":107,"my":81},{"lx":107,"ly":84,"mx":107,"my":83},{"lx":107,"ly":87,"mx":107,"my":84},{"lx":107,"ly":88,"mx":107,"my":87},{"lx":108,"ly":90,"mx":107,"my":88},{"lx":109,"ly":91,"mx":108,"my":90},{"lx":110,"ly":93,"mx":109,"my":91},{"lx":112,"ly":94,"mx":110,"my":93},{"lx":113,"ly":94,"mx":112,"my":94},{"lx":114,"ly":94,"mx":113,"my":94},{"lx":115,"ly":94,"mx":114,"my":94},{"lx":116,"ly":94,"mx":115,"my":94},{"lx":117,"ly":94,"mx":116,"my":94},{"lx":119,"ly":92,"mx":117,"my":94},{"lx":120,"ly":91,"mx":119,"my":92},{"lx":121,"ly":91,"mx":120,"my":91},{"lx":121,"ly":89,"mx":121,"my":91},{"lx":122,"ly":86,"mx":121,"my":89},{"lx":123,"ly":84,"mx":122,"my":86},{"lx":123,"ly":83,"mx":123,"my":84},{"lx":125,"ly":81,"mx":123,"my":83},{"lx":125,"ly":79,"mx":125,"my":81},{"lx":125,"ly":78,"mx":125,"my":79},{"lx":125,"ly":76,"mx":125,"my":78},{"lx":125,"ly":75,"mx":125,"my":76},{"lx":125,"ly":74,"mx":125,"my":75},{"lx":125,"ly":71,"mx":125,"my":74},{"lx":125,"ly":68,"mx":125,"my":71},{"lx":125,"ly":67,"mx":125,"my":68},{"lx":125,"ly":65,"mx":125,"my":67},{"lx":125,"ly":64,"mx":125,"my":65},{"lx":125,"ly":62,"mx":125,"my":64},{"lx":125,"ly":61,"mx":125,"my":62},{"lx":125,"ly":60,"mx":125,"my":61},{"lx":124,"ly":59,"mx":125,"my":60},{"lx":123,"ly":59,"mx":124,"my":59},{"lx":121,"ly":58,"mx":123,"my":59},{"lx":121,"ly":57,"mx":121,"my":58},{"lx":120,"ly":57,"mx":121,"my":57},{"lx":119,"ly":57,"mx":120,"my":57},{"lx":119,"ly":59,"mx":119,"my":57},{"lx":119,"ly":60,"mx":119,"my":59},{"lx":119,"ly":61,"mx":119,"my":60},{"lx":119,"ly":63,"mx":119,"my":61},{"lx":119,"ly":64,"mx":119,"my":63},{"lx":119,"ly":65,"mx":119,"my":64},{"lx":119,"ly":66,"mx":119,"my":65},{"lx":119,"ly":67,"mx":119,"my":66},{"lx":120,"ly":69,"mx":119,"my":67},{"lx":120,"ly":71,"mx":120,"my":69},{"lx":121,"ly":72,"mx":120,"my":71},{"lx":121,"ly":73,"mx":121,"my":72},{"lx":121,"ly":74,"mx":121,"my":73},{"lx":122,"ly":74,"mx":121,"my":74},{"lx":123,"ly":75,"mx":122,"my":74},{"lx":124,"ly":75,"mx":123,"my":75},{"lx":125,"ly":75,"mx":124,"my":75},{"lx":125,"ly":77,"mx":125,"my":75},{"lx":126,"ly":78,"mx":125,"my":77},{"lx":128,"ly":78,"mx":126,"my":78},{"lx":129,"ly":78,"mx":128,"my":78},{"lx":129,"ly":79,"mx":129,"my":78},{"lx":130,"ly":79,"mx":129,"my":79},{"lx":131,"ly":79,"mx":130,"my":79},{"lx":132,"ly":79,"mx":131,"my":79},{"lx":133,"ly":79,"mx":132,"my":79},{"lx":135,"ly":79,"mx":133,"my":79},{"lx":136,"ly":79,"mx":135,"my":79},{"lx":188,"ly":64,"mx":188,"my":63},{"lx":188,"ly":65,"mx":188,"my":64},{"lx":188,"ly":66,"mx":188,"my":65},{"lx":187,"ly":66,"mx":188,"my":66},{"lx":186,"ly":67,"mx":187,"my":66},{"lx":185,"ly":67,"mx":186,"my":67},{"lx":185,"ly":69,"mx":185,"my":67},{"lx":181,"ly":70,"mx":185,"my":69},{"lx":179,"ly":71,"mx":181,"my":70},{"lx":177,"ly":72,"mx":179,"my":71},{"lx":174,"ly":73,"mx":177,"my":72},{"lx":173,"ly":74,"mx":174,"my":73},{"lx":171,"ly":74,"mx":173,"my":74},{"lx":170,"ly":74,"mx":171,"my":74},{"lx":169,"ly":74,"mx":170,"my":74},{"lx":168,"ly":74,"mx":169,"my":74},{"lx":167,"ly":74,"mx":168,"my":74},{"lx":165,"ly":74,"mx":167,"my":74},{"lx":164,"ly":74,"mx":165,"my":74},{"lx":162,"ly":74,"mx":164,"my":74},{"lx":160,"ly":72,"mx":162,"my":74},{"lx":159,"ly":71,"mx":160,"my":72},{"lx":157,"ly":69,"mx":159,"my":71},{"lx":155,"ly":67,"mx":157,"my":69},{"lx":154,"ly":66,"mx":155,"my":67},{"lx":153,"ly":65,"mx":154,"my":66},{"lx":153,"ly":62,"mx":153,"my":65},{"lx":152,"ly":59,"mx":153,"my":62},{"lx":152,"ly":58,"mx":152,"my":59},{"lx":152,"ly":55,"mx":152,"my":58},{"lx":152,"ly":51,"mx":152,"my":55},{"lx":152,"ly":50,"mx":152,"my":51},{"lx":152,"ly":49,"mx":152,"my":50},{"lx":152,"ly":47,"mx":152,"my":49},{"lx":152,"ly":46,"mx":152,"my":47},{"lx":152,"ly":44,"mx":152,"my":46},{"lx":153,"ly":43,"mx":152,"my":44},{"lx":154,"ly":42,"mx":153,"my":43},{"lx":154,"ly":44,"mx":154,"my":42},{"lx":154,"ly":47,"mx":154,"my":44},{"lx":154,"ly":50,"mx":154,"my":47},{"lx":154,"ly":51,"mx":154,"my":50},{"lx":155,"ly":54,"mx":154,"my":51},{"lx":155,"ly":57,"mx":155,"my":54},{"lx":155,"ly":59,"mx":155,"my":57},{"lx":156,"ly":63,"mx":155,"my":59},{"lx":156,"ly":64,"mx":156,"my":63},{"lx":156,"ly":66,"mx":156,"my":64},{"lx":156,"ly":67,"mx":156,"my":66},{"lx":156,"ly":70,"mx":156,"my":67},{"lx":156,"ly":72,"mx":156,"my":70},{"lx":156,"ly":75,"mx":156,"my":72},{"lx":156,"ly":77,"mx":156,"my":75},{"lx":156,"ly":79,"mx":156,"my":77},{"lx":156,"ly":82,"mx":156,"my":79},{"lx":156,"ly":83,"mx":156,"my":82},{"lx":156,"ly":84,"mx":156,"my":83},{"lx":156,"ly":85,"mx":156,"my":84},{"lx":156,"ly":87,"mx":156,"my":85},{"lx":156,"ly":89,"mx":156,"my":87},{"lx":156,"ly":90,"mx":156,"my":89},{"lx":156,"ly":91,"mx":156,"my":90},{"lx":156,"ly":92,"mx":156,"my":91},{"lx":156,"ly":94,"mx":156,"my":92},{"lx":156,"ly":95,"mx":156,"my":94},{"lx":156,"ly":96,"mx":156,"my":95},{"lx":156,"ly":97,"mx":156,"my":96},{"lx":154,"ly":99,"mx":156,"my":97},{"lx":154,"ly":102,"mx":154,"my":99},{"lx":130,"ly":101,"mx":130,"my":100},{"lx":130,"ly":99,"mx":130,"my":101},{"lx":130,"ly":95,"mx":130,"my":99},{"lx":130,"ly":94,"mx":130,"my":95},{"lx":130,"ly":92,"mx":130,"my":94},{"lx":130,"ly":91,"mx":130,"my":92},{"lx":131,"ly":90,"mx":130,"my":91},{"lx":132,"ly":88,"mx":131,"my":90},{"lx":133,"ly":87,"mx":132,"my":88},{"lx":133,"ly":86,"mx":133,"my":87},{"lx":135,"ly":85,"mx":133,"my":86},{"lx":135,"ly":83,"mx":135,"my":85},{"lx":136,"ly":83,"mx":135,"my":83},{"lx":136,"ly":82,"mx":136,"my":83},{"lx":136,"ly":81,"mx":136,"my":82},{"lx":137,"ly":80,"mx":136,"my":81},{"lx":137,"ly":79,"mx":137,"my":80},{"lx":138,"ly":78,"mx":137,"my":79},{"lx":139,"ly":76,"mx":138,"my":78},{"lx":140,"ly":75,"mx":139,"my":76},{"lx":141,"ly":74,"mx":140,"my":75},{"lx":142,"ly":73,"mx":141,"my":74},{"lx":143,"ly":73,"mx":142,"my":73},{"lx":144,"ly":74,"mx":143,"my":73},{"lx":145,"ly":74,"mx":144,"my":74},{"lx":146,"ly":74,"mx":145,"my":74},{"lx":146,"ly":75,"mx":146,"my":74},{"lx":147,"ly":75,"mx":146,"my":75},{"lx":148,"ly":75,"mx":147,"my":75},{"lx":149,"ly":75,"mx":148,"my":75},{"lx":150,"ly":76,"mx":149,"my":75},{"lx":152,"ly":76,"mx":150,"my":76},{"lx":153,"ly":76,"mx":152,"my":76},{"lx":154,"ly":76,"mx":153,"my":76},{"lx":155,"ly":76,"mx":154,"my":76},{"lx":156,"ly":76,"mx":155,"my":76},{"lx":157,"ly":76,"mx":156,"my":76},{"lx":158,"ly":76,"mx":157,"my":76},{"lx":159,"ly":75,"mx":158,"my":76},{"lx":160,"ly":74,"mx":159,"my":75},{"lx":160,"ly":73,"mx":160,"my":74},{"lx":161,"ly":72,"mx":160,"my":73},{"lx":161,"ly":71,"mx":161,"my":72},{"lx":163,"ly":71,"mx":161,"my":71},{"lx":163,"ly":70,"mx":163,"my":71},{"lx":165,"ly":69,"mx":163,"my":70},{"lx":165,"ly":68,"mx":165,"my":69},{"lx":166,"ly":67,"mx":165,"my":68},{"lx":167,"ly":67,"mx":166,"my":67},{"lx":167,"ly":66,"mx":167,"my":67},{"lx":166,"ly":66,"mx":167,"my":66},{"lx":166,"ly":67,"mx":166,"my":66},{"lx":165,"ly":67,"mx":166,"my":67},{"lx":164,"ly":67,"mx":165,"my":67},{"lx":163,"ly":67,"mx":164,"my":67},{"lx":163,"ly":69,"mx":163,"my":67},{"lx":163,"ly":70,"mx":163,"my":69},{"lx":162,"ly":71,"mx":163,"my":70},{"lx":162,"ly":72,"mx":162,"my":71},{"lx":162,"ly":73,"mx":162,"my":72},{"lx":162,"ly":74,"mx":162,"my":73},{"lx":162,"ly":75,"mx":162,"my":74},{"lx":162,"ly":76,"mx":162,"my":75},{"lx":162,"ly":78,"mx":162,"my":76},{"lx":162,"ly":79,"mx":162,"my":78},{"lx":162,"ly":80,"mx":162,"my":79},{"lx":162,"ly":81,"mx":162,"my":80},{"lx":162,"ly":83,"mx":162,"my":81},{"lx":163,"ly":84,"mx":162,"my":83},{"lx":163,"ly":85,"mx":163,"my":84},{"lx":164,"ly":86,"mx":163,"my":85},{"lx":164,"ly":87,"mx":164,"my":86},{"lx":165,"ly":87,"mx":164,"my":87},{"lx":166,"ly":87,"mx":165,"my":87},{"lx":167,"ly":87,"mx":166,"my":87},{"lx":168,"ly":87,"mx":167,"my":87},{"lx":169,"ly":87,"mx":168,"my":87},{"lx":171,"ly":87,"mx":169,"my":87},{"lx":173,"ly":87,"mx":171,"my":87},{"lx":173,"ly":86,"mx":173,"my":87},{"lx":174,"ly":83,"mx":173,"my":86},{"lx":175,"ly":82,"mx":174,"my":83},{"lx":175,"ly":81,"mx":175,"my":82},{"lx":176,"ly":80,"mx":175,"my":81},{"lx":176,"ly":79,"mx":176,"my":80},{"lx":177,"ly":78,"mx":176,"my":79},{"lx":177,"ly":77,"mx":177,"my":78},{"lx":177,"ly":76,"mx":177,"my":77},{"lx":177,"ly":75,"mx":177,"my":76},{"lx":177,"ly":74,"mx":177,"my":75},{"lx":176,"ly":72,"mx":177,"my":74},{"lx":175,"ly":71,"mx":176,"my":72},{"lx":175,"ly":67,"mx":175,"my":71},{"lx":174,"ly":67,"mx":175,"my":67},{"lx":173,"ly":64,"mx":174,"my":67},{"lx":173,"ly":63,"mx":173,"my":64},{"lx":173,"ly":62,"mx":173,"my":63},{"lx":171,"ly":62,"mx":173,"my":62},{"lx":171,"ly":61,"mx":171,"my":62},{"lx":171,"ly":60,"mx":171,"my":61},{"lx":171,"ly":59,"mx":171,"my":60},{"lx":170,"ly":59,"mx":171,"my":59},{"lx":170,"ly":58,"mx":170,"my":59},{"lx":170,"ly":59,"mx":170,"my":58},{"lx":170,"ly":60,"mx":170,"my":59},{"lx":171,"ly":61,"mx":170,"my":60},{"lx":172,"ly":63,"mx":171,"my":61},{"lx":173,"ly":63,"mx":172,"my":63},{"lx":173,"ly":64,"mx":173,"my":63},{"lx":174,"ly":64,"mx":173,"my":64},{"lx":175,"ly":65,"mx":174,"my":64},{"lx":176,"ly":65,"mx":175,"my":65},{"lx":177,"ly":66,"mx":176,"my":65},{"lx":177,"ly":67,"mx":177,"my":66},{"lx":177,"ly":68,"mx":177,"my":67},{"lx":177,"ly":69,"mx":177,"my":68},{"lx":177,"ly":70,"mx":177,"my":69},{"lx":177,"ly":71,"mx":177,"my":70},{"lx":179,"ly":71,"mx":177,"my":71},{"lx":179,"ly":72,"mx":179,"my":71},{"lx":179,"ly":73,"mx":179,"my":72},{"lx":181,"ly":73,"mx":179,"my":73},{"lx":181,"ly":74,"mx":181,"my":73},{"lx":181,"ly":75,"mx":181,"my":74},{"lx":181,"ly":76,"mx":181,"my":75},{"lx":182,"ly":76,"mx":181,"my":76},{"lx":183,"ly":76,"mx":182,"my":76},{"lx":185,"ly":75,"mx":183,"my":76},{"lx":186,"ly":74,"mx":185,"my":75},{"lx":187,"ly":73,"mx":186,"my":74},{"lx":187,"ly":72,"mx":187,"my":73},{"lx":187,"ly":71,"mx":187,"my":72},{"lx":188,"ly":71,"mx":187,"my":71},{"lx":188,"ly":70,"mx":188,"my":71},{"lx":188,"ly":68,"mx":188,"my":70},{"lx":189,"ly":68,"mx":188,"my":68},{"lx":191,"ly":69,"mx":189,"my":68},{"lx":192,"ly":71,"mx":191,"my":69},{"lx":196,"ly":75,"mx":192,"my":71},{"lx":197,"ly":77,"mx":196,"my":75},{"lx":198,"ly":78,"mx":197,"my":77},{"lx":199,"ly":79,"mx":198,"my":78},{"lx":199,"ly":80,"mx":199,"my":79},{"lx":199,"ly":81,"mx":199,"my":80},{"lx":200,"ly":81,"mx":199,"my":81},{"lx":200,"ly":83,"mx":200,"my":81},{"lx":201,"ly":84,"mx":200,"my":83},{"lx":201,"ly":85,"mx":201,"my":84},{"lx":201,"ly":87,"mx":201,"my":85},{"lx":201,"ly":89,"mx":201,"my":87},{"lx":201,"ly":91,"mx":201,"my":89},{"lx":201,"ly":92,"mx":201,"my":91},{"lx":201,"ly":94,"mx":201,"my":92},{"lx":201,"ly":95,"mx":201,"my":94},{"lx":201,"ly":96,"mx":201,"my":95},{"lx":198,"ly":96,"mx":201,"my":96},{"lx":197,"ly":96,"mx":198,"my":96},{"lx":196,"ly":95,"mx":197,"my":96},{"lx":195,"ly":94,"mx":196,"my":95},{"lx":193,"ly":93,"mx":195,"my":94},{"lx":193,"ly":91,"mx":193,"my":93},{"lx":191,"ly":91,"mx":193,"my":91},{"lx":190,"ly":90,"mx":191,"my":91},{"lx":189,"ly":89,"mx":190,"my":90},{"lx":189,"ly":88,"mx":189,"my":89},{"lx":189,"ly":87,"mx":189,"my":88},{"lx":189,"ly":86,"mx":189,"my":87},{"lx":189,"ly":85,"mx":189,"my":86},{"lx":189,"ly":83,"mx":189,"my":85},{"lx":188,"ly":83,"mx":189,"my":83},{"lx":187,"ly":83,"mx":188,"my":83},{"lx":186,"ly":83,"mx":187,"my":83},{"lx":187,"ly":83,"mx":186,"my":83},{"lx":188,"ly":83,"mx":187,"my":83},{"lx":189,"ly":84,"mx":188,"my":83},{"lx":190,"ly":84,"mx":189,"my":84},{"lx":191,"ly":84,"mx":190,"my":84},{"lx":192,"ly":84,"mx":191,"my":84},{"lx":192,"ly":83,"mx":192,"my":84},{"lx":192,"ly":82,"mx":192,"my":83},{"lx":193,"ly":82,"mx":192,"my":82},{"lx":193,"ly":80,"mx":193,"my":82},{"lx":194,"ly":79,"mx":193,"my":80},{"lx":194,"ly":78,"mx":194,"my":79},{"lx":194,"ly":77,"mx":194,"my":78},{"lx":195,"ly":76,"mx":194,"my":77},{"lx":196,"ly":75,"mx":195,"my":76},{"lx":197,"ly":75,"mx":196,"my":75},{"lx":197,"ly":74,"mx":197,"my":75},{"lx":198,"ly":74,"mx":197,"my":74},{"lx":199,"ly":75,"mx":198,"my":74},{"lx":199,"ly":76,"mx":199,"my":75},{"lx":199,"ly":78,"mx":199,"my":76},{"lx":201,"ly":80,"mx":199,"my":78},{"lx":201,"ly":82,"mx":201,"my":80},{"lx":202,"ly":83,"mx":201,"my":82},{"lx":204,"ly":84,"mx":202,"my":83},{"lx":205,"ly":86,"mx":204,"my":84},{"lx":206,"ly":87,"mx":205,"my":86},{"lx":207,"ly":88,"mx":206,"my":87},{"lx":208,"ly":89,"mx":207,"my":88},{"lx":209,"ly":90,"mx":208,"my":89},{"lx":209,"ly":91,"mx":209,"my":90},{"lx":209,"ly":90,"mx":209,"my":91},{"lx":209,"ly":88,"mx":209,"my":90},{"lx":209,"ly":87,"mx":209,"my":88},{"lx":209,"ly":85,"mx":209,"my":87},{"lx":209,"ly":84,"mx":209,"my":85},{"lx":209,"ly":81,"mx":209,"my":84},{"lx":209,"ly":80,"mx":209,"my":81},{"lx":209,"ly":79,"mx":209,"my":80},{"lx":209,"ly":78,"mx":209,"my":79},{"lx":209,"ly":77,"mx":209,"my":78},{"lx":209,"ly":75,"mx":209,"my":77},{"lx":209,"ly":74,"mx":209,"my":75},{"lx":209,"ly":73,"mx":209,"my":74},{"lx":210,"ly":72,"mx":209,"my":73},{"lx":211,"ly":72,"mx":210,"my":72},{"lx":211,"ly":71,"mx":211,"my":72},{"lx":212,"ly":71,"mx":211,"my":71},{"lx":213,"ly":71,"mx":212,"my":71},{"lx":214,"ly":71,"mx":213,"my":71},{"lx":214,"ly":73,"mx":214,"my":71},{"lx":214,"ly":74,"mx":214,"my":73},{"lx":214,"ly":75,"mx":214,"my":74},{"lx":217,"ly":75,"mx":214,"my":75},{"lx":217,"ly":77,"mx":217,"my":75},{"lx":217,"ly":79,"mx":217,"my":77},{"lx":219,"ly":81,"mx":217,"my":79},{"lx":219,"ly":82,"mx":219,"my":81},{"lx":219,"ly":83,"mx":219,"my":82},{"lx":220,"ly":83,"mx":219,"my":83},{"lx":220,"ly":84,"mx":220,"my":83},{"lx":220,"ly":85,"mx":220,"my":84},{"lx":220,"ly":83,"mx":220,"my":85},{"lx":221,"ly":82,"mx":220,"my":83},{"lx":221,"ly":80,"mx":221,"my":82},{"lx":221,"ly":79,"mx":221,"my":80},{"lx":221,"ly":78,"mx":221,"my":79},{"lx":221,"ly":77,"mx":221,"my":78},{"lx":222,"ly":77,"mx":221,"my":77},{"lx":223,"ly":76,"mx":222,"my":77},{"lx":224,"ly":76,"mx":223,"my":76},{"lx":225,"ly":75,"mx":224,"my":76},{"lx":225,"ly":74,"mx":225,"my":75},{"lx":226,"ly":74,"mx":225,"my":74},{"lx":226,"ly":73,"mx":226,"my":74},{"lx":228,"ly":73,"mx":226,"my":73},{"lx":229,"ly":73,"mx":228,"my":73},{"lx":230,"ly":73,"mx":229,"my":73},{"lx":231,"ly":75,"mx":230,"my":73},{"lx":232,"ly":75,"mx":231,"my":75},{"lx":233,"ly":75,"mx":232,"my":75},{"lx":233,"ly":76,"mx":233,"my":75},{"lx":233,"ly":77,"mx":233,"my":76},{"lx":233,"ly":78,"mx":233,"my":77},{"lx":233,"ly":79,"mx":233,"my":78},{"lx":233,"ly":80,"mx":233,"my":79},{"lx":233,"ly":81,"mx":233,"my":80},{"lx":233,"ly":82,"mx":233,"my":81},{"lx":233,"ly":83,"mx":233,"my":82},{"lx":233,"ly":84,"mx":233,"my":83},{"lx":233,"ly":86,"mx":233,"my":84},{"lx":233,"ly":87,"mx":233,"my":86},{"lx":233,"ly":88,"mx":233,"my":87},{"lx":234,"ly":88,"mx":233,"my":88},{"lx":235,"ly":88,"mx":234,"my":88},{"lx":236,"ly":87,"mx":235,"my":88},{"lx":237,"ly":87,"mx":236,"my":87},{"lx":237,"ly":86,"mx":237,"my":87},{"lx":237,"ly":83,"mx":237,"my":86},{"lx":237,"ly":82,"mx":237,"my":83},{"lx":237,"ly":81,"mx":237,"my":82},{"lx":237,"ly":80,"mx":237,"my":81},{"lx":237,"ly":79,"mx":237,"my":80},{"lx":238,"ly":79,"mx":237,"my":79},{"lx":239,"ly":79,"mx":238,"my":79},{"lx":240,"ly":81,"mx":239,"my":79},{"lx":240,"ly":82,"mx":240,"my":81},{"lx":240,"ly":83,"mx":240,"my":82},{"lx":241,"ly":84,"mx":240,"my":83},{"lx":241,"ly":85,"mx":241,"my":84},{"lx":242,"ly":85,"mx":241,"my":85},{"lx":243,"ly":85,"mx":242,"my":85},{"lx":243,"ly":83,"mx":243,"my":85},{"lx":244,"ly":82,"mx":243,"my":83},{"lx":245,"ly":82,"mx":244,"my":82},{"lx":245,"ly":81,"mx":245,"my":82},{"lx":245,"ly":79,"mx":245,"my":81},{"lx":245,"ly":78,"mx":245,"my":79},{"lx":245,"ly":76,"mx":245,"my":78},{"lx":245,"ly":75,"mx":245,"my":76},{"lx":246,"ly":74,"mx":245,"my":75},{"lx":246,"ly":72,"mx":246,"my":74},{"lx":247,"ly":72,"mx":246,"my":72},{"lx":248,"ly":72,"mx":247,"my":72},{"lx":248,"ly":73,"mx":248,"my":72},{"lx":249,"ly":74,"mx":248,"my":73},{"lx":250,"ly":75,"mx":249,"my":74},{"lx":250,"ly":77,"mx":250,"my":75},{"lx":253,"ly":79,"mx":250,"my":77},{"lx":253,"ly":82,"mx":253,"my":79},{"lx":254,"ly":82,"mx":253,"my":82},{"lx":255,"ly":84,"mx":254,"my":82},{"lx":255,"ly":85,"mx":255,"my":84},{"lx":257,"ly":87,"mx":255,"my":85},{"lx":257,"ly":89,"mx":257,"my":87},{"lx":257,"ly":90,"mx":257,"my":89},{"lx":260,"ly":91,"mx":257,"my":90},{"lx":260,"ly":92,"mx":260,"my":91},{"lx":260,"ly":93,"mx":260,"my":92},{"lx":261,"ly":94,"mx":260,"my":93},{"lx":261,"ly":95,"mx":261,"my":94},{"lx":261,"ly":96,"mx":261,"my":95},{"lx":261,"ly":95,"mx":261,"my":96},{"lx":261,"ly":92,"mx":261,"my":95},{"lx":261,"ly":91,"mx":261,"my":92},{"lx":261,"ly":89,"mx":261,"my":91},{"lx":261,"ly":88,"mx":261,"my":89},{"lx":261,"ly":87,"mx":261,"my":88},{"lx":261,"ly":86,"mx":261,"my":87},{"lx":261,"ly":85,"mx":261,"my":86},{"lx":261,"ly":83,"mx":261,"my":85},{"lx":261,"ly":81,"mx":261,"my":83},{"lx":261,"ly":80,"mx":261,"my":81},{"lx":261,"ly":79,"mx":261,"my":80},{"lx":262,"ly":79,"mx":261,"my":79},{"lx":262,"ly":77,"mx":262,"my":79},{"lx":264,"ly":79,"mx":262,"my":77},{"lx":266,"ly":81,"mx":266,"my":80},{"lx":266,"ly":82,"mx":266,"my":81},{"lx":268,"ly":85,"mx":266,"my":82},{"lx":269,"ly":87,"mx":268,"my":85},{"lx":271,"ly":89,"mx":269,"my":87},{"lx":273,"ly":91,"mx":271,"my":89},{"lx":274,"ly":93,"mx":273,"my":91},{"lx":277,"ly":95,"mx":274,"my":93},{"lx":277,"ly":97,"mx":277,"my":95},{"lx":278,"ly":97,"mx":277,"my":97},{"lx":278,"ly":98,"mx":278,"my":97},{"lx":242,"ly":60,"mx":242,"my":59}])
+    </script>
+
+
+
+
+<script>
+        /* PRINT After Load Logo */
+        document.getElementById("img_logo").onload = function(){
+            window.print();
+        };
+</script>
+
+
+
+
+
+
+
+
+</body></html>
